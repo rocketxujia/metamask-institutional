@@ -50,6 +50,7 @@ export class InstitutionalFeaturesController {
     service: string,
     chainId?: string,
     environment?: string,
+    name?: string,
   ): void {
     if (!CUSTODIAN_TYPES[service.toUpperCase()]) {
       throw new Error("No such custodian");
@@ -59,7 +60,7 @@ export class InstitutionalFeaturesController {
       institutionalFeatures: {
         ...state.institutionalFeatures,
         connectRequests: [
-          ...state.institutionalFeatures.connectRequests,
+          // ...state.institutionalFeatures.connectRequests,
           {
             origin,
             method,
@@ -69,6 +70,7 @@ export class InstitutionalFeaturesController {
             service,
             chainId,
             environment,
+            name
           },
         ],
       },
@@ -86,6 +88,7 @@ export class InstitutionalFeaturesController {
       service: string;
       chainId?: string;
       environment?: string;
+      name?: string;
     };
   }): boolean {
     if (!req.params.feature) {
@@ -110,6 +113,7 @@ export class InstitutionalFeaturesController {
           req.params.service,
           req.params.chainId,
           req.params.environment,
+          req.params.name,
         );
         break;
       default:
