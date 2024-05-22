@@ -3,33 +3,18 @@ import fetchMock from "jest-fetch-mock";
 import { mocked } from "ts-jest/utils";
 
 import { INTERACTIVE_REPLACEMENT_TOKEN_CHANGE_EVENT } from "../../constants/constants";
-import { JsonRpcClient } from "./JsonRpcClient";
-import { mockJsonRpcCreateTransactionPayload } from "./mocks/mockJsonRpcCreateTransactionPayload";
+import { JsonPortalClient } from "./JsonPortalClient";
+import { mockJsonApiCreateTransactionPayload } from "./mocks/mockJsonRpcCreateTransactionPayload";
 import { mockJsonRpcGetSignedMessageByIdPayload } from "./mocks/mockJsonRpcGetSignedMessageByIdPayload";
 import { mockJsonRpcGetTransactionByIdPayload } from "./mocks/mockJsonRpcGetTransactionByIdPayload";
-import { mockJsonRpcGetTransactionLinkPayload } from "./mocks/mockJsonRpcGetTransactionLinkPayload";
 import { mockJsonRpcSignPayload } from "./mocks/mockJsonRpcSignPayload";
 import { mockJsonRpcSignTypedDataPayload } from "./mocks/mockJsonRpcSignTypedDataPayload";
 
-// So that we can access the method returned by the call factory
-const jsonRpcCall = jest.fn().mockImplementation((_method: string, _params: any, _accessToken: string) => {
-  return Promise.resolve({
-    data: { result: "test" },
-  });
-});
-
-// Mock the factory
-jest.mock("./util/json-rpc-call", () => ({
-  __esModule: true,
-  default: (_url: string) => jsonRpcCall,
-}));
-
 jest.mock("@metamask-institutional/simplecache");
-
 fetchMock.enableMocks();
 
-describe("JsonRpcClient", () => {
-  let client: JsonRpcClient;
+describe("JsonPortalClient", () => {
+  let client: JsonPortalClient;
 
   const mockedSimpleCache = mocked(SimpleCache);
   let mockedSimpleCacheInstance;
@@ -40,15 +25,17 @@ describe("JsonRpcClient", () => {
     mockedSimpleCache.mockClear();
     fetchMock.resetMocks();
 
-    client = new JsonRpcClient("http://test/json-rpc", "refresh_token", "http://refresh-token-url");
+    client = new JsonPortalClient("http://test/json-rpc", "refresh_token", "http://refresh-token-url");
 
     mockedSimpleCacheInstance = mockedSimpleCache.mock.instances[0];
 
     fetchMock.mockResponse(
       JSON.stringify({
-        access_token: "accesstoken",
-        expires_in: 10,
-        refresh_token: "refresh_token",
+        result: {
+          access_token: "accesstoken",
+          expires_in: 10,
+          refresh_token: "refresh_token",
+        }
       }),
     );
   });
@@ -71,40 +58,40 @@ describe("JsonRpcClient", () => {
       expect(result).toEqual("accesstoken");
     });
 
-    it("should return the cached version if there is a cached version", async () => {
-      // Run once to set the expires_in
-      await client.getAccessToken();
-
-      mockedSimpleCacheInstance.cacheExists = jest.fn().mockReturnValue(true);
-      mockedSimpleCacheInstance.cacheValid = jest.fn().mockReturnValue(false);
-      mockedSimpleCacheInstance.getCache = jest.fn().mockReturnValue("cached");
-
-      const result = await client.getAccessToken();
-
-      expect(result).toEqual("accesstoken");
-    });
-
     it("should not return the cached version if there is a cached version but it is invalid", async () => {
       // Run once to set the expires_in
       await client.getAccessToken();
-
+  
+      mockedSimpleCacheInstance.cacheExists = jest.fn().mockReturnValue(true);
+      mockedSimpleCacheInstance.cacheValid = jest.fn().mockReturnValue(false);
+      mockedSimpleCacheInstance.getCache = jest.fn().mockReturnValue("cached");
+  
+      const result = await client.getAccessToken();
+  
+      expect(result).toEqual("accesstoken");
+    });
+  
+    it("should return the cached version if there is a cached version", async () => {
+      // Run once to set the expires_in
+      await client.getAccessToken();
+  
       mockedSimpleCacheInstance.cacheExists = jest.fn().mockReturnValue(true);
       mockedSimpleCacheInstance.cacheValid = jest.fn().mockReturnValue(true);
       mockedSimpleCacheInstance.getCache = jest.fn().mockReturnValue("cached");
-
+  
       const result = await client.getAccessToken();
-
+  
       expect(result).toEqual("cached");
     });
 
     it("throws an error if there is a HTTP error", () => {
       fetchMock.mockRejectedValue(new Error("HTTP error"));
 
-      expect(client.getAccessToken()).rejects.toThrow("HTTP error");
+      expect(client.getAccessToken()).rejects.toThrow(`Error getting the Access Token: Error: HTTP error`);
     });
 
     it("emit an ITR event if there is a HTTP 401 error status", async () => {
-      fetchMock.mockResponse(
+      fetchMock.mockResponseOnce(
         JSON.stringify({
           error: {
             message: "Test error",
@@ -133,57 +120,79 @@ describe("JsonRpcClient", () => {
             resolve(null);
           }, 100);
         });
-
-        expect(client.getAccessToken()).rejects.toThrow("Refresh token provided is no longer valid.");
+        expect(e.toString()).toBe('Error: Error getting the Access Token: Error: Refresh token provided is no longer valid.');
       }
     });
   });
 
   describe("listAccounts", () => {
-    it("should call the custodian_listAccounts method on the json rpc caller", async () => {
+    beforeEach(() => {
+      client._fetch = jest.fn();
+    });
+    it("should call the listAccounts method on the json rpc caller", async () => {
       await client.listAccounts();
-      expect(jsonRpcCall).toHaveBeenCalledWith("custodian_listAccounts", {}, "accesstoken");
+      expect(client._fetch).toHaveBeenCalledWith("/connect/accounts", {}, "accesstoken", "Get");
     });
   });
 
   describe("getCustomerProof", () => {
-    it("should call the custodian_getCustomerProof method on the json rpc caller", async () => {
+    beforeEach(() => {
+      client._fetch = jest.fn();
+    });
+    it("should call the getCustomerProof method on the json rpc caller", async () => {
       await client.getCustomerProof();
-      expect(jsonRpcCall).toHaveBeenCalledWith("custodian_getCustomerProof", {}, "accesstoken");
+      expect(client._fetch).toHaveBeenCalledWith("/connect/getCustomerProof", {}, "accesstoken", "Get");
+    });
+  });
+
+  describe("listAccountChainIds", () => {
+    beforeEach(() => {
+      client._fetch = jest.fn();
+    });
+    it("should call the listAccountChainIds method on the json rpc caller", async () => {
+      await client.getAccountChainIds({ address: "0xtest" });
+      expect(client._fetch).toHaveBeenCalledWith(
+        "/connect/accounts/chains",
+        { address: "0xtest" },
+        "accesstoken",
+        "Get",
+      );
     });
   });
 
   describe("createTransaction", () => {
-    it("should call the custodian_createTransaction method on the json rpc caller", async () => {
-      await client.createTransaction(mockJsonRpcCreateTransactionPayload);
+    beforeEach(() => {
+      client._fetch = jest.fn();
+    });
+    it("should call the createTransaction method on the json rpc caller", async () => {
+      await client.createTransaction(mockJsonApiCreateTransactionPayload);
 
-      expect(jsonRpcCall).toHaveBeenCalledWith(
-        "custodian_createTransaction",
-        mockJsonRpcCreateTransactionPayload,
+      expect(client._fetch).toHaveBeenCalledWith(
+        "/connect/transactions",
+        mockJsonApiCreateTransactionPayload,
         "accesstoken",
       );
     });
   });
 
-  describe("listAccountChainIds", () => {
-    it("should call the custodian_listAccountChainIds method on the json rpc caller", async () => {
-      await client.getAccountChainIds(["0xtest"]);
-      expect(jsonRpcCall).toHaveBeenCalledWith("custodian_listAccountChainIds", ["0xtest"], "accesstoken");
-    });
-  });
-
   describe("signPersonalMessage", () => {
+    beforeEach(() => {
+      client._fetch = jest.fn();  
+    }); 
     it("should call the custodian_sign method on the json rpc caller", async () => {
       await client.signPersonalMessage(mockJsonRpcSignPayload);
-      expect(jsonRpcCall).toHaveBeenCalledWith("custodian_sign", mockJsonRpcSignPayload, "accesstoken");
+      expect(client._fetch).toHaveBeenCalledWith("/connect/sign_messages", mockJsonRpcSignPayload, "accesstoken");
     });
   });
 
   describe("signTypedData", () => {
+    beforeEach(() => {
+      client._fetch = jest.fn();  
+    }); 
     it("should call the custodian_signTypedData method on the json rpc caller", async () => {
       await client.signTypedData(mockJsonRpcSignTypedDataPayload);
-      expect(jsonRpcCall).toHaveBeenCalledWith(
-        "custodian_signTypedData",
+      expect(client._fetch).toHaveBeenCalledWith(
+        "/connect/sign_messages",
         mockJsonRpcSignTypedDataPayload,
         "accesstoken",
       );
@@ -191,35 +200,33 @@ describe("JsonRpcClient", () => {
   });
 
   describe("getSignedMessageBy", () => {
+    beforeEach(() => {
+      client._fetch = jest.fn();  
+    }); 
     it("should call the custodian_getSignedMessageById method on the json rpc caller", async () => {
       await client.getSignedMessage(mockJsonRpcGetSignedMessageByIdPayload);
-      expect(jsonRpcCall).toHaveBeenCalledWith(
-        "custodian_getSignedMessageById",
-        mockJsonRpcGetSignedMessageByIdPayload,
+      expect(client._fetch).toHaveBeenCalledWith(
+        `/connect/sign_messages/${mockJsonRpcGetSignedMessageByIdPayload}`,
+        {},
         "accesstoken",
+        "Get",
       );
     });
   });
 
   describe("getTransaction", () => {
+    beforeEach(() => {
+      client._fetch = jest.fn();  
+    }); 
     it("should call the custodian_getTransactionById method on the json rpc caller", async () => {
       await client.getTransaction(mockJsonRpcGetTransactionByIdPayload);
-      expect(jsonRpcCall).toHaveBeenCalledWith(
-        "custodian_getTransactionById",
-        mockJsonRpcGetTransactionByIdPayload,
+      expect(client._fetch).toHaveBeenCalledWith(
+        `/connect/transactions/${mockJsonRpcGetTransactionByIdPayload}`,
+        {},
         "accesstoken",
+        "Get",
       );
     });
   });
 
-  describe("getTransactionLink", () => {
-    it("should call the custodian_getTransactionLink method on the json rpc caller", async () => {
-      await client.getTransactionLink(mockJsonRpcGetTransactionLinkPayload);
-      expect(jsonRpcCall).toHaveBeenCalledWith(
-        "custodian_getTransactionLink",
-        mockJsonRpcGetTransactionLinkPayload,
-        "accesstoken",
-      );
-    });
-  });
 });
