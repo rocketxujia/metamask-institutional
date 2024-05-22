@@ -8,6 +8,7 @@ describe("CustodyController", function () {
     custodyAccountDetails: {},
     custodyStatusMaps: {},
     waitForConfirmDeepLinkDialog: false,
+    custodianSupportedChains: {}
   };
 
   const createController = async initState => new CustodyController({ initState, captureException: jest.fn() });
@@ -98,7 +99,7 @@ describe("CustodyController", function () {
       ["0xc96348083d806DFfc546b36e05AF1f9452CDAe91"]: {
         address: "0xc96348083d806DFfc546b36e05AF1f9452CDAe91",
         details: "details",
-        custodyType: "Custody - Jupiter",
+        custodyType: "Custody - JSONAPI",
       },
     };
 
@@ -111,9 +112,9 @@ describe("CustodyController", function () {
     });
 
     const connectRequest = {
-      origin: "https://jupiter-custody-ui.codefi.network/",
+      origin: "https://home.sandbox.cobo.com/#/login",
       params: {
-        custodianName: "jupiter",
+        custodianName: "JSONAPI",
       },
     };
 
