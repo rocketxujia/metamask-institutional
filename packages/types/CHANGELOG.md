@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.0](https://github.com/rocketxujia/metamask-institutional/compare/types-v1.1.0...types-v1.2.0) (2024-05-22)
+
+
+### Features
+
+* **websocketclient transasctionupdate:** initial handshake work ([#670](https://github.com/rocketxujia/metamask-institutional/issues/670)) ([5cd3bd6](https://github.com/rocketxujia/metamask-institutional/commit/5cd3bd60e9fd342b4b82c8bb589de8b4a0373c5a))
+
+
+### Bug Fixes
+
+* **custodyid:** missing custodyId property in type ([#290](https://github.com/rocketxujia/metamask-institutional/issues/290)) ([5f3e8bc](https://github.com/rocketxujia/metamask-institutional/commit/5f3e8bc16c722a5d68f780cff67d366f675b9269))
+* **npmignore:** clean up ([#271](https://github.com/rocketxujia/metamask-institutional/issues/271)) ([a4bbae1](https://github.com/rocketxujia/metamask-institutional/commit/a4bbae1887ef3cead82b58bd2ec14fbfcd40f662))
+* **onboardingurl:** adds the onboardingurl ([#533](https://github.com/rocketxujia/metamask-institutional/issues/533)) ([f3fa7fc](https://github.com/rocketxujia/metamask-institutional/commit/f3fa7fcccf112f23184b47989cdf0ea4058cbe98))
+* **simplecache:** fixing access publish && git push ([#37](https://github.com/rocketxujia/metamask-institutional/issues/37)) ([d668eae](https://github.com/rocketxujia/metamask-institutional/commit/d668eae8d3995241a4dbd873a0aea0172a19700a))
+
 ## [1.1.0](https://github.com/consensys-vertical-apps/metamask-institutional/compare/types-v1.0.4...types-v1.1.0) (2024-04-17)
 
 
