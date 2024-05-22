@@ -8,6 +8,7 @@ describe("CustodyController", function () {
     custodyAccountDetails: {},
     custodyStatusMaps: {},
     waitForConfirmDeepLinkDialog: false,
+    custodianSupportedChains: {}
   };
 
   const createController = async initState => new CustodyController({ initState, captureException: jest.fn() });
@@ -91,6 +92,34 @@ describe("CustodyController", function () {
     });
     controller.removeAccount("0xc96348083d806DFfc546b36e05AF1f9452CDAe91");
     expect(controller.getCustodyTypeByAddress("0xc96348083d806DFfc546b36e05AF1f9452CDAe91")).toBe(undefined);
+  });
+
+  it("should return true for custodian type in use", async function () {
+    const accountMock = {
+      ["0xc96348083d806DFfc546b36e05AF1f9452CDAe91"]: {
+        address: "0xc96348083d806DFfc546b36e05AF1f9452CDAe91",
+        details: "details",
+        custodyType: "Custody - JSONAPI",
+      },
+    };
+
+    const controller = await createController({
+      ...INIT_STATE,
+      custodyAccountDetails: {
+        ...INIT_STATE.custodyAccountDetails,
+        ...accountMock,
+      },
+    });
+
+    const connectRequest = {
+      origin: "https://home.sandbox.cobo.com/#/login",
+      params: {
+        custodianName: "JSONAPI",
+      },
+    };
+
+    const result = await controller.handleMmiCustodianInUse(connectRequest);
+    expect(result).toBe(true);
   });
 
   it("should fail if the origin does not match", async function () {
