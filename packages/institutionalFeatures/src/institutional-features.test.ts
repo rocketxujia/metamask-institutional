@@ -32,9 +32,10 @@ describe("InstitutionalFeaturesController", function () {
       params: {
         labels: [],
         feature: "custodian",
-        service: "jupiter",
+        service: "JSONRPC",
         token: "token",
         environment: "test-environment",
+        name: "cobo"
       },
     };
     jest.spyOn(controller, "showConfirmRequest");
@@ -46,10 +47,11 @@ describe("InstitutionalFeaturesController", function () {
       method: "custodian",
       labels: [],
       feature: "custodian",
-      service: "jupiter",
+      service: "JSONRPC",
       token: "token",
       chainId: undefined,
       environment: "test-environment",
+      name: "cobo"
     });
   });
 
