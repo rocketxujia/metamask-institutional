@@ -16,6 +16,7 @@ export { BitgoCustodianApi } from "./custodianApi/bitgo/BitgoCustodianApi";
 export { CactusCustodianApi } from "./custodianApi/cactus/CactusCustodianApi";
 export { CurvCustodianApi } from "./custodianApi/curv/CurvCustodianApi";
 export { JsonRpcCustodianApi } from "./custodianApi/json-rpc/JsonRpcCustodianApi";
+export { JsonPortalCustodianApi } from "./custodianApi/json-api/JsonPortalCustodianApi";
 export { ECA3CustodianApi } from "./custodianApi/eca3/ECA3CustodianApi";
 export { QredoCustodianApi } from "./custodianApi/qredo/QredoCustodianApi";
 
