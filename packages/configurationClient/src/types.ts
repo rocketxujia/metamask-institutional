@@ -11,18 +11,20 @@ interface IEnvironment {
   custodianPublishesTransaction: boolean;
 }
 export interface IJsonRpcCustodian {
-  id: string;
-  clientId: string;
+  id?: string;
+  clientId?: string;
   name: string;
-  displayName: string;
+  displayName?: string;
   iconUrl: string;
-  website: string;
-  enabled: boolean;
-  apiBaseUrl: string;
-  issuerClaim: string;
-  jwksUrl: string;
-  refreshTokenUrl: string;
-  websocketApiUrl: string;
+  website?: string;
+  enabled?: boolean;
+  apiBaseUrl?: string;
+  issuerClaim?: string;
+  jwksUrl?: string;
+  refreshTokenUrl?: string;
+  websocketApiUrl?: string;
+  onboardingUrl?: string;
+  enabledInOnboarding?: boolean;
   environments: IEnvironment[];
 }
 

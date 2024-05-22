@@ -2,6 +2,7 @@ import fetchMock from "jest-fetch-mock";
 
 import { ConfigurationClient } from "./ConfigurationClient";
 import { MMI_CONFIGURATION_API_URL } from "./constants";
+import defaultConfig from "./configuration";
 
 fetchMock.enableMocks();
 
@@ -9,7 +10,7 @@ describe("ConfigurationClient", () => {
   let configurationClient: ConfigurationClient;
 
   beforeAll(() => {
-    configurationClient = new ConfigurationClient();
+    configurationClient = new ConfigurationClient(MMI_CONFIGURATION_API_URL);
   });
 
   beforeEach(() => {
@@ -29,7 +30,7 @@ describe("ConfigurationClient", () => {
       expect(result).toEqual("test");
     });
 
-    it("should fail if an exception is thrown by the HTTP client", async () => {
+    it("should return default config if an exception is thrown by the HTTP client", async () => {
       fetchMock.mockImplementationOnce(() => {
         throw {
           response: {
@@ -39,13 +40,15 @@ describe("ConfigurationClient", () => {
         };
       });
 
-      expect(configurationClient.getConfiguration()).rejects.toThrow();
+      const result = await configurationClient.getConfiguration();
+
+      expect(result).toEqual(defaultConfig);
     });
   });
 
   describe("ConfigurationClient#constructor", () => {
     it("should use the dev configuration API by default", () => {
-      const client = new ConfigurationClient();
+      const client = new ConfigurationClient(MMI_CONFIGURATION_API_URL);
       expect(client.configurationApiUrl).toEqual(MMI_CONFIGURATION_API_URL);
     });
 
