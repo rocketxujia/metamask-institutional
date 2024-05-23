@@ -129,6 +129,29 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
   * dependencies
     * @metamask-institutional/custody-keyring bumped from ^1.0.11 to ^1.0.12
 
+## [1.4.0](https://github.com/rocketxujia/metamask-institutional/compare/institutional-features-v1.3.0...institutional-features-v1.4.0) (2024-05-22)
+
+
+### Features
+
+* **institutional-features:** added institutional features package ([#77](https://github.com/rocketxujia/metamask-institutional/issues/77)) ([5405893](https://github.com/rocketxujia/metamask-institutional/commit/5405893523c689c5510356c94e290a889346a3b9))
+* **institutional-features:** removed compliance feature ([#398](https://github.com/rocketxujia/metamask-institutional/issues/398)) ([79c57b6](https://github.com/rocketxujia/metamask-institutional/commit/79c57b67b77459ce70594e9f0edc04c13ca9064d))
+* **websocketclient transasctionupdate:** initial handshake work ([#670](https://github.com/rocketxujia/metamask-institutional/issues/670)) ([5cd3bd6](https://github.com/rocketxujia/metamask-institutional/commit/5cd3bd60e9fd342b4b82c8bb589de8b4a0373c5a))
+
+
+### Bug Fixes
+
+* **check null values:** checking null values in signedMEssage and transaction ([#233](https://github.com/rocketxujia/metamask-institutional/issues/233)) ([3e21fb9](https://github.com/rocketxujia/metamask-institutional/commit/3e21fb95f764a9ffe6aea1e459737f7cf62408f7))
+* **npmignore:** clean up ([#271](https://github.com/rocketxujia/metamask-institutional/issues/271)) ([a4bbae1](https://github.com/rocketxujia/metamask-institutional/commit/a4bbae1887ef3cead82b58bd2ec14fbfcd40f662))
+* **updates packages:** updates packages to the latest versions ([#278](https://github.com/rocketxujia/metamask-institutional/issues/278)) ([0dc78c5](https://github.com/rocketxujia/metamask-institutional/commit/0dc78c5321d8b686320a7d83bd45eae93fefb36a))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @metamask-institutional/custody-keyring bumped from ^1.1.0 to ^2.0.0
+
 ## [1.3.0](https://github.com/consensys-vertical-apps/metamask-institutional/compare/institutional-features-v1.2.15...institutional-features-v1.3.0) (2024-04-17)
 
 
