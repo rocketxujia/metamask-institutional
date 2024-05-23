@@ -9,6 +9,6 @@ A Typescript library that exports a WebSocket client, it allows us to get Tx upd
 ### Setting up
 
 ```typescript
-npm i @metamask-institutional/websocket-client
-yarn add @metamask-institutional/websocket-client
+npm i @mm-institutional/websocket-client
+yarn add @mm-institutional/websocket-client
 ```

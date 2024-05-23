@@ -1,5 +1,5 @@
 {
-  "name": "@metamask-institutional/simplecache",
+  "name": "@mm-institutional/simplecache",
   "version": "1.1.0",
   "description": "This package will export simpleCache used across the old @codefi/mmi-sdk library",
   "author": "Albert Olive <albertolivecorbella@gmail.com>",

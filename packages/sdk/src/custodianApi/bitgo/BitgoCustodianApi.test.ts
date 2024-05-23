@@ -1,5 +1,5 @@
-import { ITransactionDetails } from "@metamask-institutional/types";
-import { AuthTypes } from "@metamask-institutional/types";
+import { ITransactionDetails } from "@mm-institutional/types";
+import { AuthTypes } from "@mm-institutional/types";
 import { mocked } from "ts-jest/utils";
 
 import { MessageTypes, TypedMessage } from "../../interfaces/ITypedMessage";

@@ -1,4 +1,4 @@
-import { AuthTypes } from "@metamask-institutional/types";
+import { AuthTypes } from "@mm-institutional/types";
 import { mocked } from "ts-jest/utils";
 
 import { JupiterCustodianApi } from "../custodianApi/jupiter/JupiterCustodianApi";

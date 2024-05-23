@@ -1,11 +1,11 @@
-import { JupiterCustodianApi, MMISDK, mmiSDKFactory } from "@metamask-institutional/sdk";
+import { JupiterCustodianApi, MMISDK, mmiSDKFactory } from "@mm-institutional/sdk";
 import {
   AddressType,
   AuthDetails,
   AuthTypes,
   ICustodianTransactionLink,
   ITransactionStatusMap,
-} from "@metamask-institutional/types";
+} from "@mm-institutional/types";
 
 import { CustodyKeyring } from "../../CustodyKeyring";
 import { ICustodyKeyringOptions } from "../../interfaces/ICustodyKeyringOptions";

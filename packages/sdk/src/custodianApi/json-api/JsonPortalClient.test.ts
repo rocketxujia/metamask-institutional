@@ -1,4 +1,4 @@
-import { SimpleCache } from "@metamask-institutional/simplecache";
+import { SimpleCache } from "@mm-institutional/simplecache";
 import fetchMock from "jest-fetch-mock";
 import { mocked } from "ts-jest/utils";
 
@@ -11,7 +11,7 @@ import { mockJsonRpcGetTransactionLinkPayload } from "../json-rpc/mocks/mockJson
 import { mockJsonRpcSignPayload } from "../json-rpc/mocks/mockJsonRpcSignPayload";
 import { mockJsonRpcSignTypedDataPayload } from "../json-rpc/mocks/mockJsonRpcSignTypedDataPayload";
 
-jest.mock("@metamask-institutional/simplecache");
+jest.mock("@mm-institutional/simplecache");
 fetchMock.enableMocks();
 
 describe("JsonPortalClient", () => {

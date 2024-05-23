@@ -1,7 +1,7 @@
-import { CustodyController } from "@metamask-institutional/custody-controller";
-import { JupiterCustodyKeyring } from "@metamask-institutional/custody-keyring";
-import { TransactionUpdateController } from "@metamask-institutional/transaction-update";
-import { ICustodianUpdate, ITransactionDetails, MetaMaskTransactionStatuses } from "@metamask-institutional/types";
+import { CustodyController } from "@mm-institutional/custody-controller";
+import { JupiterCustodyKeyring } from "@mm-institutional/custody-keyring";
+import { TransactionUpdateController } from "@mm-institutional/transaction-update";
+import { ICustodianUpdate, ITransactionDetails, MetaMaskTransactionStatuses } from "@mm-institutional/types";
 import createMockInstance from "jest-create-mock-instance";
 import fetchMock from "jest-fetch-mock";
 

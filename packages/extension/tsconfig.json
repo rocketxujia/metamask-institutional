@@ -13,12 +13,12 @@
     "allowSyntheticDefaultImports": true
   },
   "paths": {
-    "@metamask-institutional/custody-controller": ["../custodyController/src/index.ts"],
-    "@metamask-institutional/custody-keyring": ["../custodyKeyring/src/index.ts"],
-    "@metamask-institutional/sdk": ["../sdk/src/index.ts"],
-    "@metamask-institutional/transaction-update": ["../transactionUpdate/src/index.ts"],
-    "@metamask-institutional/types": ["../types/src/index.ts"],
-    "@metamask-institutional/portfolio-dashboard": ["../portfolioDashboard/src/index.ts"]
+    "@mm-institutional/custody-controller": ["../custodyController/src/index.ts"],
+    "@mm-institutional/custody-keyring": ["../custodyKeyring/src/index.ts"],
+    "@mm-institutional/sdk": ["../sdk/src/index.ts"],
+    "@mm-institutional/transaction-update": ["../transactionUpdate/src/index.ts"],
+    "@mm-institutional/types": ["../types/src/index.ts"],
+    "@mm-institutional/portfolio-dashboard": ["../portfolioDashboard/src/index.ts"]
   },
   "references": [
     {

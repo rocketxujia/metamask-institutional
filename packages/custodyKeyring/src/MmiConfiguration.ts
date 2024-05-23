@@ -2,7 +2,7 @@
  * @typedef {Object} MMIPortfolioOptions
  * @property {Object} initState The initial controller state
  */
-import { ConfigurationClient } from "@metamask-institutional/configuration-client";
+import { ConfigurationClient } from "@mm-institutional/configuration-client";
 import { ObservableStore } from "@metamask/obs-store";
 
 import { CUSTODIAN_TYPES } from "./custodianTypes";

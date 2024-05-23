@@ -7,7 +7,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 * The following workspace dependencies were updated
   * dependencies
-    * @metamask-institutional/types bumped from ^1.0.4 to ^1.1.0
+    * @mm-institutional/types bumped from ^1.0.4 to ^1.1.0
 
 ## [0.1.25](https://github.com/consensys-vertical-apps/metamask-institutional/compare/sdk-v0.1.24...sdk-v0.1.25) (2024-04-03)
 
@@ -42,7 +42,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 * The following workspace dependencies were updated
   * dependencies
-    * @metamask-institutional/types bumped from ^1.0.3 to ^1.0.4
+    * @mm-institutional/types bumped from ^1.0.3 to ^1.0.4
 
 ## [0.1.21](https://github.com/consensys-vertical-apps/metamask-institutional/compare/sdk-v0.1.20...sdk-v0.1.21) (2023-10-20)
 
@@ -80,8 +80,8 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 * The following workspace dependencies were updated
   * dependencies
-    * @metamask-institutional/simplecache bumped from ^1.0.2 to ^1.1.0
-    * @metamask-institutional/types bumped from ^1.0.2 to ^1.0.3
+    * @mm-institutional/simplecache bumped from ^1.0.2 to ^1.1.0
+    * @mm-institutional/types bumped from ^1.0.2 to ^1.0.3
 
 ## [0.1.17](https://github.com/consensys-vertical-apps/metamask-institutional/compare/sdk-v0.1.14...sdk-v0.1.17) (2023-05-17)
 
@@ -110,60 +110,60 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - **sdk:** fetch is not working as axios so we moved our logic outside catch ([#140](https://github.com/consensys-vertical-apps/metamask-institutional/issues/140)) ([b9391aa](https://github.com/consensys-vertical-apps/metamask-institutional/commit/b9391aa2ea24b9e80b2e555253b165ad60f468d4))
 
-## [0.1.13](https://github.com/consensys-vertical-apps/metamask-institutional/compare/@metamask-institutional/sdk@0.1.12...@metamask-institutional/sdk@0.1.13) (2023-02-02)
+## [0.1.13](https://github.com/consensys-vertical-apps/metamask-institutional/compare/@mm-institutional/sdk@0.1.12...@mm-institutional/sdk@0.1.13) (2023-02-02)
 
-**Note:** Version bump only for package @metamask-institutional/sdk
+**Note:** Version bump only for package @mm-institutional/sdk
 
-## [0.1.12](https://github.com/consensys-vertical-apps/metamask-institutional/compare/@metamask-institutional/sdk@0.1.10...@metamask-institutional/sdk@0.1.12) (2023-02-01)
+## [0.1.12](https://github.com/consensys-vertical-apps/metamask-institutional/compare/@mm-institutional/sdk@0.1.10...@mm-institutional/sdk@0.1.12) (2023-02-01)
 
-**Note:** Version bump only for package @metamask-institutional/sdk
+**Note:** Version bump only for package @mm-institutional/sdk
 
 ### Dependencies
 
 - The following workspace dependencies were updated
   - dependencies
-    - @metamask-institutional/simplecache bumped from ^0.1.4 to ^1.0.0
-    - @metamask-institutional/types bumped from ^0.1.28 to ^1.0.0
+    - @mm-institutional/simplecache bumped from ^0.1.4 to ^1.0.0
+    - @mm-institutional/types bumped from ^0.1.28 to ^1.0.0
 
-## [0.1.10](https://github.com/consensys-vertical-apps/metamask-institutional/compare/@metamask-institutional/sdk@0.1.9...@metamask-institutional/sdk@0.1.10) (2023-01-31)
+## [0.1.10](https://github.com/consensys-vertical-apps/metamask-institutional/compare/@mm-institutional/sdk@0.1.9...@mm-institutional/sdk@0.1.10) (2023-01-31)
 
-**Note:** Version bump only for package @metamask-institutional/sdk
+**Note:** Version bump only for package @mm-institutional/sdk
 
-## [0.1.9](https://github.com/consensys-vertical-apps/metamask-institutional/compare/@metamask-institutional/sdk@0.1.8...@metamask-institutional/sdk@0.1.9) (2023-01-27)
+## [0.1.9](https://github.com/consensys-vertical-apps/metamask-institutional/compare/@mm-institutional/sdk@0.1.8...@mm-institutional/sdk@0.1.9) (2023-01-27)
 
-**Note:** Version bump only for package @metamask-institutional/sdk
+**Note:** Version bump only for package @mm-institutional/sdk
 
-## [0.1.8](https://github.com/consensys-vertical-apps/metamask-institutional/compare/@metamask-institutional/sdk@0.1.7...@metamask-institutional/sdk@0.1.8) (2023-01-26)
+## [0.1.8](https://github.com/consensys-vertical-apps/metamask-institutional/compare/@mm-institutional/sdk@0.1.7...@mm-institutional/sdk@0.1.8) (2023-01-26)
 
-**Note:** Version bump only for package @metamask-institutional/sdk
+**Note:** Version bump only for package @mm-institutional/sdk
 
-## [0.1.7](https://github.com/consensys-vertical-apps/metamask-institutional/compare/@metamask-institutional/sdk@0.1.6...@metamask-institutional/sdk@0.1.7) (2023-01-25)
+## [0.1.7](https://github.com/consensys-vertical-apps/metamask-institutional/compare/@mm-institutional/sdk@0.1.6...@mm-institutional/sdk@0.1.7) (2023-01-25)
 
-**Note:** Version bump only for package @metamask-institutional/sdk
+**Note:** Version bump only for package @mm-institutional/sdk
 
-## [0.1.6](https://github.com/consensys-vertical-apps/metamask-institutional/compare/@metamask-institutional/sdk@0.1.5...@metamask-institutional/sdk@0.1.6) (2023-01-25)
+## [0.1.6](https://github.com/consensys-vertical-apps/metamask-institutional/compare/@mm-institutional/sdk@0.1.5...@mm-institutional/sdk@0.1.6) (2023-01-25)
 
-**Note:** Version bump only for package @metamask-institutional/sdk
+**Note:** Version bump only for package @mm-institutional/sdk
 
-## [0.1.5](https://github.com/consensys-vertical-apps/metamask-institutional/compare/@metamask-institutional/sdk@0.1.4...@metamask-institutional/sdk@0.1.5) (2023-01-24)
+## [0.1.5](https://github.com/consensys-vertical-apps/metamask-institutional/compare/@mm-institutional/sdk@0.1.4...@mm-institutional/sdk@0.1.5) (2023-01-24)
 
-**Note:** Version bump only for package @metamask-institutional/sdk
+**Note:** Version bump only for package @mm-institutional/sdk
 
-## [0.1.4](https://github.com/consensys-vertical-apps/metamask-institutional/compare/@metamask-institutional/sdk@0.1.3...@metamask-institutional/sdk@0.1.4) (2023-01-23)
+## [0.1.4](https://github.com/consensys-vertical-apps/metamask-institutional/compare/@mm-institutional/sdk@0.1.3...@mm-institutional/sdk@0.1.4) (2023-01-23)
 
-**Note:** Version bump only for package @metamask-institutional/sdk
+**Note:** Version bump only for package @mm-institutional/sdk
 
-## [0.1.3](https://github.com/consensys-vertical-apps/metamask-institutional/compare/@metamask-institutional/sdk@0.1.2...@metamask-institutional/sdk@0.1.3) (2023-01-20)
+## [0.1.3](https://github.com/consensys-vertical-apps/metamask-institutional/compare/@mm-institutional/sdk@0.1.2...@mm-institutional/sdk@0.1.3) (2023-01-20)
 
-**Note:** Version bump only for package @metamask-institutional/sdk
+**Note:** Version bump only for package @mm-institutional/sdk
 
-## [0.1.2](https://github.com/consensys-vertical-apps/metamask-institutional/compare/@metamask-institutional/sdk@0.1.1...@metamask-institutional/sdk@0.1.2) (2023-01-20)
+## [0.1.2](https://github.com/consensys-vertical-apps/metamask-institutional/compare/@mm-institutional/sdk@0.1.1...@mm-institutional/sdk@0.1.2) (2023-01-20)
 
-**Note:** Version bump only for package @metamask-institutional/sdk
+**Note:** Version bump only for package @mm-institutional/sdk
 
 ## 0.1.1 (2023-01-20)
 
-**Note:** Version bump only for package @metamask-institutional/sdk
+**Note:** Version bump only for package @mm-institutional/sdk
 
 ## 0.1.0 (2023-01-13)
 

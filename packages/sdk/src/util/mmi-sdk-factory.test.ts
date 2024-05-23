@@ -1,4 +1,4 @@
-import { AuthTypes } from "@metamask-institutional/types";
+import { AuthTypes } from "@mm-institutional/types";
 
 import { MMISDK } from "../classes/MMISDK";
 import { DEFAULT_MAX_CACHE_AGE } from "../constants/constants";

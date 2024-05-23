@@ -1,4 +1,4 @@
-import { SimpleCache } from "@metamask-institutional/simplecache";
+import { SimpleCache } from "@mm-institutional/simplecache";
 import {
   AuthTypes,
   ICustodianTransactionLink,
@@ -9,7 +9,7 @@ import {
   ISignatureDetails,
   ITransactionDetails,
   TransactionStatus,
-} from "@metamask-institutional/types";
+} from "@mm-institutional/types";
 import { EventEmitter } from "events";
 
 import { AccountHierarchyNode } from "../../classes/AccountHierarchyNode";

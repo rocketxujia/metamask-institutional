@@ -1,4 +1,4 @@
-import { AuthTypes } from "@metamask-institutional/types";
+import { AuthTypes } from "@mm-institutional/types";
 
 import { CUSTODIAN_TYPES } from "..";
 import migration1 from "./001";

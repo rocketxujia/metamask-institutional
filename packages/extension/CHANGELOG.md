@@ -4,143 +4,143 @@
 
 * The following workspace dependencies were updated
   * dependencies
-    * @metamask-institutional/portfolio-dashboard bumped from ^1.3.0 to ^1.4.0
+    * @mm-institutional/portfolio-dashboard bumped from ^1.3.0 to ^1.4.0
 
 ### Dependencies
 
 * The following workspace dependencies were updated
   * dependencies
-    * @metamask-institutional/custody-controller bumped from ^0.2.7 to ^0.2.8
-    * @metamask-institutional/custody-keyring bumped from ^0.0.24 to ^0.0.25
-    * @metamask-institutional/transaction-update bumped from ^0.1.22 to ^0.1.23
+    * @mm-institutional/custody-controller bumped from ^0.2.7 to ^0.2.8
+    * @mm-institutional/custody-keyring bumped from ^0.0.24 to ^0.0.25
+    * @mm-institutional/transaction-update bumped from ^0.1.22 to ^0.1.23
 
 ### Dependencies
 
 * The following workspace dependencies were updated
   * dependencies
-    * @metamask-institutional/custody-controller bumped from ^0.2.8 to ^0.2.9
-    * @metamask-institutional/custody-keyring bumped from ^0.0.25 to ^0.0.26
-    * @metamask-institutional/transaction-update bumped from ^0.1.23 to ^0.1.24
+    * @mm-institutional/custody-controller bumped from ^0.2.8 to ^0.2.9
+    * @mm-institutional/custody-keyring bumped from ^0.0.25 to ^0.0.26
+    * @mm-institutional/transaction-update bumped from ^0.1.23 to ^0.1.24
 
 ### Dependencies
 
 * The following workspace dependencies were updated
   * dependencies
-    * @metamask-institutional/custody-controller bumped from ^0.2.9 to ^0.2.10
-    * @metamask-institutional/custody-keyring bumped from ^0.0.26 to ^0.0.27
-    * @metamask-institutional/transaction-update bumped from ^0.1.24 to ^0.1.25
+    * @mm-institutional/custody-controller bumped from ^0.2.9 to ^0.2.10
+    * @mm-institutional/custody-keyring bumped from ^0.0.26 to ^0.0.27
+    * @mm-institutional/transaction-update bumped from ^0.1.24 to ^0.1.25
 
 ### Dependencies
 
 * The following workspace dependencies were updated
   * dependencies
-    * @metamask-institutional/custody-controller bumped from ^0.2.10 to ^0.2.11
-    * @metamask-institutional/custody-keyring bumped from ^0.0.27 to ^1.0.0
-    * @metamask-institutional/transaction-update bumped from ^0.1.25 to ^0.1.26
+    * @mm-institutional/custody-controller bumped from ^0.2.10 to ^0.2.11
+    * @mm-institutional/custody-keyring bumped from ^0.0.27 to ^1.0.0
+    * @mm-institutional/transaction-update bumped from ^0.1.25 to ^0.1.26
 
 ### Dependencies
 
 * The following workspace dependencies were updated
   * dependencies
-    * @metamask-institutional/custody-controller bumped from ^0.2.11 to ^0.2.12
-    * @metamask-institutional/custody-keyring bumped from ^1.0.0 to ^1.0.1
-    * @metamask-institutional/transaction-update bumped from ^0.1.26 to ^0.1.27
+    * @mm-institutional/custody-controller bumped from ^0.2.11 to ^0.2.12
+    * @mm-institutional/custody-keyring bumped from ^1.0.0 to ^1.0.1
+    * @mm-institutional/transaction-update bumped from ^0.1.26 to ^0.1.27
 
 ### Dependencies
 
 * The following workspace dependencies were updated
   * dependencies
-    * @metamask-institutional/custody-controller bumped from ^0.2.12 to ^0.2.13
-    * @metamask-institutional/custody-keyring bumped from ^1.0.1 to ^1.0.2
-    * @metamask-institutional/transaction-update bumped from ^0.1.27 to ^0.1.28
+    * @mm-institutional/custody-controller bumped from ^0.2.12 to ^0.2.13
+    * @mm-institutional/custody-keyring bumped from ^1.0.1 to ^1.0.2
+    * @mm-institutional/transaction-update bumped from ^0.1.27 to ^0.1.28
 
 ### Dependencies
 
 * The following workspace dependencies were updated
   * dependencies
-    * @metamask-institutional/custody-controller bumped from ^0.2.13 to ^0.2.14
-    * @metamask-institutional/custody-keyring bumped from ^1.0.2 to ^1.0.3
-    * @metamask-institutional/sdk bumped from ^0.1.18 to ^0.1.19
-    * @metamask-institutional/transaction-update bumped from ^0.1.28 to ^0.1.29
+    * @mm-institutional/custody-controller bumped from ^0.2.13 to ^0.2.14
+    * @mm-institutional/custody-keyring bumped from ^1.0.2 to ^1.0.3
+    * @mm-institutional/sdk bumped from ^0.1.18 to ^0.1.19
+    * @mm-institutional/transaction-update bumped from ^0.1.28 to ^0.1.29
 
 ### Dependencies
 
 * The following workspace dependencies were updated
   * dependencies
-    * @metamask-institutional/custody-controller bumped from ^0.2.14 to ^0.2.15
-    * @metamask-institutional/custody-keyring bumped from ^1.0.3 to ^1.0.4
-    * @metamask-institutional/sdk bumped from ^0.1.19 to ^0.1.20
-    * @metamask-institutional/transaction-update bumped from ^0.1.29 to ^0.1.30
+    * @mm-institutional/custody-controller bumped from ^0.2.14 to ^0.2.15
+    * @mm-institutional/custody-keyring bumped from ^1.0.3 to ^1.0.4
+    * @mm-institutional/sdk bumped from ^0.1.19 to ^0.1.20
+    * @mm-institutional/transaction-update bumped from ^0.1.29 to ^0.1.30
 
 ### Dependencies
 
 * The following workspace dependencies were updated
   * dependencies
-    * @metamask-institutional/custody-controller bumped from ^0.2.15 to ^0.2.16
-    * @metamask-institutional/custody-keyring bumped from ^1.0.4 to ^1.0.5
-    * @metamask-institutional/sdk bumped from ^0.1.20 to ^0.1.21
-    * @metamask-institutional/transaction-update bumped from ^0.1.30 to ^0.1.31
+    * @mm-institutional/custody-controller bumped from ^0.2.15 to ^0.2.16
+    * @mm-institutional/custody-keyring bumped from ^1.0.4 to ^1.0.5
+    * @mm-institutional/sdk bumped from ^0.1.20 to ^0.1.21
+    * @mm-institutional/transaction-update bumped from ^0.1.30 to ^0.1.31
 
 ### Dependencies
 
 * The following workspace dependencies were updated
   * dependencies
-    * @metamask-institutional/custody-controller bumped from ^0.2.17 to ^0.2.18
-    * @metamask-institutional/custody-keyring bumped from ^1.0.6 to ^1.0.7
-    * @metamask-institutional/sdk bumped from ^0.1.22 to ^0.1.23
-    * @metamask-institutional/transaction-update bumped from ^0.1.32 to ^0.1.33
+    * @mm-institutional/custody-controller bumped from ^0.2.17 to ^0.2.18
+    * @mm-institutional/custody-keyring bumped from ^1.0.6 to ^1.0.7
+    * @mm-institutional/sdk bumped from ^0.1.22 to ^0.1.23
+    * @mm-institutional/transaction-update bumped from ^0.1.32 to ^0.1.33
 
 ### Dependencies
 
 * The following workspace dependencies were updated
   * dependencies
-    * @metamask-institutional/custody-controller bumped from ^0.2.18 to ^0.2.19
-    * @metamask-institutional/custody-keyring bumped from ^1.0.7 to ^1.0.8
-    * @metamask-institutional/sdk bumped from ^0.1.23 to ^0.1.24
-    * @metamask-institutional/transaction-update bumped from ^0.1.33 to ^0.1.34
+    * @mm-institutional/custody-controller bumped from ^0.2.18 to ^0.2.19
+    * @mm-institutional/custody-keyring bumped from ^1.0.7 to ^1.0.8
+    * @mm-institutional/sdk bumped from ^0.1.23 to ^0.1.24
+    * @mm-institutional/transaction-update bumped from ^0.1.33 to ^0.1.34
 
 ### Dependencies
 
 * The following workspace dependencies were updated
   * dependencies
-    * @metamask-institutional/custody-controller bumped from ^0.2.19 to ^0.2.20
-    * @metamask-institutional/custody-keyring bumped from ^1.0.8 to ^1.0.9
-    * @metamask-institutional/transaction-update bumped from ^0.1.34 to ^0.1.35
+    * @mm-institutional/custody-controller bumped from ^0.2.19 to ^0.2.20
+    * @mm-institutional/custody-keyring bumped from ^1.0.8 to ^1.0.9
+    * @mm-institutional/transaction-update bumped from ^0.1.34 to ^0.1.35
 
 ### Dependencies
 
 * The following workspace dependencies were updated
   * dependencies
-    * @metamask-institutional/custody-controller bumped from ^0.2.20 to ^0.2.21
-    * @metamask-institutional/custody-keyring bumped from ^1.0.9 to ^1.0.10
-    * @metamask-institutional/transaction-update bumped from ^0.1.35 to ^0.1.36
+    * @mm-institutional/custody-controller bumped from ^0.2.20 to ^0.2.21
+    * @mm-institutional/custody-keyring bumped from ^1.0.9 to ^1.0.10
+    * @mm-institutional/transaction-update bumped from ^0.1.35 to ^0.1.36
 
 ### Dependencies
 
 * The following workspace dependencies were updated
   * dependencies
-    * @metamask-institutional/custody-controller bumped from ^0.2.22 to ^0.2.23
-    * @metamask-institutional/custody-keyring bumped from ^1.0.10 to ^1.0.11
-    * @metamask-institutional/sdk bumped from ^0.1.24 to ^0.1.25
-    * @metamask-institutional/transaction-update bumped from ^0.1.36 to ^0.1.37
+    * @mm-institutional/custody-controller bumped from ^0.2.22 to ^0.2.23
+    * @mm-institutional/custody-keyring bumped from ^1.0.10 to ^1.0.11
+    * @mm-institutional/sdk bumped from ^0.1.24 to ^0.1.25
+    * @mm-institutional/transaction-update bumped from ^0.1.36 to ^0.1.37
 
 ### Dependencies
 
 * The following workspace dependencies were updated
   * dependencies
-    * @metamask-institutional/custody-controller bumped from ^0.2.23 to ^0.2.24
-    * @metamask-institutional/custody-keyring bumped from ^1.0.11 to ^1.0.12
-    * @metamask-institutional/transaction-update bumped from ^0.1.37 to ^0.1.38
+    * @mm-institutional/custody-controller bumped from ^0.2.23 to ^0.2.24
+    * @mm-institutional/custody-keyring bumped from ^1.0.11 to ^1.0.12
+    * @mm-institutional/transaction-update bumped from ^0.1.37 to ^0.1.38
 
 ### Dependencies
 
 * The following workspace dependencies were updated
   * dependencies
-    * @metamask-institutional/custody-controller bumped from ^0.2.24 to ^0.2.25
-    * @metamask-institutional/custody-keyring bumped from ^1.0.12 to ^1.1.0
-    * @metamask-institutional/sdk bumped from ^0.1.25 to ^0.1.26
-    * @metamask-institutional/transaction-update bumped from ^0.1.38 to ^0.2.0
-    * @metamask-institutional/types bumped from ^1.0.4 to ^1.1.0
+    * @mm-institutional/custody-controller bumped from ^0.2.24 to ^0.2.25
+    * @mm-institutional/custody-keyring bumped from ^1.0.12 to ^1.1.0
+    * @mm-institutional/sdk bumped from ^0.1.25 to ^0.1.26
+    * @mm-institutional/transaction-update bumped from ^0.1.38 to ^0.2.0
+    * @mm-institutional/types bumped from ^1.0.4 to ^1.1.0
 
 ## [0.3.18](https://github.com/consensys-vertical-apps/metamask-institutional/compare/extension-v0.3.17...extension-v0.3.18) (2024-03-20)
 
@@ -168,7 +168,7 @@
 
 * The following workspace dependencies were updated
   * dependencies
-    * @metamask-institutional/custody-controller bumped from ^0.2.21 to ^0.2.22
+    * @mm-institutional/custody-controller bumped from ^0.2.21 to ^0.2.22
 
 ## [0.3.12](https://github.com/consensys-vertical-apps/metamask-institutional/compare/extension-v0.3.11...extension-v0.3.12) (2023-11-22)
 
@@ -189,11 +189,11 @@
 
 * The following workspace dependencies were updated
   * dependencies
-    * @metamask-institutional/custody-controller bumped from ^0.2.16 to ^0.2.17
-    * @metamask-institutional/custody-keyring bumped from ^1.0.5 to ^1.0.6
-    * @metamask-institutional/sdk bumped from ^0.1.21 to ^0.1.22
-    * @metamask-institutional/transaction-update bumped from ^0.1.31 to ^0.1.32
-    * @metamask-institutional/types bumped from ^1.0.3 to ^1.0.4
+    * @mm-institutional/custody-controller bumped from ^0.2.16 to ^0.2.17
+    * @mm-institutional/custody-keyring bumped from ^1.0.5 to ^1.0.6
+    * @mm-institutional/sdk bumped from ^0.1.21 to ^0.1.22
+    * @mm-institutional/transaction-update bumped from ^0.1.31 to ^0.1.32
+    * @mm-institutional/types bumped from ^1.0.3 to ^1.0.4
 
 ## [0.3.2](https://github.com/consensys-vertical-apps/metamask-institutional/compare/extension-v0.3.1...extension-v0.3.2) (2023-08-16)
 
@@ -232,12 +232,12 @@
 
 * The following workspace dependencies were updated
   * dependencies
-    * @metamask-institutional/custody-controller bumped from ^0.2.5 to ^0.2.7
-    * @metamask-institutional/custody-keyring bumped from ^0.0.22 to ^0.0.24
-    * @metamask-institutional/portfolio-dashboard bumped from ^1.1.3 to ^1.2.0
-    * @metamask-institutional/sdk bumped from ^0.1.16 to ^0.1.18
-    * @metamask-institutional/transaction-update bumped from ^0.1.20 to ^0.1.22
-    * @metamask-institutional/types bumped from ^1.0.2 to ^1.0.3
+    * @mm-institutional/custody-controller bumped from ^0.2.5 to ^0.2.7
+    * @mm-institutional/custody-keyring bumped from ^0.0.22 to ^0.0.24
+    * @mm-institutional/portfolio-dashboard bumped from ^1.1.3 to ^1.2.0
+    * @mm-institutional/sdk bumped from ^0.1.16 to ^0.1.18
+    * @mm-institutional/transaction-update bumped from ^0.1.20 to ^0.1.22
+    * @mm-institutional/types bumped from ^1.0.2 to ^1.0.3
 
 ## Change Log
 

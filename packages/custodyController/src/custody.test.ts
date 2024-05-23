@@ -1,4 +1,4 @@
-import { ITransactionStatus } from "@metamask-institutional/types";
+import { ITransactionStatus } from "@mm-institutional/types";
 
 import { CustodyController } from "./custody";
 import { CustodyAccountDetails } from "./types";

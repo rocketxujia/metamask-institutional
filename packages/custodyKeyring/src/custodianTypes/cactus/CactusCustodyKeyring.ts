@@ -1,11 +1,11 @@
-import { CactusCustodianApi, MMISDK, mmiSDKFactory } from "@metamask-institutional/sdk";
+import { CactusCustodianApi, MMISDK, mmiSDKFactory } from "@mm-institutional/sdk";
 import {
   AddressType,
   AuthTypes,
   ICustodianTransactionLink,
   IRefreshTokenAuthDetails,
   ITransactionStatusMap,
-} from "@metamask-institutional/types";
+} from "@mm-institutional/types";
 
 import { CustodyKeyring } from "../../CustodyKeyring";
 import { ICustodyKeyringOptions } from "../../interfaces/ICustodyKeyringOptions";

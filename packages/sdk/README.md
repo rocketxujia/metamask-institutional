@@ -9,14 +9,14 @@ The MMISDK, is a collection of custodian API clients, it allows for interaction 
 ### Setting up
 
 ```typescript
-npm i @metamask-institutional/sdk
-yarn add @metamask-institutional/sdk
+npm i @mm-institutional/sdk
+yarn add @mm-institutional/sdk
 ```
 
 ### Example
 
 ```typescript
-import { mmiSdk } from "@metamask-institutional/sdk";
+import { mmiSdk } from "@mm-institutional/sdk";
 
 // Do something
 ```

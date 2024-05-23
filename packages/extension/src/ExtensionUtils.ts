@@ -1,8 +1,8 @@
-import { CustodyController, toChecksumHexAddress } from "@metamask-institutional/custody-controller";
-import { CustodyKeyring } from "@metamask-institutional/custody-keyring";
-import { mapTransactionStatus } from "@metamask-institutional/sdk";
-import { TransactionUpdateController } from "@metamask-institutional/transaction-update";
-import { ICustodianUpdate, MetamaskTransaction, MetaMaskTransactionStatuses } from "@metamask-institutional/types";
+import { CustodyController, toChecksumHexAddress } from "@mm-institutional/custody-controller";
+import { CustodyKeyring } from "@mm-institutional/custody-keyring";
+import { mapTransactionStatus } from "@mm-institutional/sdk";
+import { TransactionUpdateController } from "@mm-institutional/transaction-update";
+import { ICustodianUpdate, MetamaskTransaction, MetaMaskTransactionStatuses } from "@mm-institutional/types";
 import cloneDeep from 'lodash.clonedeep';
 
 // This is to emulate the events in the TransactionController

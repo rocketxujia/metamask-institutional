@@ -1,5 +1,5 @@
 import { Transaction } from "@ethereumjs/tx";
-import { JupiterCustodianApi, MMISDK, mmiSDKFactory } from "@metamask-institutional/sdk";
+import { JupiterCustodianApi, MMISDK, mmiSDKFactory } from "@mm-institutional/sdk";
 import {
   ICustodianAccount,
   IEIP1559TxParams,
@@ -7,7 +7,7 @@ import {
   ILegacyTXParams,
   ITokenAuthDetails,
   MetamaskTransaction,
-} from "@metamask-institutional/types";
+} from "@mm-institutional/types";
 import { MmiConfigurationController } from "src/MmiConfiguration";
 import { mocked } from "ts-jest/utils";
 
@@ -15,7 +15,7 @@ import { DEFAULT_MAX_CACHE_AGE } from "../../constants";
 import { JupiterCustodyKeyring } from "./JupiterCustodyKeyring";
 import { JupiterStatusMap } from "./JupiterStatusMap";
 
-jest.mock("@metamask-institutional/sdk");
+jest.mock("@mm-institutional/sdk");
 
 const mockedMmiSdkFactory = mocked(mmiSDKFactory, true);
 const mockAccounts = [

@@ -1,5 +1,5 @@
 {
-  "name": "@metamask-institutional/configuration-client",
+  "name": "@mm-institutional/configuration-client",
   "version": "2.0.1",
   "description": "A Typescript library responsible for maintaining a cache of MMI Portfolio related data in local storage.",
   "author": "Albert Olive <albertolivecorbella@gmail.com>",

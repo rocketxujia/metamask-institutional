@@ -1,4 +1,4 @@
-import { ICustodianType } from "@metamask-institutional/types";
+import { ICustodianType } from "@mm-institutional/types";
 import { CurvCustodyKeyring } from "./curv/CurvCustodyKeyring";
 import { JsonRpcCustodyKeyring } from "./json-rpc/JsonRpcCustodyKeyring";
 import { JsonApiCustodyKeyring } from "./json-api/JsonApiCustodyKeyring";

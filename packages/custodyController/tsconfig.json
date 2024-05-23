@@ -13,9 +13,9 @@
     "allowSyntheticDefaultImports": true
   },
   "paths": {
-    "@metamask-institutional/custody-keyring": ["../custodyKeyring/src/index.ts"],
-    "@metamask-institutional/types": ["../types/src/index.ts"],
-    "@metamask-institutional/sdk": ["../sdk/src/index.ts"]
+    "@mm-institutional/custody-keyring": ["../custodyKeyring/src/index.ts"],
+    "@mm-institutional/types": ["../types/src/index.ts"],
+    "@mm-institutional/sdk": ["../sdk/src/index.ts"]
   },
   "references": [
     {

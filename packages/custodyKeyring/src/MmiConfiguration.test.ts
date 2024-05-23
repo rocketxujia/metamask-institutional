@@ -64,7 +64,7 @@ const v2custodian = {
   ],
 };
 
-jest.mock("@metamask-institutional/configuration-client", () => {
+jest.mock("@mm-institutional/configuration-client", () => {
   return {
     ConfigurationClient: jest.fn().mockImplementation(() => ({
       getConfiguration: jest.fn().mockResolvedValue({

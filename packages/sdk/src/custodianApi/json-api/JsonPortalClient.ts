@@ -1,5 +1,5 @@
-import { SimpleCache } from "@metamask-institutional/simplecache";
-import { IRefreshTokenChangeEvent } from "@metamask-institutional/types";
+import { SimpleCache } from "@mm-institutional/simplecache";
+import { IRefreshTokenChangeEvent } from "@mm-institutional/types";
 import crypto from "crypto";
 import { EventEmitter } from "events";
 

@@ -1,5 +1,5 @@
-import { CustodyKeyring, MMIConfiguration, MmiConfigurationController } from "@metamask-institutional/custody-keyring";
-import { mapTransactionStatus } from "@metamask-institutional/sdk";
+import { CustodyKeyring, MMIConfiguration, MmiConfigurationController } from "@mm-institutional/custody-keyring";
+import { mapTransactionStatus } from "@mm-institutional/sdk";
 import {
   ConnectionRequest,
   ICustodianUpdate,
@@ -7,8 +7,8 @@ import {
   ISignatureDetails,
   ITokenAuthDetails,
   ITransactionDetails,
-} from "@metamask-institutional/types";
-import { WebsocketClientController } from "@metamask-institutional/websocket-client";
+} from "@mm-institutional/types";
+import { WebsocketClientController } from "@mm-institutional/websocket-client";
 import { ObservableStore } from "@metamask/obs-store";
 import { toChecksumAddress } from "ethereumjs-util";
 import { EventEmitter } from "events";

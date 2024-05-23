@@ -1,6 +1,6 @@
 {
   "alias": {
-    "@metamask-institutional/types/*": "packages/types/src/*"
+    "@mm-institutional/types/*": "packages/types/src/*"
   },
   "resolveExtensions": [".js", ".jsx", ".ts", ".tsx", ".vue", ".scss", ".less"]
 }

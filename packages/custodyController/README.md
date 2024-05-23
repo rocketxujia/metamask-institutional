@@ -9,6 +9,6 @@ Custody controller is a background controller responsible for maintaining a cach
 ### Setting up
 
 ```typescript
-npm i @metamask-institutional/custody-controller
-yarn add @metamask-institutional/custody-controller
+npm i @mm-institutional/custody-controller
+yarn add @mm-institutional/custody-controller
 ```
