@@ -381,6 +381,7 @@ dist
 .vscode
 junit.xml
 test-report.xml
+.yarn
 
 # pipeline reports
 **/junit.xml
