@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.0](https://github.com/rocketxujia/metamask-institutional/compare/configuration-client-v2.0.1...configuration-client-v3.0.0) (2024-06-02)
+
+
+### ⚠ BREAKING CHANGES
+
+* **configuration api v2:** Configuration API V2 has changed the whole structure for custodians, introducing environments noew
+
+### Features
+
+* **configuration api v2:** updated configClient and custodyKeyring ([#472](https://github.com/rocketxujia/metamask-institutional/issues/472)) ([504a633](https://github.com/rocketxujia/metamask-institutional/commit/504a6333a491a841062081211ffa15bae36f4c39))
+
+
+### Bug Fixes
+
+* **check null values:** checking null values in signedMEssage and transaction ([#233](https://github.com/rocketxujia/metamask-institutional/issues/233)) ([3e21fb9](https://github.com/rocketxujia/metamask-institutional/commit/3e21fb95f764a9ffe6aea1e459737f7cf62408f7))
+* **configurationclient:** fixing changelog generator ([de66c78](https://github.com/rocketxujia/metamask-institutional/commit/de66c789f6b0630d43f50c2db2cbb66bb8e1818d))
+* **configurationclient:** fixing changelog generator ([#100](https://github.com/rocketxujia/metamask-institutional/issues/100)) ([d3e4b3f](https://github.com/rocketxujia/metamask-institutional/commit/d3e4b3f0fd3cedf82186bf5d470719c653c19548))
+* **configurationclient:** fixing changelog generator ([#92](https://github.com/rocketxujia/metamask-institutional/issues/92)) ([b3c6af2](https://github.com/rocketxujia/metamask-institutional/commit/b3c6af2ce209fe250a071eb24bc689f513b9d17e))
+* **configurationclient:** fixing changelog generator ([#95](https://github.com/rocketxujia/metamask-institutional/issues/95)) ([af2395d](https://github.com/rocketxujia/metamask-institutional/commit/af2395d6a6ba14e11c7e30a4363856af8830e5fb))
+* **lint:** lint issues were fixes ([#509](https://github.com/rocketxujia/metamask-institutional/issues/509)) ([ce5f9af](https://github.com/rocketxujia/metamask-institutional/commit/ce5f9afaa20d6afad6e81d0d97bc6894055fc00c))
+* **npmignore:** clean up ([#271](https://github.com/rocketxujia/metamask-institutional/issues/271)) ([a4bbae1](https://github.com/rocketxujia/metamask-institutional/commit/a4bbae1887ef3cead82b58bd2ec14fbfcd40f662))
+
 ## [2.0.1](https://github.com/consensys-vertical-apps/metamask-institutional/compare/configuration-client-v2.0.0...configuration-client-v2.0.1) (2023-10-20)
 
 
