@@ -16,6 +16,25 @@
 
 Generally, you don't need to build locally, but in some cases, you want to check that everything works as expected. Running this command will build all packages: `$ yarn build`
 
+- 本地构建执行
+````shell
+npx lerna run build --stream --scope @mm-institutional/sdk 
+npx lerna run build --stream --scope @mm-institutional/custody-keyring
+npx lerna run build --stream --scope @mm-institutional/sdk
+````
+
+- 本地 Test
+````shell
+npx jest packages/transactionUpdate/src/  --ci --coverage
+````
+
+- 全文检索
+````shell
+grep -rl '@metamask-institutional' | xargs sed -i '' 's/@metamask-institutional/@mm-institutional/g'
+find . -type f -maxdepth 1 -name "jsconfig.json" 
+````
+
+
 ## Tests
 
 Using the following commands, you can manually run unit tests, linting, and prettier. Remember, though, that we have a set of automation that will run those commands for you. i.e., every time you push a commit.
