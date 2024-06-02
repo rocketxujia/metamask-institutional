@@ -44,7 +44,7 @@ const config = {
         },
         {
           "refreshTokenUrl": "https://custody.develop.cobo.com/v1/custody/mmi/token",
-          "name": "cobo-develop",
+          "name": "cobo-dev",
           "displayName": "Cobo",
           "enabled": true,
           "websocketApiUrl": "wss://websocket.metamask-institutional.io/v1/ws",
