@@ -1,4 +1,4 @@
-import { IEthereumAccountCustodianDetails } from "@metamask-institutional/sdk";
+import { IEthereumAccountCustodianDetails } from "@mm-institutional/sdk";
 
 export interface CustodyAccountDetails {
   address: string;

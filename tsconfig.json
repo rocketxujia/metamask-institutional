@@ -14,7 +14,7 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "paths": {
-      "@metamask-institutional/*": ["./packages/*/src/index.ts"]
+      "@mm-institutional/*": ["./packages/*/src/index.ts"]
     }
   },
   "references": [

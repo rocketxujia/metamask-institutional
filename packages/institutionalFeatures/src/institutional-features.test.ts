@@ -1,4 +1,4 @@
-import { ConnectionRequest, ConnectRequest } from "@metamask-institutional/types";
+import { ConnectionRequest, ConnectRequest } from "@mm-institutional/types";
 
 import { InstitutionalFeaturesController } from "./institutional-features";
 
@@ -35,7 +35,7 @@ describe("InstitutionalFeaturesController", function () {
         service: "JSONRPC",
         token: "token",
         environment: "test-environment",
-        name: "cobo"
+        name: "cobo",
       },
     };
     jest.spyOn(controller, "showConfirmRequest");
@@ -51,7 +51,7 @@ describe("InstitutionalFeaturesController", function () {
       token: "token",
       chainId: undefined,
       environment: "test-environment",
-      name: "cobo"
+      name: "cobo",
     });
   });
 

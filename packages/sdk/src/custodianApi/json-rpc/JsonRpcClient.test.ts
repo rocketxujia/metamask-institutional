@@ -1,4 +1,4 @@
-import { SimpleCache } from "@metamask-institutional/simplecache";
+import { SimpleCache } from "@mm-institutional/simplecache";
 import fetchMock from "jest-fetch-mock";
 import { mocked } from "ts-jest/utils";
 
@@ -24,7 +24,7 @@ jest.mock("./util/json-rpc-call", () => ({
   default: (_url: string) => jsonRpcCall,
 }));
 
-jest.mock("@metamask-institutional/simplecache");
+jest.mock("@mm-institutional/simplecache");
 
 fetchMock.enableMocks();
 
@@ -109,12 +109,12 @@ describe("JsonRpcClient", () => {
           error: {
             message: "Test error",
           },
-          url: "test"
+          url: "test",
         }),
         {
           status: 401,
           statusText: "Not Auth",
-        }
+        },
       );
 
       const messageHandler = jest.fn();

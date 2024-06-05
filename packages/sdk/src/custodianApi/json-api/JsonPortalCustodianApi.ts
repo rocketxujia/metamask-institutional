@@ -1,4 +1,4 @@
-import { SimpleCache } from "@metamask-institutional/simplecache";
+import { SimpleCache } from "@mm-institutional/simplecache";
 import {
   AuthTypes,
   ICustodianTransactionLink,
@@ -8,7 +8,7 @@ import {
   IRefreshTokenAuthDetails,
   ISignatureDetails,
   ITransactionDetails,
-} from "@metamask-institutional/types";
+} from "@mm-institutional/types";
 import { EventEmitter } from "events";
 
 import { AccountHierarchyNode } from "../../classes/AccountHierarchyNode";
@@ -18,10 +18,10 @@ import { IEthereumAccount } from "../../interfaces/IEthereumAccount";
 import { IEthereumAccountCustodianDetails } from "../../interfaces/IEthereumAccountCustodianDetails";
 import { MessageTypes, TypedMessage } from "../../interfaces/ITypedMessage";
 import { CreateTransactionMetadata } from "../../types/CreateTransactionMetadata";
-import { JsonPortalClient } from "./JsonPortalClient";
 import { JsonRpcTransactionParams } from "../json-rpc/rpc-payloads/JsonRpcCreateTransactionPayload";
 import { hexlify } from "../json-rpc/util/hexlify";
 import { mapStatusObjectToStatusText } from "../json-rpc/util/mapStatusObjectToStatusText";
+import { JsonPortalClient } from "./JsonPortalClient";
 
 export class JsonPortalCustodianApi extends EventEmitter implements ICustodianApi {
   private client: JsonPortalClient;

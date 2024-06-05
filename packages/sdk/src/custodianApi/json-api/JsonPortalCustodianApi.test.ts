@@ -1,4 +1,4 @@
-import { AuthTypes, IEIP1559TxParams, ILegacyTXParams } from "@metamask-institutional/types";
+import { AuthTypes, IEIP1559TxParams, ILegacyTXParams } from "@mm-institutional/types";
 import { mocked } from "ts-jest/utils";
 
 import { JsonPortalClient } from "./JsonPortalClient";
@@ -11,6 +11,7 @@ import { mockJsonRpcCreateTransactionResponse } from "./mocks/mockJsonRpcCreateT
 // import { mockJsonRpcGetTransactionLinkResponse } from "./mocks/mockJsonRpcGetTransactionLinkResponse";
 import { mockJsonRpcListAccountChainIdsResponse } from "./mocks/mockJsonRpcListAccountChainIdsResponse";
 import { mockJsonRpcListAccountResponse } from "./mocks/mockJsonRpcListAccountResponse";
+
 // import { mockJsonRpcSignPayload } from "./mocks/mockJsonRpcSignPayload";
 // import { mockJsonRpcSignResponse } from "./mocks/mockJsonRpcSignResponse";
 // import { mockJsonRpcSignTypedDataPayload } from "./mocks/mockJsonRpcSignTypedDataPayload";
@@ -95,7 +96,4 @@ describe("JsonPortalCustodianApi", () => {
       );
     });
   });
-
-
-
 });

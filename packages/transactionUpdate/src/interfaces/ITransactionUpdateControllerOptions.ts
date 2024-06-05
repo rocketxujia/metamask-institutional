@@ -1,5 +1,5 @@
-import { CustodyKeyring } from "@metamask-institutional/custody-keyring";
-import { MmiConfigurationController } from "@metamask-institutional/custody-keyring";
+import { CustodyKeyring } from "@mm-institutional/custody-keyring";
+import { MmiConfigurationController } from "@mm-institutional/custody-keyring";
 
 export class ITransactionUpdateControllerOptions {
   initState?: Record<string, unknown>;

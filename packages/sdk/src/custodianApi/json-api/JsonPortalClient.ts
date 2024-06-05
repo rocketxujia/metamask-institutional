@@ -1,9 +1,11 @@
-import { SimpleCache } from "@metamask-institutional/simplecache";
-import { IRefreshTokenChangeEvent } from "@metamask-institutional/types";
+import { SimpleCache } from "@mm-institutional/simplecache";
+import { IRefreshTokenChangeEvent } from "@mm-institutional/types";
 import crypto from "crypto";
 import { EventEmitter } from "events";
 
 import { INTERACTIVE_REPLACEMENT_TOKEN_CHANGE_EVENT, REFRESH_TOKEN_CHANGE_EVENT } from "../../constants/constants";
+import { JsonPortalError } from "../json-rpc/interfaces/JsonPortalError";
+import { JsonPortalResult } from "../json-rpc/interfaces/JsonPortalResult";
 import { JsonRpcCreateTransactionPayload } from "../json-rpc/rpc-payloads/JsonRpcCreateTransactionPayload";
 import { JsonRpcGetSignedMessageByIdPayload } from "../json-rpc/rpc-payloads/JsonRpcGetSignedMessageByIdPayload";
 import { JsonRpcGetTransactionByIdPayload } from "../json-rpc/rpc-payloads/JsonRpcGetTransactionByIdPayload";
@@ -19,8 +21,6 @@ import { JsonRpcGetTransactionLinkResponse } from "../json-rpc/rpc-responses/Jso
 import { JsonRpcListAccountsResponse } from "../json-rpc/rpc-responses/JsonRpcListAccountsResponse";
 import { JsonRpcSignResponse } from "../json-rpc/rpc-responses/JsonRpcSignResponse";
 import { JsonRpcSignTypedDataResponse } from "../json-rpc/rpc-responses/JsonRpcSignTypedDataResponse";
-import { JsonPortalError } from "../json-rpc/interfaces/JsonPortalError";
-import { JsonPortalResult } from "../json-rpc/interfaces/JsonPortalResult";
 
 export class JsonPortalClient extends EventEmitter {
   private cache: SimpleCache;
@@ -30,7 +30,11 @@ export class JsonPortalClient extends EventEmitter {
 
   private requestId = 0;
 
-  constructor(private apiBaseUrl: string = "http://127.0.0.1:4523/m1/3409424-1099445-default", private refreshToken: string, private refreshTokenUrl: string) {
+  constructor(
+    private apiBaseUrl: string = "http://127.0.0.1:4523/m1/3409424-1099445-default",
+    private refreshToken: string,
+    private refreshTokenUrl: string,
+  ) {
     super();
     this.cache = new SimpleCache();
   }
@@ -57,7 +61,7 @@ export class JsonPortalClient extends EventEmitter {
     }
 
     try {
-      let url = this.refreshTokenUrl;
+      const url = this.refreshTokenUrl;
       const data = new URLSearchParams({
         grant_type: "refresh_token",
         refresh_token: this.refreshToken,
@@ -84,7 +88,7 @@ export class JsonPortalClient extends EventEmitter {
        * This could be due to the token being expired, revoked, or the token not being recognized by the server.
        *
        */
-      if (response?.status === 401 ) {
+      if (response?.status === 401) {
         const url = responseJson?.url || "https://www.google.com";
         const oldRefreshToken = this.refreshToken;
         const hashedToken = crypto
@@ -100,7 +104,7 @@ export class JsonPortalClient extends EventEmitter {
         throw new Error("Refresh token provided is no longer valid.");
       }
 
-      if ((!response.ok) || (responseJson.error_code)) {
+      if (!response.ok || responseJson.error_code) {
         throw new Error(`Request failed with status ${response.status}: ${responseJson.error_message}`);
       }
 
@@ -111,7 +115,7 @@ export class JsonPortalClient extends EventEmitter {
       if (resultJson.refresh_token && resultJson.refresh_token !== this.refreshToken) {
         console.log(
           "JsonRPCClient: Refresh token changed to " +
-          resultJson.refresh_token.substring(0, 5) +
+            resultJson.refresh_token.substring(0, 5) +
             "..." +
             resultJson.refresh_token.substring(resultJson.refresh_token.length - 5),
         );
@@ -167,7 +171,9 @@ export class JsonPortalClient extends EventEmitter {
     return this._fetch("/cobo_connect/custodian_sign", signPayload, accessToken);
   }
 
-  async signTypedData(signPayload: JsonRpcSignTypedDataPayload): Promise<JsonPortalResult<JsonRpcSignTypedDataResponse>> {
+  async signTypedData(
+    signPayload: JsonRpcSignTypedDataPayload,
+  ): Promise<JsonPortalResult<JsonRpcSignTypedDataResponse>> {
     const accessToken = await this.getAccessToken();
 
     return this._fetch("/cobo_connect/custodian_signTypedData", signPayload, accessToken);
@@ -197,17 +203,17 @@ export class JsonPortalClient extends EventEmitter {
     return this._fetch("/cobo_connect/custodian_getTransactionLink", getTransactionLinkPayload, accessToken);
   }
 
-  async _fetch <T1, T2>(path: string, data: T1, accessToken: string): Promise<T2> {
+  async _fetch<T1, T2>(path: string, data: T1, accessToken: string): Promise<T2> {
     let response: Response;
     let responseJson: any;
-    let url = this.apiBaseUrl + path;
-    let options: any = {
+    const url = this.apiBaseUrl + path;
+    const options: any = {
       method: "Post",
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${accessToken}`,
       },
-      body: JSON.stringify(data)
+      body: JSON.stringify(data),
     };
 
     try {
@@ -216,10 +222,12 @@ export class JsonPortalClient extends EventEmitter {
       responseJson = await response.json();
 
       if (!response.ok) {
-        throw new Error('Network response was not ok');
+        throw new Error("Network response was not ok");
       } else if ((responseJson as JsonPortalError).error_code) {
         console.log("JsonPortalClient < ", this.requestId, url, responseJson);
-        throw new Error(`[${(responseJson as JsonPortalError).error_code}]${(responseJson as JsonPortalError).error_message}`);
+        throw new Error(
+          `[${(responseJson as JsonPortalError).error_code}]${(responseJson as JsonPortalError).error_message}`,
+        );
       }
       console.debug("JsonPortalClient < ", this.requestId, url, (responseJson as JsonPortalResult<any>).result);
     } catch (e) {

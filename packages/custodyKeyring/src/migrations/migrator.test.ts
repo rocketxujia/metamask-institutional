@@ -1,4 +1,4 @@
-import { AuthTypes } from "@metamask-institutional/types";
+import { AuthTypes } from "@mm-institutional/types";
 import { strict as assert } from "assert";
 import fs from "fs";
 import cloneDeep from "lodash.clonedeep";

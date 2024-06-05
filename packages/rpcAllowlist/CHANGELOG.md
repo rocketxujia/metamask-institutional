@@ -34,4 +34,4 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## 0.1.1 (2023-01-31)
 
-**Note:** Version bump only for package @metamask-institutional/rpc-allowlist
+**Note:** Version bump only for package @mm-institutional/rpc-allowlist

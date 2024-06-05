@@ -9,6 +9,6 @@ A Typescript library to use Extension Actions, Selectors and some utility method
 ### Setting up
 
 ```typescript
-npm i @metamask-institutional/extension
-yarn add @metamask-institutional/extension
+npm i @mm-institutional/extension
+yarn add @mm-institutional/extension
 ```

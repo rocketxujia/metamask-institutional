@@ -1,4 +1,4 @@
-import { ICustodianAccount } from "@metamask-institutional/types";
+import { ICustodianAccount } from "@mm-institutional/types";
 
 export interface ISerializedKeyring {
   accounts: string[];

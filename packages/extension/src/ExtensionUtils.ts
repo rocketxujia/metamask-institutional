@@ -1,9 +1,9 @@
-import { CustodyController, toChecksumHexAddress } from "@metamask-institutional/custody-controller";
-import { CustodyKeyring } from "@metamask-institutional/custody-keyring";
-import { mapTransactionStatus } from "@metamask-institutional/sdk";
-import { TransactionUpdateController } from "@metamask-institutional/transaction-update";
-import { ICustodianUpdate, MetamaskTransaction, MetaMaskTransactionStatuses } from "@metamask-institutional/types";
-import cloneDeep from 'lodash.clonedeep';
+import { CustodyController, toChecksumHexAddress } from "@mm-institutional/custody-controller";
+import { CustodyKeyring } from "@mm-institutional/custody-keyring";
+import { mapTransactionStatus } from "@mm-institutional/sdk";
+import { TransactionUpdateController } from "@mm-institutional/transaction-update";
+import { ICustodianUpdate, MetamaskTransaction, MetaMaskTransactionStatuses } from "@mm-institutional/types";
+import cloneDeep from "lodash.clonedeep";
 
 // This is to emulate the events in the TransactionController
 // which are used to report transaction lifecycle events to metametrics
@@ -296,8 +296,8 @@ export async function handleTxStatusUpdate(
       mutableTxMeta.status !== MetaMaskTransactionStatuses.CONFIRMED &&
       mutableTxMeta.status !== MetaMaskTransactionStatuses.FAILED
     ) {
-      txStateManager.setTxStatusSigned(mutableTxMeta.id);    
-      // Also update the status of our local object    
+      txStateManager.setTxStatusSigned(mutableTxMeta.id);
+      // Also update the status of our local object
       mutableTxMeta.status = mutableTxMeta.custodyStatus;
     }
 
@@ -348,7 +348,7 @@ export async function handleTxStatusUpdate(
       // We only want to update the MM status until the "submitted" state, meaning
       // we don't want to set it for the "Mined" that we get, because MM doesn't have it.
       if (mutableTxMeta.custodyStatus === MetaMaskTransactionStatuses.SUBMITTED) {
-        // Updates the status of our local object    
+        // Updates the status of our local object
         mutableTxMeta.status = mutableTxMeta.custodyStatus;
       }
     } else if (txData.transaction.status.finished && !txData.transaction.status.success) {

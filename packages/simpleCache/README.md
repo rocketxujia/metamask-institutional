@@ -9,6 +9,6 @@ A Typescript library to use types and interfaces in order to interact with. [Met
 ### Setting up
 
 ```typescript
-npm i @metamask-institutional/simplecache
-yarn add @metamask-institutional/simplecache
+npm i @mm-institutional/simplecache
+yarn add @mm-institutional/simplecache
 ```

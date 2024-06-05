@@ -2,7 +2,7 @@
 // statuses in an object containing booleans
 // But we are still depending on status strings on the frontend
 // This is a temporary fix until we can get rid of the status strings and support the booleans on the frontend
-import { TransactionStatus } from "@metamask-institutional/types";
+import { TransactionStatus } from "@mm-institutional/types";
 
 interface StatusDictionary {
   finished: boolean;

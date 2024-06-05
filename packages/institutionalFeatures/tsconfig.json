@@ -13,7 +13,7 @@
     "allowSyntheticDefaultImports": true
   },
   "paths": {
-    "@metamask-institutional/custody-keyring": ["../custodyKeyring/src/index.ts"]
+    "@mm-institutional/custody-keyring": ["../custodyKeyring/src/index.ts"]
   },
   "references": [
     {

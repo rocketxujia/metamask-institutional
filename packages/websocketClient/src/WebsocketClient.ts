@@ -1,5 +1,5 @@
-import { MmiConfigurationController } from "@metamask-institutional/custody-keyring";
-import { ConnectionRequest } from "@metamask-institutional/types";
+import { MmiConfigurationController } from "@mm-institutional/custody-keyring";
+import { ConnectionRequest } from "@mm-institutional/types";
 import { EventEmitter } from "events";
 
 import { WEBSOCKET_REQUEST_TIMEOUT } from "./constants";

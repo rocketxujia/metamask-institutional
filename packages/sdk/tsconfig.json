@@ -13,8 +13,8 @@
     "allowSyntheticDefaultImports": true
   },
   "paths": {
-    "@metamask-institutional/types": ["../types/src/index.ts"],
-    "@metamask-institutional/simplecache": ["../simpleCache/src/index.ts"]
+    "@mm-institutional/types": ["../types/src/index.ts"],
+    "@mm-institutional/simplecache": ["../simpleCache/src/index.ts"]
   },
   "references": [
     {
