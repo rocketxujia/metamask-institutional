@@ -1,4 +1,4 @@
-import { IEIP1559TxParams, ILegacyTXParams } from "@metamask-institutional/types";
+import { IEIP1559TxParams, ILegacyTXParams } from "@mm-institutional/types";
 
 import { MessageTypes, TypedMessage } from "../../interfaces/ITypedMessage";
 import { handleResponse } from "../../util/handle-response";

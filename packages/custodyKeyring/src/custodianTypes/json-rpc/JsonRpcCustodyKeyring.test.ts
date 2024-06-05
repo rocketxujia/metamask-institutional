@@ -1,12 +1,12 @@
-import { MMISDK, mmiSDKFactory } from "@metamask-institutional/sdk";
-import { IExtensionCustodianAccount, IRefreshTokenAuthDetails } from "@metamask-institutional/types";
+import { MMISDK, mmiSDKFactory } from "@mm-institutional/sdk";
+import { IExtensionCustodianAccount, IRefreshTokenAuthDetails } from "@mm-institutional/types";
 import crypto, { Hash } from "crypto";
 import { mocked } from "ts-jest/utils";
 
 import { JsonRpcCustodyKeyring } from "./JsonRpcCustodyKeyring";
 import { JsonRpcStatusMap } from "./JsonRpcStatusMap";
 
-jest.mock("@metamask-institutional/sdk");
+jest.mock("@mm-institutional/sdk");
 
 const mockedMmiSdkFactory = mocked(mmiSDKFactory, true);
 

@@ -9,6 +9,6 @@ The Custody Keyring Class is the initial point of contact with a custodian, it g
 ### Setting up
 
 ```typescript
-npm i @metamask-institutional/custody-keyring
-yarn add @metamask-institutional/custody-keyring
+npm i @mm-institutional/custody-keyring
+yarn add @mm-institutional/custody-keyring
 ```

@@ -1,5 +1,5 @@
-import { SimpleCache } from "@metamask-institutional/simplecache";
-import { IRefreshTokenChangeEvent } from "@metamask-institutional/types";
+import { SimpleCache } from "@mm-institutional/simplecache";
+import { IRefreshTokenChangeEvent } from "@mm-institutional/types";
 import crypto from "crypto";
 import { EventEmitter } from "events";
 
@@ -28,7 +28,11 @@ export class JsonPortalClient extends EventEmitter {
 
   private requestId = 0;
 
-  constructor(private apiBaseUrl: string = "http://127.0.0.1:4523/m1/3409424-1099445-default", private refreshToken: string, private refreshTokenUrl: string) {
+  constructor(
+    private apiBaseUrl: string = "http://127.0.0.1:4523/m1/3409424-1099445-default",
+    private refreshToken: string,
+    private refreshTokenUrl: string,
+  ) {
     super();
     this.cache = new SimpleCache();
   }
@@ -55,7 +59,7 @@ export class JsonPortalClient extends EventEmitter {
     }
 
     try {
-      let url = this.refreshTokenUrl;
+      const url = this.refreshTokenUrl;
       const data = new URLSearchParams({
         grant_type: "refresh_token",
         refresh_token: this.refreshToken,
@@ -98,7 +102,7 @@ export class JsonPortalClient extends EventEmitter {
         throw new Error("Refresh token provided is no longer valid.");
       }
 
-      if ((!response.ok) || (responseJson.error_code)) {
+      if (!response.ok || responseJson.error_code) {
         throw new Error(`Request failed with status ${response.status}: ${responseJson.error_message}`);
       }
 
@@ -109,7 +113,7 @@ export class JsonPortalClient extends EventEmitter {
       if (resultJson.refresh_token && resultJson.refresh_token !== this.refreshToken) {
         console.log(
           "JsonRPCClient: Refresh token changed to " +
-          resultJson.refresh_token.substring(0, 5) +
+            resultJson.refresh_token.substring(0, 5) +
             "..." +
             resultJson.refresh_token.substring(resultJson.refresh_token.length - 5),
         );
@@ -210,7 +214,7 @@ export class JsonPortalClient extends EventEmitter {
       responseJson = await response.json();
 
       if (!response.ok) {
-        throw new Error('Network response was not ok');
+        throw new Error("Network response was not ok");
       } else if ((responseJson as JsonPortalError).error_code) {
         console.log("JsonPortalClient < ", this.requestId, url, responseJson);
         throw new Error(

@@ -1,6 +1,6 @@
 import { FeeMarketEIP1559Transaction, Transaction } from "@ethereumjs/tx";
 import { toChecksumAddress } from "@ethereumjs/util";
-import { MMISDK } from "@metamask-institutional/sdk";
+import { MMISDK } from "@mm-institutional/sdk";
 import {
   AddressType,
   AuthDetails,
@@ -20,7 +20,7 @@ import {
   ITransactionDetails,
   ITransactionStatusMap,
   MetamaskTransaction,
-} from "@metamask-institutional/types";
+} from "@mm-institutional/types";
 import crypto from "crypto";
 import { EventEmitter } from "events";
 

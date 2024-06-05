@@ -9,6 +9,6 @@ A Typescript library that exports the TransactionUpdate controller, responsible 
 ### Setting up
 
 ```typescript
-npm i @metamask-institutional/transaction-update
-yarn add @metamask-institutional/transaction-update
+npm i @mm-institutional/transaction-update
+yarn add @mm-institutional/transaction-update
 ```

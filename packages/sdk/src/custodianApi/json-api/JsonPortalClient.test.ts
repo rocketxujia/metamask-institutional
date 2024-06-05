@@ -1,4 +1,4 @@
-import { SimpleCache } from "@metamask-institutional/simplecache";
+import { SimpleCache } from "@mm-institutional/simplecache";
 import fetchMock from "jest-fetch-mock";
 import { mocked } from "ts-jest/utils";
 
@@ -10,7 +10,7 @@ import { mockJsonRpcGetTransactionByIdPayload } from "./mocks/mockJsonRpcGetTran
 import { mockJsonRpcSignPayload } from "./mocks/mockJsonRpcSignPayload";
 import { mockJsonRpcSignTypedDataPayload } from "./mocks/mockJsonRpcSignTypedDataPayload";
 
-jest.mock("@metamask-institutional/simplecache");
+jest.mock("@mm-institutional/simplecache");
 fetchMock.enableMocks();
 
 describe("JsonPortalClient", () => {
@@ -35,7 +35,7 @@ describe("JsonPortalClient", () => {
           access_token: "accesstoken",
           expires_in: 10,
           refresh_token: "refresh_token",
-        }
+        },
       }),
     );
   });
@@ -61,26 +61,26 @@ describe("JsonPortalClient", () => {
     it("should not return the cached version if there is a cached version but it is invalid", async () => {
       // Run once to set the expires_in
       await client.getAccessToken();
-  
+
       mockedSimpleCacheInstance.cacheExists = jest.fn().mockReturnValue(true);
       mockedSimpleCacheInstance.cacheValid = jest.fn().mockReturnValue(false);
       mockedSimpleCacheInstance.getCache = jest.fn().mockReturnValue("cached");
-  
+
       const result = await client.getAccessToken();
-  
+
       expect(result).toEqual("accesstoken");
     });
-  
+
     it("should return the cached version if there is a cached version", async () => {
       // Run once to set the expires_in
       await client.getAccessToken();
-  
+
       mockedSimpleCacheInstance.cacheExists = jest.fn().mockReturnValue(true);
       mockedSimpleCacheInstance.cacheValid = jest.fn().mockReturnValue(true);
       mockedSimpleCacheInstance.getCache = jest.fn().mockReturnValue("cached");
-  
+
       const result = await client.getAccessToken();
-  
+
       expect(result).toEqual("cached");
     });
 
@@ -96,12 +96,12 @@ describe("JsonPortalClient", () => {
           error: {
             message: "Test error",
           },
-          url: "test"
+          url: "test",
         }),
         {
           status: 401,
           statusText: "Not Auth",
-        }
+        },
       );
 
       const messageHandler = jest.fn();
@@ -120,7 +120,9 @@ describe("JsonPortalClient", () => {
             resolve(null);
           }, 100);
         });
-        expect(e.toString()).toBe('Error: Error getting the Access Token: Error: Refresh token provided is no longer valid.');
+        expect(e.toString()).toBe(
+          "Error: Error getting the Access Token: Error: Refresh token provided is no longer valid.",
+        );
       }
     });
   });
@@ -177,8 +179,8 @@ describe("JsonPortalClient", () => {
 
   describe("signPersonalMessage", () => {
     beforeEach(() => {
-      client._fetch = jest.fn();  
-    }); 
+      client._fetch = jest.fn();
+    });
     it("should call the custodian_sign method on the json rpc caller", async () => {
       await client.signPersonalMessage(mockJsonRpcSignPayload);
       expect(client._fetch).toHaveBeenCalledWith("/connect/sign_messages", mockJsonRpcSignPayload, "accesstoken");
@@ -187,8 +189,8 @@ describe("JsonPortalClient", () => {
 
   describe("signTypedData", () => {
     beforeEach(() => {
-      client._fetch = jest.fn();  
-    }); 
+      client._fetch = jest.fn();
+    });
     it("should call the custodian_signTypedData method on the json rpc caller", async () => {
       await client.signTypedData(mockJsonRpcSignTypedDataPayload);
       expect(client._fetch).toHaveBeenCalledWith(
@@ -201,8 +203,8 @@ describe("JsonPortalClient", () => {
 
   describe("getSignedMessageBy", () => {
     beforeEach(() => {
-      client._fetch = jest.fn();  
-    }); 
+      client._fetch = jest.fn();
+    });
     it("should call the custodian_getSignedMessageById method on the json rpc caller", async () => {
       await client.getSignedMessage(mockJsonRpcGetSignedMessageByIdPayload);
       expect(client._fetch).toHaveBeenCalledWith(
@@ -216,8 +218,8 @@ describe("JsonPortalClient", () => {
 
   describe("getTransaction", () => {
     beforeEach(() => {
-      client._fetch = jest.fn();  
-    }); 
+      client._fetch = jest.fn();
+    });
     it("should call the custodian_getTransactionById method on the json rpc caller", async () => {
       await client.getTransaction(mockJsonRpcGetTransactionByIdPayload);
       expect(client._fetch).toHaveBeenCalledWith(
@@ -228,5 +230,4 @@ describe("JsonPortalClient", () => {
       );
     });
   });
-
 });

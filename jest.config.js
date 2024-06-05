@@ -102,7 +102,7 @@ module.exports = {
     ...packages.reduce(
       (acc, name) => ({
         ...acc,
-        [`@metamask-institutional/${name}(.*)$`]: `<rootDir>/packages/${name}/src/$1`,
+        [`@mm-institutional/${name}(.*)$`]: `<rootDir>/packages/${name}/src/$1`,
       }),
       {},
     ),

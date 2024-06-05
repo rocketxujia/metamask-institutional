@@ -1,7 +1,7 @@
 /**
  * Factory for MMI SDK to make testing easier
  */
-import { AuthDetails, AuthTypes } from "@metamask-institutional/types";
+import { AuthDetails, AuthTypes } from "@mm-institutional/types";
 import { CustodianApiConstructor } from "src/interfaces/ICustodianApi";
 
 import { MMISDK } from "../classes/MMISDK";

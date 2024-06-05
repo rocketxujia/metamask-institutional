@@ -1,11 +1,10 @@
-import { ICustodianType } from "@metamask-institutional/types";
-import { CurvCustodyKeyring } from "./curv/CurvCustodyKeyring";
-import { JsonRpcCustodyKeyring } from "./json-rpc/JsonRpcCustodyKeyring";
-import { JsonApiCustodyKeyring } from "./json-api/JsonApiCustodyKeyring";
+import { ICustodianType } from "@mm-institutional/types";
 
+import { CurvCustodyKeyring } from "./curv/CurvCustodyKeyring";
+import { JsonApiCustodyKeyring } from "./json-api/JsonApiCustodyKeyring";
+import { JsonRpcCustodyKeyring } from "./json-rpc/JsonRpcCustodyKeyring";
 
 export const CUSTODIAN_TYPES: { [key: string]: ICustodianType } = {
-
   // All new custodians are an instance of this type
   JSONRPC: {
     name: "JSONRPC",
@@ -37,7 +36,7 @@ export const CUSTODIAN_TYPES: { [key: string]: ICustodianType } = {
     production: false,
     hidden: true, // Since this is the prototype, we don't want to show it in the UI
     origins: [/.*cobo\.com.*/, /.*localhost.*/],
-    environmentMapping: [], // 
+    environmentMapping: [], //
   },
 
   // Legacy Custodian

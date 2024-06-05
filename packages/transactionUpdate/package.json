@@ -1,5 +1,5 @@
 {
-  "name": "@metamask-institutional/transaction-update",
+  "name": "@mm-institutional/transaction-update",
   "version": "0.2.3",
   "description": "This package will export transactionUpdate, responsible for handling transaction updates",
   "author": "Antonio Regadas <apregadas@gmail.com>",
@@ -30,10 +30,10 @@
   "gitHead": "",
   "dependencies": {
     "@ethereumjs/util": "^8.0.5",
-    "@metamask-institutional/custody-keyring": "^2.0.1",
-    "@metamask-institutional/sdk": "^0.1.27",
-    "@metamask-institutional/types": "^1.1.0",
-    "@metamask-institutional/websocket-client": "^0.2.3",
+    "@mm-institutional/custody-keyring": "^2.0.1",
+    "@mm-institutional/sdk": "^0.1.27",
+    "@mm-institutional/types": "^1.1.0",
+    "@mm-institutional/websocket-client": "^0.2.3",
     "@metamask/obs-store": "^8.0.0"
   },
   "devDependencies": {

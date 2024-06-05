@@ -41,7 +41,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - **configurationclient:** fixing changelog generator ([#100](https://github.com/consensys-vertical-apps/metamask-institutional/issues/100)) ([d3e4b3f](https://github.com/consensys-vertical-apps/metamask-institutional/commit/d3e4b3f0fd3cedf82186bf5d470719c653c19548))
 
-## [1.0.4](https://github.com/consensys-vertical-apps/metamask-institutional/compare/@metamask-institutional/configuration-client@0.1.8...@metamask-institutional/configuration-client@1.0.4) (2023-02-02)
+## [1.0.4](https://github.com/consensys-vertical-apps/metamask-institutional/compare/@mm-institutional/configuration-client@0.1.8...@mm-institutional/configuration-client@1.0.4) (2023-02-02)
 
 ### Bug Fixes
 
@@ -75,26 +75,26 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - **configurationclient:** fixing changelog generator ([#92](https://github.com/consensys-vertical-apps/metamask-institutional/issues/92)) ([b3c6af2](https://github.com/consensys-vertical-apps/metamask-institutional/commit/b3c6af2ce209fe250a071eb24bc689f513b9d17e))
 
-## [0.1.8](https://github.com/consensys-vertical-apps/metamask-institutional/compare/@metamask-institutional/configuration-client@0.1.7...@metamask-institutional/configuration-client@0.1.8) (2023-02-01)
+## [0.1.8](https://github.com/consensys-vertical-apps/metamask-institutional/compare/@mm-institutional/configuration-client@0.1.7...@mm-institutional/configuration-client@0.1.8) (2023-02-01)
 
-**Note:** Version bump only for package @metamask-institutional/configuration-client
+**Note:** Version bump only for package @mm-institutional/configuration-client
 
-## [0.1.7](https://github.com/consensys-vertical-apps/metamask-institutional/compare/@metamask-institutional/configuration-client@0.1.6...@metamask-institutional/configuration-client@0.1.7) (2023-01-27)
+## [0.1.7](https://github.com/consensys-vertical-apps/metamask-institutional/compare/@mm-institutional/configuration-client@0.1.6...@mm-institutional/configuration-client@0.1.7) (2023-01-27)
 
-**Note:** Version bump only for package @metamask-institutional/configuration-client
+**Note:** Version bump only for package @mm-institutional/configuration-client
 
-## [0.1.6](https://github.com/consensys-vertical-apps/metamask-institutional/compare/@metamask-institutional/configuration-client@0.1.5...@metamask-institutional/configuration-client@0.1.6) (2023-01-26)
+## [0.1.6](https://github.com/consensys-vertical-apps/metamask-institutional/compare/@mm-institutional/configuration-client@0.1.5...@mm-institutional/configuration-client@0.1.6) (2023-01-26)
 
-**Note:** Version bump only for package @metamask-institutional/configuration-client
+**Note:** Version bump only for package @mm-institutional/configuration-client
 
 ## 0.1.5 (2023-01-25)
 
-**Note:** Version bump only for package @metamask-institutional/configuration-client
+**Note:** Version bump only for package @mm-institutional/configuration-client
 
-## [0.1.4](https://github.com/consensys-vertical-apps/metamask-institutional/compare/@metamask-institutional/configuration-client@0.1.3...@metamask-institutional/configuration-client@0.1.4) (2023-01-24)
+## [0.1.4](https://github.com/consensys-vertical-apps/metamask-institutional/compare/@mm-institutional/configuration-client@0.1.3...@mm-institutional/configuration-client@0.1.4) (2023-01-24)
 
-**Note:** Version bump only for package @metamask-institutional/configuration-client
+**Note:** Version bump only for package @mm-institutional/configuration-client
 
 ## 0.1.3 (2023-01-23)
 
-**Note:** Version bump only for package @metamask-institutional/configuration-client
+**Note:** Version bump only for package @mm-institutional/configuration-client

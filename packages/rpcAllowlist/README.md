@@ -10,6 +10,6 @@ Allowlist for custom JSON-RPC commands.
 ### Setting up
 
 ```typescript
-npm i @metamask-institutional/rpc-allowlist
-yarn add @metamask-institutional/rpc-allowlist
+npm i @mm-institutional/rpc-allowlist
+yarn add @mm-institutional/rpc-allowlist
 ```

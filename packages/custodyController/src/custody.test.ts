@@ -1,4 +1,4 @@
-import { ITransactionStatus } from "@metamask-institutional/types";
+import { ITransactionStatus } from "@mm-institutional/types";
 
 import { CustodyController } from "./custody";
 import { CustodyAccountDetails } from "./types";
@@ -8,7 +8,7 @@ describe("CustodyController", function () {
     custodyAccountDetails: {},
     custodyStatusMaps: {},
     waitForConfirmDeepLinkDialog: false,
-    custodianSupportedChains: {}
+    custodianSupportedChains: {},
   };
 
   const createController = async initState => new CustodyController({ initState, captureException: jest.fn() });

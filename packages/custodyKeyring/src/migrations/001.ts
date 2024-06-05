@@ -1,4 +1,4 @@
-import { AuthTypes } from "@metamask-institutional/types";
+import { AuthTypes } from "@mm-institutional/types";
 import cloneDeep from "lodash.clonedeep";
 
 import { CustodyKeyring } from "../CustodyKeyring";

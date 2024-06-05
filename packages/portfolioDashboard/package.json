@@ -1,5 +1,5 @@
 {
-  "name": "@metamask-institutional/portfolio-dashboard",
+  "name": "@mm-institutional/portfolio-dashboard",
   "version": "1.4.1",
   "description": "This package will contain relevant logic for the MMI Portfolio Dashboard",
   "author": "Antonio Regadas <apregadas@gmail.com>",

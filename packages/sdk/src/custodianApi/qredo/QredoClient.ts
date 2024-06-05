@@ -1,5 +1,5 @@
-import { SimpleCache } from "@metamask-institutional/simplecache";
-import { IEIP1559TxParams, ILegacyTXParams, IRefreshTokenChangeEvent } from "@metamask-institutional/types";
+import { SimpleCache } from "@mm-institutional/simplecache";
+import { IEIP1559TxParams, ILegacyTXParams, IRefreshTokenChangeEvent } from "@mm-institutional/types";
 import { EventEmitter } from "events";
 
 import { REFRESH_TOKEN_CHANGE_EVENT } from "../../constants/constants";

@@ -1,4 +1,4 @@
-import { AuthTypes, IEIP1559TxParams, ILegacyTXParams } from "@metamask-institutional/types";
+import { AuthTypes, IEIP1559TxParams, ILegacyTXParams } from "@mm-institutional/types";
 import { mocked } from "ts-jest/utils";
 
 import { JsonRpcClient } from "./JsonRpcClient";

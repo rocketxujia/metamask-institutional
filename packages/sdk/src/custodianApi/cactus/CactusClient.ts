@@ -1,5 +1,5 @@
-import { SimpleCache } from "@metamask-institutional/simplecache";
-import { IEIP1559TxParams, ILegacyTXParams } from "@metamask-institutional/types";
+import { SimpleCache } from "@mm-institutional/simplecache";
+import { IEIP1559TxParams, ILegacyTXParams } from "@mm-institutional/types";
 
 import { MessageTypes, TypedMessage } from "../../interfaces/ITypedMessage";
 import { handleResponse } from "../../util/handle-response";

@@ -1,4 +1,4 @@
-import { ICustodianTransactionLink } from "@metamask-institutional/types";
+import { ICustodianTransactionLink } from "@mm-institutional/types";
 import {
   AuthDetails,
   AuthTypes,
@@ -8,7 +8,7 @@ import {
   IRefreshTokenAuthDetails,
   ISignatureDetails,
   ITransactionDetails,
-} from "@metamask-institutional/types";
+} from "@mm-institutional/types";
 import { EventEmitter } from "events";
 import { JsonRpcReplaceTransactionParams } from "src/custodianApi/eca3/rpc-payloads/JsonRpcReplaceTransactionPayload";
 import { JsonRpcListAccountsSignedResponse } from "src/custodianApi/eca3/rpc-responses/JsonRpcListAccountsSignedResponse";
