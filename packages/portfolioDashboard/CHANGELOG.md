@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.0](https://github.com/rocketxujia/metamask-institutional/compare/portfolio-dashboard-v1.5.0...portfolio-dashboard-v1.6.0) (2024-06-05)
+
+
+### Features
+
+* **namespace:** change namespace ([6e8805a](https://github.com/rocketxujia/metamask-institutional/commit/6e8805a1ef73dee491bb8989c0e3a38c503f6dfb))
+* **portfolio-dashboard:** moving pd logic from extension to monorepo ([#117](https://github.com/rocketxujia/metamask-institutional/issues/117)) ([317d476](https://github.com/rocketxujia/metamask-institutional/commit/317d47681b5c31fa30c626a8549d5faeda14b9e9))
+
+
+### Bug Fixes
+
+* clean up coments ([#104](https://github.com/rocketxujia/metamask-institutional/issues/104)) ([99e4114](https://github.com/rocketxujia/metamask-institutional/commit/99e411480b96990efb86eb97f868b33203af3f4b))
+* **handlemmiportfolio:** returns name for non custodial accounts ([#708](https://github.com/rocketxujia/metamask-institutional/issues/708)) ([4b48cbf](https://github.com/rocketxujia/metamask-institutional/commit/4b48cbf0f8495f835201e926d4cec8a2b4826b87))
+* **map:** we were doing a forEach and should be a map in order to return something ([#304](https://github.com/rocketxujia/metamask-institutional/issues/304)) ([2516e3a](https://github.com/rocketxujia/metamask-institutional/commit/2516e3a65e9650ed002a76af61b55c9d9559b790))
+* **npmignore:** clean up ([#271](https://github.com/rocketxujia/metamask-institutional/issues/271)) ([a4bbae1](https://github.com/rocketxujia/metamask-institutional/commit/a4bbae1887ef3cead82b58bd2ec14fbfcd40f662))
+* **portfoliodashboard:** fixes handleMmiPortfolio method ([#192](https://github.com/rocketxujia/metamask-institutional/issues/192)) ([51bb808](https://github.com/rocketxujia/metamask-institutional/commit/51bb808dcac6e75af1dd3b5bf8bb5368d06a811b))
+
 ## [1.5.0](https://github.com/rocketxujia/metamask-institutional/compare/portfolio-dashboard-v1.4.1...portfolio-dashboard-v1.5.0) (2024-06-05)
 
 
