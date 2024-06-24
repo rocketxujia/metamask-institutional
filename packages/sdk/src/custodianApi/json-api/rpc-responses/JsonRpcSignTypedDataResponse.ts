@@ -1,1 +1,3 @@
-export type JsonRpcSignTypedDataResponse = string;
+export type JsonApiSignTypedDataResponse = {
+  msg_id: string;
+};

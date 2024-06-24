@@ -1,1 +1,1 @@
-export type JsonRpcGetSignedMessageByIdPayload = [string];
+export type JsonRpcGetSignedMessageByIdPayload = string;

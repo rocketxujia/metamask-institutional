@@ -1,20 +1,21 @@
-export interface JsonRpcTransactionParams {
-  from: string; // Sending address
-  type: string; // Can be '0x1', '0x2', or '0x3' etc
-  to: string; // 0x-prefixed hex string address
-  gas: string; // 0x-prefixed hex string (Gas Limit)
+export type JsonApiCreateTransactionPayload = JsonApiTransactionParams;
+
+export interface JsonApiTransactionParams {
+  from_address: string; // Sending address
+  to_address: string; // 0x-prefixed hex string address
+  tx_type: string; // Can be '0x1', '0x2', or '0x3' etc
   value: string; // 0x-prefixed hex string (Value)
   data: string; // 0x-prefixed hex string (Data)
-  gasPrice?: string; // 0x-prefixed hex string (Gas Price)
-  maxPriorityFeePerGas?: string; // 0x-prefixed hex string (Max Priority Fee Per Gas)
-  maxFeePerGas?: string; // 0x-prefixed hex string (Max Fee Per Gas)
-}
-
-interface JsonRpcTransactionMeta {
-  chainId: string;
-  originUrl?: string;
+  fee: Fee;
+  chain_id: string;
+  category?: string;
+  origin_url?: string;
   note?: string;
-  transactionCategory?: string;
 }
 
-export type JsonRpcCreateTransactionPayload = [JsonRpcTransactionParams, JsonRpcTransactionMeta];
+export interface Fee {
+  gas_limit: string; // 0x-prefixed hex string (Gas Limit)
+  gas_price?: string; // 0x-prefixed hex string (Gas Price)
+  max_priority_fee?: string; // 0x-prefixed hex string (Max Priority Fee Per Gas) , unit GWei
+  max_fee?: string; // 0x-prefixed hex string (Max Fee Per Gas) , unit GWei
+}

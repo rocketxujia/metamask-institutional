@@ -3,13 +3,12 @@ import fetchMock from "jest-fetch-mock";
 import { mocked } from "ts-jest/utils";
 
 import { INTERACTIVE_REPLACEMENT_TOKEN_CHANGE_EVENT } from "../../constants/constants";
-import { mockJsonRpcCreateTransactionPayload } from "../json-rpc/mocks/mockJsonRpcCreateTransactionPayload";
-import { mockJsonRpcGetSignedMessageByIdPayload } from "../json-rpc/mocks/mockJsonRpcGetSignedMessageByIdPayload";
-import { mockJsonRpcGetTransactionByIdPayload } from "../json-rpc/mocks/mockJsonRpcGetTransactionByIdPayload";
-import { mockJsonRpcGetTransactionLinkPayload } from "../json-rpc/mocks/mockJsonRpcGetTransactionLinkPayload";
-import { mockJsonRpcSignPayload } from "../json-rpc/mocks/mockJsonRpcSignPayload";
-import { mockJsonRpcSignTypedDataPayload } from "../json-rpc/mocks/mockJsonRpcSignTypedDataPayload";
 import { JsonPortalClient } from "./JsonPortalClient";
+import { mockJsonApiCreateTransactionPayload } from "./mocks/mockJsonRpcCreateTransactionPayload";
+import { mockJsonRpcGetSignedMessageByIdPayload } from "./mocks/mockJsonRpcGetSignedMessageByIdPayload";
+import { mockJsonRpcGetTransactionByIdPayload } from "./mocks/mockJsonRpcGetTransactionByIdPayload";
+import { mockJsonRpcSignPayload } from "./mocks/mockJsonRpcSignPayload";
+import { mockJsonRpcSignTypedDataPayload } from "./mocks/mockJsonRpcSignTypedDataPayload";
 
 jest.mock("@mm-institutional/simplecache");
 fetchMock.enableMocks();
@@ -132,9 +131,9 @@ describe("JsonPortalClient", () => {
     beforeEach(() => {
       client._fetch = jest.fn();
     });
-    it("should call the custodian_listAccounts method on the json rpc caller", async () => {
+    it("should call the listAccounts method on the json rpc caller", async () => {
       await client.listAccounts();
-      expect(client._fetch).toHaveBeenCalledWith("/cobo_connect/custodian_listAccounts", {}, "accesstoken");
+      expect(client._fetch).toHaveBeenCalledWith("/connect/accounts", {}, "accesstoken", "Get");
     });
   });
 
@@ -142,24 +141,9 @@ describe("JsonPortalClient", () => {
     beforeEach(() => {
       client._fetch = jest.fn();
     });
-    it("should call the custodian_listAccounts method on the json rpc caller", async () => {
+    it("should call the getCustomerProof method on the json rpc caller", async () => {
       await client.getCustomerProof();
-      expect(client._fetch).toHaveBeenCalledWith("/cobo_connect/custodian_getCustomerProof", {}, "accesstoken");
-    });
-  });
-
-  describe("createTransaction", () => {
-    beforeEach(() => {
-      client._fetch = jest.fn();
-    });
-    it("should call the custodian_createTransaction method on the json rpc caller", async () => {
-      await client.createTransaction(mockJsonRpcCreateTransactionPayload);
-
-      expect(client._fetch).toHaveBeenCalledWith(
-        "/cobo_connect/custodian_createTransaction",
-        mockJsonRpcCreateTransactionPayload,
-        "accesstoken",
-      );
+      expect(client._fetch).toHaveBeenCalledWith("/connect/getCustomerProof", {}, "accesstoken", "Get");
     });
   });
 
@@ -167,11 +151,27 @@ describe("JsonPortalClient", () => {
     beforeEach(() => {
       client._fetch = jest.fn();
     });
-    it("should call the custodian_listAccountChainIds method on the json rpc caller", async () => {
-      await client.getAccountChainIds(["0xtest"]);
+    it("should call the listAccountChainIds method on the json rpc caller", async () => {
+      await client.getAccountChainIds({ address: "0xtest" });
       expect(client._fetch).toHaveBeenCalledWith(
-        "/cobo_connect/custodian_listAccountChainIds",
-        ["0xtest"],
+        "/connect/accounts/chains",
+        { address: "0xtest" },
+        "accesstoken",
+        "Get",
+      );
+    });
+  });
+
+  describe("createTransaction", () => {
+    beforeEach(() => {
+      client._fetch = jest.fn();
+    });
+    it("should call the createTransaction method on the json rpc caller", async () => {
+      await client.createTransaction(mockJsonApiCreateTransactionPayload);
+
+      expect(client._fetch).toHaveBeenCalledWith(
+        "/connect/transactions",
+        mockJsonApiCreateTransactionPayload,
         "accesstoken",
       );
     });
@@ -183,7 +183,7 @@ describe("JsonPortalClient", () => {
     });
     it("should call the custodian_sign method on the json rpc caller", async () => {
       await client.signPersonalMessage(mockJsonRpcSignPayload);
-      expect(client._fetch).toHaveBeenCalledWith("/cobo_connect/custodian_sign", mockJsonRpcSignPayload, "accesstoken");
+      expect(client._fetch).toHaveBeenCalledWith("/connect/sign_messages", mockJsonRpcSignPayload, "accesstoken");
     });
   });
 
@@ -194,7 +194,7 @@ describe("JsonPortalClient", () => {
     it("should call the custodian_signTypedData method on the json rpc caller", async () => {
       await client.signTypedData(mockJsonRpcSignTypedDataPayload);
       expect(client._fetch).toHaveBeenCalledWith(
-        "/cobo_connect/custodian_signTypedData",
+        "/connect/sign_messages",
         mockJsonRpcSignTypedDataPayload,
         "accesstoken",
       );
@@ -208,9 +208,10 @@ describe("JsonPortalClient", () => {
     it("should call the custodian_getSignedMessageById method on the json rpc caller", async () => {
       await client.getSignedMessage(mockJsonRpcGetSignedMessageByIdPayload);
       expect(client._fetch).toHaveBeenCalledWith(
-        "/cobo_connect/custodian_getSignedMessageById",
-        mockJsonRpcGetSignedMessageByIdPayload,
+        `/connect/sign_messages/${mockJsonRpcGetSignedMessageByIdPayload}`,
+        {},
         "accesstoken",
+        "Get",
       );
     });
   });
@@ -222,23 +223,10 @@ describe("JsonPortalClient", () => {
     it("should call the custodian_getTransactionById method on the json rpc caller", async () => {
       await client.getTransaction(mockJsonRpcGetTransactionByIdPayload);
       expect(client._fetch).toHaveBeenCalledWith(
-        "/cobo_connect/custodian_getTransactionById",
-        mockJsonRpcGetTransactionByIdPayload,
+        `/connect/transactions/${mockJsonRpcGetTransactionByIdPayload}`,
+        {},
         "accesstoken",
-      );
-    });
-  });
-
-  describe("getTransactionLink", () => {
-    beforeEach(() => {
-      client._fetch = jest.fn();
-    });
-    it("should call the custodian_getTransactionLink method on the json rpc caller", async () => {
-      await client.getTransactionLink(mockJsonRpcGetTransactionLinkPayload);
-      expect(client._fetch).toHaveBeenCalledWith(
-        "/cobo_connect/custodian_getTransactionLink",
-        mockJsonRpcGetTransactionLinkPayload,
-        "accesstoken",
+        "Get",
       );
     });
   });

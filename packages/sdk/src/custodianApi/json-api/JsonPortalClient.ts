@@ -4,23 +4,21 @@ import crypto from "crypto";
 import { EventEmitter } from "events";
 
 import { INTERACTIVE_REPLACEMENT_TOKEN_CHANGE_EVENT, REFRESH_TOKEN_CHANGE_EVENT } from "../../constants/constants";
-import { JsonPortalError } from "../json-rpc/interfaces/JsonPortalError";
-import { JsonPortalResult } from "../json-rpc/interfaces/JsonPortalResult";
-import { JsonRpcCreateTransactionPayload } from "../json-rpc/rpc-payloads/JsonRpcCreateTransactionPayload";
-import { JsonRpcGetSignedMessageByIdPayload } from "../json-rpc/rpc-payloads/JsonRpcGetSignedMessageByIdPayload";
-import { JsonRpcGetTransactionByIdPayload } from "../json-rpc/rpc-payloads/JsonRpcGetTransactionByIdPayload";
-import { JsonRpcGetTransactionLinkPayload } from "../json-rpc/rpc-payloads/JsonRpcGetTransactionLinkPayload";
-import { JsonRpcListAccountChainIdsPayload } from "../json-rpc/rpc-payloads/JsonRpcListAccountChainIdsPayload";
-import { JsonRpcSignPayload } from "../json-rpc/rpc-payloads/JsonRpcSignPayload";
-import { JsonRpcSignTypedDataPayload } from "../json-rpc/rpc-payloads/JsonRpcSignTypedDataPayload";
-import { JsonRpcCreateTransactionResult } from "../json-rpc/rpc-responses/JsonRpcCreateTransactionResult";
-import { JsonRpcGetCustomerProofResponse } from "../json-rpc/rpc-responses/JsonRpcGetCustomerProofResponse";
-import { JsonRpcGetSignedMessageByIdResponse } from "../json-rpc/rpc-responses/JsonRpcGetSignedMessageByIdResponse";
-import { JsonRpcGetTransactionByIdResponse } from "../json-rpc/rpc-responses/JsonRpcGetTransactionByIdResponse";
-import { JsonRpcGetTransactionLinkResponse } from "../json-rpc/rpc-responses/JsonRpcGetTransactionLinkResponse";
-import { JsonRpcListAccountsResponse } from "../json-rpc/rpc-responses/JsonRpcListAccountsResponse";
-import { JsonRpcSignResponse } from "../json-rpc/rpc-responses/JsonRpcSignResponse";
-import { JsonRpcSignTypedDataResponse } from "../json-rpc/rpc-responses/JsonRpcSignTypedDataResponse";
+import { JsonPortalError } from "./interfaces/JsonPortalError";
+import { JsonPortalResult } from "./interfaces/JsonPortalResult";
+import { JsonApiCreateTransactionPayload } from "./rpc-payloads/JsonRpcCreateTransactionPayload";
+import { JsonRpcGetSignedMessageByIdPayload } from "./rpc-payloads/JsonRpcGetSignedMessageByIdPayload";
+import { JsonRpcGetTransactionByIdPayload } from "./rpc-payloads/JsonRpcGetTransactionByIdPayload";
+import { JsonRpcListAccountChainIdsPayload } from "./rpc-payloads/JsonRpcListAccountChainIdsPayload";
+import { JsonRpcSignPayload } from "./rpc-payloads/JsonRpcSignPayload";
+import { JsonRpcSignTypedDataPayload } from "./rpc-payloads/JsonRpcSignTypedDataPayload";
+import { JsonApiCreateTransactionResult } from "./rpc-responses/JsonRpcCreateTransactionResult";
+import { JsonRpcGetCustomerProofResponse } from "./rpc-responses/JsonRpcGetCustomerProofResponse";
+import { JsonRpcGetSignedMessageByIdResponse } from "./rpc-responses/JsonRpcGetSignedMessageByIdResponse";
+import { JsonRpcGetTransactionByIdResponse } from "./rpc-responses/JsonRpcGetTransactionByIdResponse";
+import { JsonRpcListAccountsResponse } from "./rpc-responses/JsonRpcListAccountsResponse";
+import { JsonApiSignResponse } from "./rpc-responses/JsonRpcSignResponse";
+import { JsonApiSignTypedDataResponse } from "./rpc-responses/JsonRpcSignTypedDataResponse";
 
 export class JsonPortalClient extends EventEmitter {
   private cache: SimpleCache;
@@ -89,7 +87,7 @@ export class JsonPortalClient extends EventEmitter {
        *
        */
       if (response?.status === 401) {
-        const url = responseJson?.url || "https://www.google.com";
+        const url = responseJson?.url;
         const oldRefreshToken = this.refreshToken;
         const hashedToken = crypto
           .createHash("sha256")
@@ -121,14 +119,8 @@ export class JsonPortalClient extends EventEmitter {
         );
 
         const oldRefreshToken = this.refreshToken;
+        // Set and emit REFRESH_TOKEN_CHANGE_EVENT event
         this.setRefreshToken(resultJson.refresh_token);
-
-        // This is a "bottom up" refresh token change, from the custodian
-        const payload: IRefreshTokenChangeEvent = {
-          oldRefreshToken,
-          newRefreshToken: resultJson.refresh_token,
-        };
-        this.emit(REFRESH_TOKEN_CHANGE_EVENT, payload);
       }
 
       return resultJson.access_token;
@@ -140,21 +132,13 @@ export class JsonPortalClient extends EventEmitter {
   async listAccounts(): Promise<JsonPortalResult<JsonRpcListAccountsResponse>> {
     const accessToken = await this.getAccessToken();
 
-    return this._fetch("/cobo_connect/custodian_listAccounts", {}, accessToken);
+    return this._fetch("/connect/accounts", {}, accessToken, "Get");
   }
 
   async getCustomerProof(): Promise<JsonPortalResult<JsonRpcGetCustomerProofResponse>> {
     const accessToken = await this.getAccessToken();
 
-    return this._fetch("/cobo_connect/custodian_getCustomerProof", {}, accessToken);
-  }
-
-  async createTransaction(
-    createTransactionPayload: JsonRpcCreateTransactionPayload,
-  ): Promise<JsonPortalResult<JsonRpcCreateTransactionResult>> {
-    const accessToken = await this.getAccessToken();
-
-    return this._fetch("/cobo_connect/custodian_createTransaction", createTransactionPayload, accessToken);
+    return this._fetch("/connect/getCustomerProof", {}, accessToken, "Get");
   }
 
   async getAccountChainIds(
@@ -162,62 +146,70 @@ export class JsonPortalClient extends EventEmitter {
   ): Promise<JsonPortalResult<string[]>> {
     const accessToken = await this.getAccessToken();
 
-    return this._fetch("/cobo_connect/custodian_listAccountChainIds", listAccountChainIdPayload, accessToken);
+    return this._fetch("/connect/accounts/chains", listAccountChainIdPayload, accessToken, "Get");
   }
 
-  async signPersonalMessage(signPayload: JsonRpcSignPayload): Promise<JsonPortalResult<JsonRpcSignResponse>> {
+  async createTransaction(
+    createTransactionPayload: JsonApiCreateTransactionPayload,
+  ): Promise<JsonPortalResult<JsonApiCreateTransactionResult>> {
     const accessToken = await this.getAccessToken();
 
-    return this._fetch("/cobo_connect/custodian_sign", signPayload, accessToken);
+    return this._fetch("/connect/transactions", createTransactionPayload, accessToken);
+  }
+
+  async signPersonalMessage(signPayload: JsonRpcSignPayload): Promise<JsonPortalResult<JsonApiSignResponse>> {
+    const accessToken = await this.getAccessToken();
+
+    return this._fetch("/connect/sign_messages", signPayload, accessToken);
   }
 
   async signTypedData(
     signPayload: JsonRpcSignTypedDataPayload,
-  ): Promise<JsonPortalResult<JsonRpcSignTypedDataResponse>> {
+  ): Promise<JsonPortalResult<JsonApiSignTypedDataResponse>> {
     const accessToken = await this.getAccessToken();
 
-    return this._fetch("/cobo_connect/custodian_signTypedData", signPayload, accessToken);
+    return this._fetch("/connect/sign_messages", signPayload, accessToken);
   }
 
   async getTransaction(
-    getTransactionPayload: JsonRpcGetTransactionByIdPayload,
+    id: JsonRpcGetTransactionByIdPayload,
   ): Promise<JsonPortalResult<JsonRpcGetTransactionByIdResponse>> {
     const accessToken = await this.getAccessToken();
 
-    return this._fetch("/cobo_connect/custodian_getTransactionById", getTransactionPayload, accessToken);
+    return this._fetch(`/connect/transactions/${id}`, {}, accessToken, "Get");
   }
 
   async getSignedMessage(
-    getSignedMessagePayload: JsonRpcGetSignedMessageByIdPayload,
+    messageId: JsonRpcGetSignedMessageByIdPayload,
   ): Promise<JsonPortalResult<JsonRpcGetSignedMessageByIdResponse>> {
     const accessToken = await this.getAccessToken();
 
-    return this._fetch("/cobo_connect/custodian_getSignedMessageById", getSignedMessagePayload, accessToken);
+    return this._fetch(`/connect/sign_messages/${messageId}`, {}, accessToken, "Get");
   }
 
-  async getTransactionLink(
-    getTransactionLinkPayload: JsonRpcGetTransactionLinkPayload,
-  ): Promise<JsonPortalResult<JsonRpcGetTransactionLinkResponse>> {
-    const accessToken = await this.getAccessToken();
-
-    return this._fetch("/cobo_connect/custodian_getTransactionLink", getTransactionLinkPayload, accessToken);
-  }
-
-  async _fetch<T1, T2>(path: string, data: T1, accessToken: string): Promise<T2> {
+  async _fetch<T1, T2>(path: string, data: T1, accessToken: string, method = "Post"): Promise<T2> {
     let response: Response;
     let responseJson: any;
-    const url = this.apiBaseUrl + path;
+    let url = this.apiBaseUrl + path;
     const options: any = {
-      method: "Post",
+      method,
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${accessToken}`,
       },
-      body: JSON.stringify(data),
     };
-
     try {
       this.requestId++;
+      if (method.toLowerCase() === "post") {
+        options.body = JSON.stringify({
+          ...data,
+          request_id: this.requestId,
+        });
+      } else {
+        // 构建查询字符串
+        const queryString = new URLSearchParams({ ...data, request_id: `${this.requestId}` }).toString();
+        url = `${url}?${queryString}`;
+      }
       response = await fetch(url, options);
       responseJson = await response.json();
 
@@ -226,7 +218,7 @@ export class JsonPortalClient extends EventEmitter {
       } else if ((responseJson as JsonPortalError).error_code) {
         console.log("JsonPortalClient < ", this.requestId, url, responseJson);
         throw new Error(
-          `[${(responseJson as JsonPortalError).error_code}]${(responseJson as JsonPortalError).error_message}`,
+          `[${(responseJson as JsonPortalError).error_code}]${(responseJson as JsonPortalError).error_description}`,
         );
       }
       console.debug("JsonPortalClient < ", this.requestId, url, (responseJson as JsonPortalResult<any>).result);

@@ -1,5 +1,5 @@
 export interface JsonPortalError {
-  "error_code": number,
-  "error_message": string,
-  "error_id": string
+  error_code: number;
+  error_description: string;
+  error_id: string;
 }

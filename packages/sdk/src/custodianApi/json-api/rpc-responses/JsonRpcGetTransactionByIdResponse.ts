@@ -1,17 +1,17 @@
 export interface JsonRpcGetTransactionByIdResponse {
   id: string;
-  type: string;
-  from: string;
-  to: string;
+  tx_type: string;
+  from_address: string;
+  to_address: string;
   value: string;
-  gas: string;
-  gasPrice?: string;
-  maxPriorityFeePerGas?: string;
-  maxFeePerGas?: string;
-  nonce: string;
   data: string;
+  gas_price?: string;
+  gas_limit: string;
+  max_fee?: string;
+  max_priority_fee?: string;
+  nonce: string;
   hash: string;
-  status: {
+  timeline: {
     finished: boolean;
     submitted: boolean;
     signed: boolean;

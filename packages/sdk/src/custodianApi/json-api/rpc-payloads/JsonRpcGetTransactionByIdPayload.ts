@@ -1,1 +1,1 @@
-export type JsonRpcGetTransactionByIdPayload = [string];
+export type JsonRpcGetTransactionByIdPayload = string;

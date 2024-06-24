@@ -1,1 +1,3 @@
-export type JsonRpcCreateTransactionResult = string;
+export type JsonApiCreateTransactionResult = {
+  txid: string;
+};

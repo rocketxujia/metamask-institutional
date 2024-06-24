@@ -1,7 +1,9 @@
 import { JsonPortalResult } from "../interfaces/JsonPortalResult";
-import { JsonRpcSignTypedDataResponse } from "../rpc-responses/JsonRpcSignTypedDataResponse";
+import { JsonApiSignTypedDataResponse } from "../rpc-responses/JsonRpcSignTypedDataResponse";
 
-export const mockJsonRpcSignTypedDataResponse: JsonPortalResult<JsonRpcSignTypedDataResponse> = {
+export const mockJsonRpcSignTypedDataResponse: JsonPortalResult<JsonApiSignTypedDataResponse> = {
   success: true,
-  result: "ef8cb7af-1a00-4687-9f82-1f1c82fbef54",
+  result: {
+    msg_id: "ef8cb7af-1a00-4687-9f82-1f1c82fbef54",
+  },
 };

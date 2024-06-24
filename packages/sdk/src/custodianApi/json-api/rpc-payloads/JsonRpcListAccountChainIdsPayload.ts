@@ -1,1 +1,3 @@
-export type JsonRpcListAccountChainIdsPayload = [string];
+export type JsonRpcListAccountChainIdsPayload = {
+  address: string;
+};

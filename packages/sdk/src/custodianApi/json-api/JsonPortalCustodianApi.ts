@@ -18,9 +18,9 @@ import { IEthereumAccount } from "../../interfaces/IEthereumAccount";
 import { IEthereumAccountCustodianDetails } from "../../interfaces/IEthereumAccountCustodianDetails";
 import { MessageTypes, TypedMessage } from "../../interfaces/ITypedMessage";
 import { CreateTransactionMetadata } from "../../types/CreateTransactionMetadata";
-import { JsonRpcTransactionParams } from "../json-rpc/rpc-payloads/JsonRpcCreateTransactionPayload";
 import { hexlify } from "../json-rpc/util/hexlify";
-import { mapStatusObjectToStatusText } from "../json-rpc/util/mapStatusObjectToStatusText";
+import { JsonApiTransactionParams } from ".//rpc-payloads/JsonRpcCreateTransactionPayload";
+import { mapStatusObjectToStatusText } from ".//util/mapStatusObjectToStatusText";
 import { JsonPortalClient } from "./JsonPortalClient";
 
 export class JsonPortalCustodianApi extends EventEmitter implements ICustodianApi {
@@ -95,65 +95,64 @@ export class JsonPortalCustodianApi extends EventEmitter implements ICustodianAp
       throw new Error("No such ethereum account!");
     }
 
-    const payload: Partial<JsonRpcTransactionParams> = {
-      from: accounts[0].address, // already hexlified
-      to: txParams.to, // already hexlified
+    const payload: Partial<JsonApiTransactionParams> = {
+      from_address: accounts[0].address, // already hexlified
+      to_address: txParams.to, // already hexlified
       data: txParams.data, // already hexlified
       value: hexlify(txParams.value),
-      gas: hexlify(txParams.gasLimit),
-      type: hexlify(txParams.type),
+      tx_type: hexlify(txParams.type),
+      chain_id: hexlify(txMeta.chainId),
+      note: txMeta.note,
+      origin_url: txMeta.origin,
+      category: txMeta.transactionCategory,
     };
 
     if (Number(txParams.type) === 2) {
-      payload.maxFeePerGas = hexlify((txParams as IEIP1559TxParams).maxFeePerGas);
-      payload.maxPriorityFeePerGas = hexlify((txParams as IEIP1559TxParams).maxPriorityFeePerGas);
+      payload.fee = {
+        gas_limit: hexlify(txParams.gasLimit),
+        max_fee: hexlify((txParams as IEIP1559TxParams).maxFeePerGas),
+        max_priority_fee: hexlify((txParams as IEIP1559TxParams).maxFeePerGas),
+      };
     } else {
-      payload.gasPrice = hexlify((txParams as ILegacyTXParams).gasPrice);
+      payload.fee = {
+        gas_limit: hexlify(txParams.gasLimit),
+        gas_price: hexlify((txParams as ILegacyTXParams).gasPrice),
+      };
     }
 
-    const { result } = await this.client.createTransaction([
-      payload as JsonRpcTransactionParams,
-      {
-        chainId: hexlify(txMeta.chainId),
-        note: txMeta.note,
-        originUrl: txMeta.origin,
-        transactionCategory: txMeta.transactionCategory,
-      },
-    ]);
+    const { result } = await this.client.createTransaction(payload as JsonApiTransactionParams);
 
     return {
-      custodian_transactionId: result,
+      custodian_transactionId: result.txid,
       transactionStatus: "created",
       from: accounts[0].address,
     };
   }
 
   async getTransaction(_from: string, custodian_transactionId: string): Promise<ITransactionDetails> {
-    const { result } = await this.client.getTransaction([custodian_transactionId]);
-
+    const { result } = await this.client.getTransaction(custodian_transactionId);
     if (!result) {
       return null;
     }
-
     return {
-      transactionStatus: mapStatusObjectToStatusText(result.status),
-      transactionStatusDisplayText: result.status?.displayText,
+      transactionStatus: mapStatusObjectToStatusText(result.timeline),
+      transactionStatusDisplayText: result.timeline?.displayText,
       custodian_transactionId: result.id,
-      from: result.from,
-      gasLimit: result.gas,
-      gasPrice: result.gasPrice,
-      maxFeePerGas: result.maxFeePerGas,
-      maxPriorityFeePerGas: result.maxPriorityFeePerGas,
+      from: result.from_address,
+      gasLimit: result.gas_limit || "",
+      gasPrice: result.gas_price || "",
+      maxFeePerGas: result.max_fee || "",
+      maxPriorityFeePerGas: result.max_priority_fee || "",
       nonce: result.nonce,
       transactionHash: result.hash,
-      reason: result.status.reason,
-      to: result.to,
+      reason: result.timeline.reason,
+      to: result.to_address,
     };
   }
 
   // Gets a Signed Message by Id and returns relevant data
   async getSignedMessage(_address: string, custodian_signedMessageId: string): Promise<ISignatureDetails> {
-    const { result } = await this.client.getSignedMessage([custodian_signedMessageId]);
+    const { result } = await this.client.getSignedMessage(custodian_signedMessageId);
 
     if (!result) {
       return null;
@@ -161,23 +160,12 @@ export class JsonPortalCustodianApi extends EventEmitter implements ICustodianAp
 
     return {
       signature: result.signature,
-      status: result.status,
+      status: result.timeline,
     };
   }
 
   async getTransactionLink(transactionId: string): Promise<Partial<ICustodianTransactionLink>> {
-    const { result } = await this.client.getTransactionLink([transactionId]);
-
-    if (!result) {
-      return null;
-    }
-
-    return {
-      url: result.url,
-      text: result.text,
-      action: result.action,
-      ethereum: result.ethereum,
-    };
+    return null;
   }
 
   // DEPRECATED
@@ -210,10 +198,16 @@ export class JsonPortalCustodianApi extends EventEmitter implements ICustodianAp
 
     version = version.toLowerCase();
 
-    const { result } = await this.client.signTypedData([address, message, version]);
+    // const { result } = await this.client.signTypedData([address, message, version]);
+    const { result } = await this.client.signTypedData({
+      signing_address: address,
+      payload: JSON.stringify(message),
+      message_type: "EIP712",
+      encoding_version: "v3",
+    });
 
     return {
-      custodian_transactionId: result,
+      custodian_transactionId: result.msg_id,
       transactionStatus: "created",
       from: address,
     };
@@ -226,10 +220,14 @@ export class JsonPortalCustodianApi extends EventEmitter implements ICustodianAp
       throw new Error("No such ethereum account!");
     }
 
-    const { result } = await this.client.signPersonalMessage([address, message]);
+    const { result } = await this.client.signPersonalMessage({
+      signing_address: address,
+      payload: message,
+      message_type: "EIP191",
+    });
 
     return {
-      custodian_transactionId: result,
+      custodian_transactionId: result.msg_id,
       transactionStatus: "created",
       from: accounts[0].address,
     };
@@ -242,7 +240,7 @@ export class JsonPortalCustodianApi extends EventEmitter implements ICustodianAp
 
   async getSupportedChains(address: string): Promise<string[]> {
     return this.cache.tryCachingArray<string>("getSupportedChains-" + address, this.cacheAge, async () => {
-      const { result } = await this.client.getAccountChainIds([address]);
+      const { result } = await this.client.getAccountChainIds({ address });
       return result;
     });
   }
