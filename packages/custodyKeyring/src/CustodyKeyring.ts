@@ -229,7 +229,16 @@ export abstract class CustodyKeyring extends EventEmitter {
     for (const account of this.accountsDetails) {
       const authDetails = account.authDetails as IRefreshTokenAuthDetails;
       if ((authDetails as IRefreshTokenAuthDetails).refreshToken === oldRefreshToken && account.envName === envName) {
+        const oldHash = this.hashAuthDetails(authDetails, envName);
+        const found = this.sdkList.find(item => item.hash === oldHash);
         authDetails.refreshToken = newRefreshToken;
+        if (found) {
+          const newHash = this.hashAuthDetails(authDetails, envName);
+          this.sdkList.push({
+            sdk: found.sdk,
+            hash: newHash,
+          });
+        }
       }
     }
   }
