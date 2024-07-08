@@ -9,6 +9,21 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
   * dependencies
     * @mm-institutional/types bumped from ^1.0.4 to ^1.1.0
 
+## [0.2.1](https://github.com/rocketxujia/metamask-institutional/compare/sdk-v0.2.0...sdk-v0.2.1) (2024-07-08)
+
+
+### Bug Fixes
+
+* **sdk:** modify jsonportalclient and jsonportalcustodianapi ([2b76e12](https://github.com/rocketxujia/metamask-institutional/commit/2b76e120758830c978f0363160f93ae1ee8aaa59))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @mm-institutional/simplecache bumped from ^1.2.0 to ^1.3.0
+    * @mm-institutional/types bumped from ^1.2.0 to ^1.3.0
+
 ## [0.2.0](https://github.com/rocketxujia/metamask-institutional/compare/sdk-v0.1.27...sdk-v0.2.0) (2024-06-05)
 
 
