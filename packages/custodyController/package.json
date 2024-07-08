@@ -27,12 +27,12 @@
   "bugs": {
     "url": "https://github.com/consensys-vertical-apps/metamask-institutional/issues"
   },
-  "gitHead": "62ed7639b9145658a4fa1273e35e99d300acdc99",
+  "gitHead": "c94868b4d1a4ba09f2607512d5524a1fff8354c0",
   "dependencies": {
     "@ethereumjs/util": "^8.0.5",
-    "@mm-institutional/custody-keyring": "file:../custodyKeyring",
-    "@mm-institutional/sdk": "file:../sdk",
-    "@mm-institutional/types": "^1.1.0",
-    "@metamask/obs-store": "^8.0.0"
+    "@metamask/obs-store": "^8.0.0",
+    "@mm-institutional/custody-keyring": "^2.0.1",
+    "@mm-institutional/sdk": "^0.1.27",
+    "@mm-institutional/types": "^1.1.0"
   }
 }

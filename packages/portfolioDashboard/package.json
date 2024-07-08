@@ -25,7 +25,7 @@
     "pre-commit": "lint-staged"
   },
   "bugs": "https://github.com/consensys-vertical-apps/metamask-institutional/issues",
-  "gitHead": "",
+  "gitHead": "c94868b4d1a4ba09f2607512d5524a1fff8354c0",
   "devDependencies": {
     "jest-fetch-mock": "^3.0.3"
   }
