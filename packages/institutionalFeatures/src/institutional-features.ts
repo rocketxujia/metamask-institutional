@@ -60,7 +60,7 @@ export class InstitutionalFeaturesController {
       institutionalFeatures: {
         ...state.institutionalFeatures,
         connectRequests: [
-          ...state.institutionalFeatures.connectRequests,
+          // ...state.institutionalFeatures.connectRequests,
           {
             origin,
             method,
