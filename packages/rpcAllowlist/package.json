@@ -1,5 +1,5 @@
 {
-  "name": "@metamask-institutional/rpc-allowlist",
+  "name": "@mm-institutional/rpc-allowlist",
   "version": "1.0.3",
   "description": "Allowlist for custom JSON-RPC commands",
   "author": "Antonio Regadas <apregadas@gmail.com>",

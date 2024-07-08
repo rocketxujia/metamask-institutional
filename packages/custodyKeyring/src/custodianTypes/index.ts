@@ -1,4 +1,4 @@
-import { ICustodianType } from "@metamask-institutional/types";
+import { ICustodianType } from "@mm-institutional/types";
 
 import { BitgoCustodyKeyring } from "./bitgo/BitgoCustodyKeyring";
 import { CactusCustodyKeyring } from "./cactus/CactusCustodyKeyring";

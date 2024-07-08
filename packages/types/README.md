@@ -9,14 +9,14 @@ A Typescript library to use types and interfaces in order to interact with. [Met
 ### Setting up
 
 ```typescript
-npm i @metamask-institutional/types
-yarn add @metamask-institutional/types
+npm i @mm-institutional/types
+yarn add @mm-institutional/types
 ```
 
 ### Example
 
 ```typescript
-import { ICustodianUpdate } from "@metamask-institutional/types";
+import { ICustodianUpdate } from "@mm-institutional/types";
 
 public  custodianTxData(txData: ICustodianUpdate): void {
  // Do something

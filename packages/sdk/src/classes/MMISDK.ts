@@ -1,4 +1,4 @@
-import { SimpleCache } from "@metamask-institutional/simplecache";
+import { SimpleCache } from "@mm-institutional/simplecache";
 import {
   AuthDetails,
   AuthTypes,
@@ -9,7 +9,7 @@ import {
   IRefreshTokenAuthDetails,
   ISignatureDetails,
   ITransactionDetails,
-} from "@metamask-institutional/types";
+} from "@mm-institutional/types";
 import { EventEmitter } from "events";
 import { JsonRpcReplaceTransactionParams } from "src/custodianApi/eca3/rpc-payloads/JsonRpcReplaceTransactionPayload";
 import { CustodianApiConstructor, ICustodianApi } from "src/interfaces/ICustodianApi";

@@ -9,6 +9,6 @@ Background controller responsible for maintaining a cache of institutional featu
 ### Setting up
 
 ```typescript
-npm i @metamask-institutional/institutional-features
-yarn add @metamask-institutional/institutional-features
+npm i @mm-institutional/institutional-features
+yarn add @mm-institutional/institutional-features
 ```

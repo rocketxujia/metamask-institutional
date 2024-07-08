@@ -9,6 +9,6 @@ A Typescript library responsible for maintaining a cache of MMI Portfolio relate
 ### Setting up
 
 ```typescript
-npm i @metamask-institutional/configurationClient
-yarn add @metamask-institutional/configurationClient
+npm i @mm-institutional/configurationClient
+yarn add @mm-institutional/configurationClient
 ```

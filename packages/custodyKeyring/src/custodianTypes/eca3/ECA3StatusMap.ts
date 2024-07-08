@@ -1,4 +1,4 @@
-import { ITransactionStatusMap, MetaMaskTransactionStatuses } from "@metamask-institutional/types";
+import { ITransactionStatusMap, MetaMaskTransactionStatuses } from "@mm-institutional/types";
 
 export const ECA3StatusMap: ITransactionStatusMap = {
   created: {

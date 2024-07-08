@@ -1,5 +1,5 @@
-import { CustodyKeyring, MmiConfigurationController } from "@metamask-institutional/custody-keyring";
-import { ConnectionRequest, ICustodianUpdate } from "@metamask-institutional/types";
+import { CustodyKeyring, MmiConfigurationController } from "@mm-institutional/custody-keyring";
+import { ConnectionRequest, ICustodianUpdate } from "@mm-institutional/types";
 
 export class IWebsocketClientControllerOptions {
   initState?: Record<string, unknown>;

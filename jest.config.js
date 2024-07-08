@@ -32,14 +32,14 @@ module.exports = {
   // An array of glob patterns indicating a set of files for which coverage information should be collected
   collectCoverageFrom: [
     "**/*.{ts,tsx}",
-    '!**/dist/**',
-    '!**/constants/**',
-    '!**/interfaces/**',
-    '!**/migrations/**',
-    '!**/custodianTypes/**',
-    '!**/rpcAllowlist/**',
-    '!**/node_modules/**',
-    '!**/packages/types/**',
+    "!**/dist/**",
+    "!**/constants/**",
+    "!**/interfaces/**",
+    "!**/migrations/**",
+    "!**/custodianTypes/**",
+    "!**/rpcAllowlist/**",
+    "!**/node_modules/**",
+    "!**/packages/types/**",
     "!./index.ts",
     "!./integration/**",
     "!./constants/**",
@@ -102,7 +102,7 @@ module.exports = {
     ...packages.reduce(
       (acc, name) => ({
         ...acc,
-        [`@metamask-institutional/${name}(.*)$`]: `<rootDir>/packages/${name}/src/$1`,
+        [`@mm-institutional/${name}(.*)$`]: `<rootDir>/packages/${name}/src/$1`,
       }),
       {},
     ),
@@ -181,7 +181,7 @@ module.exports = {
   // ],
 
   // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
-  testPathIgnorePatterns: ["dist", 'packages/custodyKeyring/src/migrations'],
+  testPathIgnorePatterns: ["dist", "packages/custodyKeyring/src/migrations"],
 
   // The regexp pattern or array of patterns that Jest uses to detect test files
   // testRegex: [],

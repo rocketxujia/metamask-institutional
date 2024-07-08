@@ -1,6 +1,6 @@
-import { CUSTODIAN_TYPES } from "@metamask-institutional/custody-keyring";
-import { ConnectionRequest, ConnectRequest } from "@metamask-institutional/types";
 import { ObservableStore } from "@metamask/obs-store";
+import { CUSTODIAN_TYPES } from "@mm-institutional/custody-keyring";
+import { ConnectionRequest, ConnectRequest } from "@mm-institutional/types";
 
 /**
  * @typedef {Object} InstitutionalFeaturesOptions

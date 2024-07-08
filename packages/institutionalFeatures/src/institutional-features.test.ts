@@ -1,4 +1,4 @@
-import { ConnectionRequest, ConnectRequest } from "@metamask-institutional/types";
+import { ConnectionRequest, ConnectRequest } from "@mm-institutional/types";
 
 import { InstitutionalFeaturesController } from "./institutional-features";
 

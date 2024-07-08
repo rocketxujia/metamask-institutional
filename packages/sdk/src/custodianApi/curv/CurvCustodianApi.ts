@@ -7,7 +7,7 @@ import {
   IRefreshTokenAuthDetails,
   ITokenAuthDetails,
   ITransactionDetails,
-} from "@metamask-institutional/types";
+} from "@mm-institutional/types";
 import { EventEmitter } from "events";
 
 import { AccountHierarchyNode } from "../../classes/AccountHierarchyNode";

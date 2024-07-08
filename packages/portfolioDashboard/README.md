@@ -9,6 +9,6 @@ A Typescript library to use types and interfaces in order to interact with. [Met
 ### Setting up
 
 ```typescript
-npm i @metamask-institutional/portfolio-dashboard
-yarn add @metamask-institutional/portfolio-dashboard
+npm i @mm-institutional/portfolio-dashboard
+yarn add @mm-institutional/portfolio-dashboard
 ```
