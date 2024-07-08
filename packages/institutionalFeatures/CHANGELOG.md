@@ -147,6 +147,32 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
   * dependencies
     * @mm-institutional/custody-keyring bumped from ^2.0.0 to ^2.0.1
 
+## [1.4.0](https://github.com/rocketxujia/metamask-institutional/compare/institutional-features-v1.3.3...institutional-features-v1.4.0) (2024-07-08)
+
+
+### Features
+
+* **institutional-features:** added institutional features package ([#77](https://github.com/rocketxujia/metamask-institutional/issues/77)) ([5405893](https://github.com/rocketxujia/metamask-institutional/commit/5405893523c689c5510356c94e290a889346a3b9))
+* **institutional-features:** removed compliance feature ([#398](https://github.com/rocketxujia/metamask-institutional/issues/398)) ([79c57b6](https://github.com/rocketxujia/metamask-institutional/commit/79c57b67b77459ce70594e9f0edc04c13ca9064d))
+* **namespace:** change namespace ([e8b5fac](https://github.com/rocketxujia/metamask-institutional/commit/e8b5fac50b8b59e69906fdf828185064b1b0e4e8))
+* **websocketclient transasctionupdate:** initial handshake work ([#670](https://github.com/rocketxujia/metamask-institutional/issues/670)) ([5cd3bd6](https://github.com/rocketxujia/metamask-institutional/commit/5cd3bd60e9fd342b4b82c8bb589de8b4a0373c5a))
+
+
+### Bug Fixes
+
+* **check null values:** checking null values in signedMEssage and transaction ([#233](https://github.com/rocketxujia/metamask-institutional/issues/233)) ([3e21fb9](https://github.com/rocketxujia/metamask-institutional/commit/3e21fb95f764a9ffe6aea1e459737f7cf62408f7))
+* **institutionalfeatures:** remain the latest connectRequest ([038f022](https://github.com/rocketxujia/metamask-institutional/commit/038f022a5c0b99b64a882f6dd85236917cb6b03a))
+* **npmignore:** clean up ([#271](https://github.com/rocketxujia/metamask-institutional/issues/271)) ([a4bbae1](https://github.com/rocketxujia/metamask-institutional/commit/a4bbae1887ef3cead82b58bd2ec14fbfcd40f662))
+* **packages:** package.json update ([ef663d9](https://github.com/rocketxujia/metamask-institutional/commit/ef663d9f90522b82f2654653159da743b55861cb))
+* **updates packages:** updates packages to the latest versions ([#278](https://github.com/rocketxujia/metamask-institutional/issues/278)) ([0dc78c5](https://github.com/rocketxujia/metamask-institutional/commit/0dc78c5321d8b686320a7d83bd45eae93fefb36a))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @mm-institutional/custody-keyring bumped from ^2.0.1 to ^3.0.0
+
 ## [1.3.0](https://github.com/consensys-vertical-apps/metamask-institutional/compare/institutional-features-v1.2.15...institutional-features-v1.3.0) (2024-04-17)
 
 
