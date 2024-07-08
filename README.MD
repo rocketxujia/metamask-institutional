@@ -26,6 +26,7 @@ npx lerna run build --stream --scope @mm-institutional/sdk
 - 本地 Test
 ````shell
 npx jest packages/transactionUpdate/src/  --ci --coverage
+npx jest packages/sdk/src/  --ci --coverage
 ````
 
 - 全文检索
