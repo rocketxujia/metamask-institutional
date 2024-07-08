@@ -208,6 +208,31 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
     * @metamask-institutional/custody-keyring bumped from ^2.0.0 to ^2.0.1
     * @metamask-institutional/websocket-client bumped from ^0.2.2 to ^0.2.3
 
+## [0.3.0](https://github.com/rocketxujia/metamask-institutional/compare/transaction-update-v0.2.3...transaction-update-v0.3.0) (2024-07-08)
+
+
+### Features
+
+* **websocketclient transasctionupdate:** initial handshake work ([#670](https://github.com/rocketxujia/metamask-institutional/issues/670)) ([5cd3bd6](https://github.com/rocketxujia/metamask-institutional/commit/5cd3bd60e9fd342b4b82c8bb589de8b4a0373c5a))
+
+
+### Bug Fixes
+
+* **npmignore:** clean up ([#271](https://github.com/rocketxujia/metamask-institutional/issues/271)) ([a4bbae1](https://github.com/rocketxujia/metamask-institutional/commit/a4bbae1887ef3cead82b58bd2ec14fbfcd40f662))
+* **transaction-update:** replace ethereumjs-util with @ethereumjs/util ([#720](https://github.com/rocketxujia/metamask-institutional/issues/720)) ([136bb72](https://github.com/rocketxujia/metamask-institutional/commit/136bb721cfb465baf3891deb38f7230d833fc2db))
+* **transactionupdate:** fix console log in transactionUpdate ([#146](https://github.com/rocketxujia/metamask-institutional/issues/146)) ([8b1c752](https://github.com/rocketxujia/metamask-institutional/commit/8b1c752639d4fc09a5874ede6388d0e2570a14b1))
+* **updates packages:** updates packages to the latest versions ([#278](https://github.com/rocketxujia/metamask-institutional/issues/278)) ([0dc78c5](https://github.com/rocketxujia/metamask-institutional/commit/0dc78c5321d8b686320a7d83bd45eae93fefb36a))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @metamask-institutional/custody-keyring bumped from ^2.0.1 to ^3.0.0
+    * @metamask-institutional/sdk bumped from ^0.1.27 to ^0.1.28
+    * @metamask-institutional/types bumped from ^1.1.0 to ^1.2.0
+    * @metamask-institutional/websocket-client bumped from ^0.2.3 to ^0.3.0
+
 ## [0.2.2](https://github.com/consensys-vertical-apps/metamask-institutional/compare/transaction-update-v0.2.1...transaction-update-v0.2.2) (2024-05-17)
 
 
