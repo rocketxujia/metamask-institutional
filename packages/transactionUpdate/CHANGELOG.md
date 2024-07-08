@@ -208,6 +208,32 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
     * @mm-institutional/custody-keyring bumped from ^2.0.0 to ^2.0.1
     * @mm-institutional/websocket-client bumped from ^0.2.2 to ^0.2.3
 
+## [0.4.0](https://github.com/rocketxujia/metamask-institutional/compare/transaction-update-v0.3.0...transaction-update-v0.4.0) (2024-07-08)
+
+
+### Features
+
+* **namespace:** change namespace ([6e8805a](https://github.com/rocketxujia/metamask-institutional/commit/6e8805a1ef73dee491bb8989c0e3a38c503f6dfb))
+* **websocketclient transasctionupdate:** initial handshake work ([#670](https://github.com/rocketxujia/metamask-institutional/issues/670)) ([5cd3bd6](https://github.com/rocketxujia/metamask-institutional/commit/5cd3bd60e9fd342b4b82c8bb589de8b4a0373c5a))
+
+
+### Bug Fixes
+
+* **npmignore:** clean up ([#271](https://github.com/rocketxujia/metamask-institutional/issues/271)) ([a4bbae1](https://github.com/rocketxujia/metamask-institutional/commit/a4bbae1887ef3cead82b58bd2ec14fbfcd40f662))
+* **transaction-update:** replace ethereumjs-util with @ethereumjs/util ([#720](https://github.com/rocketxujia/metamask-institutional/issues/720)) ([136bb72](https://github.com/rocketxujia/metamask-institutional/commit/136bb721cfb465baf3891deb38f7230d833fc2db))
+* **transactionupdate:** fix console log in transactionUpdate ([#146](https://github.com/rocketxujia/metamask-institutional/issues/146)) ([8b1c752](https://github.com/rocketxujia/metamask-institutional/commit/8b1c752639d4fc09a5874ede6388d0e2570a14b1))
+* **updates packages:** updates packages to the latest versions ([#278](https://github.com/rocketxujia/metamask-institutional/issues/278)) ([0dc78c5](https://github.com/rocketxujia/metamask-institutional/commit/0dc78c5321d8b686320a7d83bd45eae93fefb36a))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @mm-institutional/custody-keyring bumped from ^3.0.0 to ^3.1.0
+    * @mm-institutional/sdk bumped from ^0.2.0 to ^0.2.1
+    * @mm-institutional/types bumped from ^1.2.0 to ^1.3.0
+    * @mm-institutional/websocket-client bumped from ^0.3.0 to ^0.4.0
+
 ## [0.3.0](https://github.com/rocketxujia/metamask-institutional/compare/transaction-update-v0.2.3...transaction-update-v0.3.0) (2024-06-05)
 
 

@@ -173,6 +173,39 @@
     * @mm-institutional/custody-keyring bumped from ^2.0.0 to ^2.0.1
     * @mm-institutional/transaction-update bumped from ^0.2.2 to ^0.2.3
 
+## [0.5.0](https://github.com/rocketxujia/metamask-institutional/compare/extension-v0.4.0...extension-v0.5.0) (2024-07-08)
+
+
+### Features
+
+* **institutional-features:** removed compliance feature ([#398](https://github.com/rocketxujia/metamask-institutional/issues/398)) ([79c57b6](https://github.com/rocketxujia/metamask-institutional/commit/79c57b67b77459ce70594e9f0edc04c13ca9064d))
+* **namespace:** change namespace ([6e8805a](https://github.com/rocketxujia/metamask-institutional/commit/6e8805a1ef73dee491bb8989c0e3a38c503f6dfb))
+
+
+### Bug Fixes
+
+* **check null values:** checking null values in signedMEssage and transaction ([#233](https://github.com/rocketxujia/metamask-institutional/issues/233)) ([3e21fb9](https://github.com/rocketxujia/metamask-institutional/commit/3e21fb95f764a9ffe6aea1e459737f7cf62408f7))
+* dont set submitted after confirmation ([#560](https://github.com/rocketxujia/metamask-institutional/issues/560)) ([21db696](https://github.com/rocketxujia/metamask-institutional/commit/21db696b6849e3acb42ece02382db34dc1dfa16f))
+* **extensionutils:** we have to clonedeep txmeta ([#665](https://github.com/rocketxujia/metamask-institutional/issues/665)) ([8b3f3f9](https://github.com/rocketxujia/metamask-institutional/commit/8b3f3f921d139943ed4d38afdb46d8be4305f6b4))
+* **fix version:** fixes custody-keyring and extension package versions ([78b8039](https://github.com/rocketxujia/metamask-institutional/commit/78b80399444469dd669d7cda403ca73452bb78f2))
+* **npmignore:** clean up ([#271](https://github.com/rocketxujia/metamask-institutional/issues/271)) ([a4bbae1](https://github.com/rocketxujia/metamask-institutional/commit/a4bbae1887ef3cead82b58bd2ec14fbfcd40f662))
+* **onboardingurl:** adds the onboardingurl ([#533](https://github.com/rocketxujia/metamask-institutional/issues/533)) ([f3fa7fc](https://github.com/rocketxujia/metamask-institutional/commit/f3fa7fcccf112f23184b47989cdf0ea4058cbe98))
+* **rely on mm block tracker for transaction confirmed:** rely on MM block tracker ([#444](https://github.com/rocketxujia/metamask-institutional/issues/444)) ([85dc4af](https://github.com/rocketxujia/metamask-institutional/commit/85dc4af99cb099a2eefa13f78969a72160f1ee31))
+* **txstatus:** adds missing logic to take care of the hash and update the txMeta object ([#671](https://github.com/rocketxujia/metamask-institutional/issues/671)) ([d3776ca](https://github.com/rocketxujia/metamask-institutional/commit/d3776cab868e893b748a50855305dfd2aa090b53))
+* **updates packages:** updates packages to the latest versions ([#278](https://github.com/rocketxujia/metamask-institutional/issues/278)) ([0dc78c5](https://github.com/rocketxujia/metamask-institutional/commit/0dc78c5321d8b686320a7d83bd45eae93fefb36a))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @mm-institutional/custody-controller bumped from ^0.3.0 to ^0.4.0
+    * @mm-institutional/custody-keyring bumped from ^3.0.0 to ^3.1.0
+    * @mm-institutional/portfolio-dashboard bumped from ^1.5.0 to ^1.6.0
+    * @mm-institutional/sdk bumped from ^0.2.0 to ^0.2.1
+    * @mm-institutional/transaction-update bumped from ^0.3.0 to ^0.4.0
+    * @mm-institutional/types bumped from ^1.2.0 to ^1.3.0
+
 ## [0.4.0](https://github.com/rocketxujia/metamask-institutional/compare/extension-v0.3.25...extension-v0.4.0) (2024-06-05)
 
 

@@ -47,6 +47,20 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
   * dependencies
     * @mm-institutional/sdk bumped from ^0.1.26 to ^0.1.27
 
+## [3.1.0](https://github.com/rocketxujia/metamask-institutional/compare/custody-keyring-v3.0.0...custody-keyring-v3.1.0) (2024-07-08)
+
+
+### Features
+
+* **custodyKeyring:** add new JsonApiCustodyKeyring ([7f950f4](https://github.com/rocketxujia/metamask-institutional/commit/7f950f48ab6386b6bcc8c44bd72a932abacffed9))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @mm-institutional/types bumped from ^1.2.0 to ^1.3.0
+
 ## [3.0.0](https://github.com/rocketxujia/metamask-institutional/compare/custody-keyring-v2.0.1...custody-keyring-v3.0.0) (2024-06-05)
 
 
