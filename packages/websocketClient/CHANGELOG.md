@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.2.4 (2024-07-11)
+
+### Bug Fixes
+
+- clean up ([#148](https://github.com/consensys-vertical-apps/metamask-institutional/issues/148)) ([0133989](https://github.com/consensys-vertical-apps/metamask-institutional/commit/01339892273692e8e6652407d07dc2a77d338999))
+- **github:** npm publish 后自动更新后代码 githead ([6ac833e](https://github.com/consensys-vertical-apps/metamask-institutional/commit/6ac833e27b26b732322b5345cc8d8f79aa5abbb3))
+- **npmignore:** clean up ([#271](https://github.com/consensys-vertical-apps/metamask-institutional/issues/271)) ([a4bbae1](https://github.com/consensys-vertical-apps/metamask-institutional/commit/a4bbae1887ef3cead82b58bd2ec14fbfcd40f662))
+- **package:** update websocket-client 的 模板依赖版本 ([952d043](https://github.com/consensys-vertical-apps/metamask-institutional/commit/952d043822c27016e6f01bc2c104b4b2fb26eeac))
+- **updates packages:** updates packages to the latest versions ([#278](https://github.com/consensys-vertical-apps/metamask-institutional/issues/278)) ([0dc78c5](https://github.com/consensys-vertical-apps/metamask-institutional/commit/0dc78c5321d8b686320a7d83bd45eae93fefb36a))
+- **websocketclient:** marco event ([#207](https://github.com/consensys-vertical-apps/metamask-institutional/issues/207)) ([1788152](https://github.com/consensys-vertical-apps/metamask-institutional/commit/1788152b1a9f2b77d8c5ad0b2e8824a3401c5ba1))
+- **websocketclient:** resets retryDelay ([#143](https://github.com/consensys-vertical-apps/metamask-institutional/issues/143)) ([f2a5b1e](https://github.com/consensys-vertical-apps/metamask-institutional/commit/f2a5b1e1e9c8eefa5f38331668857042ba0bd235))
+- **websocket:** fixes a spelling error ([#109](https://github.com/consensys-vertical-apps/metamask-institutional/issues/109)) ([b057d48](https://github.com/consensys-vertical-apps/metamask-institutional/commit/b057d4890a4822c4bbcd4a9c5559b6731f6e3755))
+
+### Features
+
+- **namespace:** change namespace ([e8b5fac](https://github.com/consensys-vertical-apps/metamask-institutional/commit/e8b5fac50b8b59e69906fdf828185064b1b0e4e8))
+- **websocketclient transasctionupdate:** initial handshake work ([#670](https://github.com/consensys-vertical-apps/metamask-institutional/issues/670)) ([5cd3bd6](https://github.com/consensys-vertical-apps/metamask-institutional/commit/5cd3bd60e9fd342b4b82c8bb589de8b4a0373c5a))
+
 ### Dependencies
 
 - The following workspace dependencies were updated
@@ -24,192 +42,186 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Dependencies
 
-* The following workspace dependencies were updated
-  * dependencies
-    * @mm-institutional/custody-keyring bumped from ^0.0.18 to ^0.0.19
-    * @mm-institutional/sdk bumped from ^0.1.12 to ^0.1.13
+- The following workspace dependencies were updated
+  - dependencies
+    - @mm-institutional/custody-keyring bumped from ^0.0.18 to ^0.0.19
+    - @mm-institutional/sdk bumped from ^0.1.12 to ^0.1.13
 
 ### Dependencies
 
-* The following workspace dependencies were updated
-  * dependencies
-    * @mm-institutional/custody-keyring bumped from ^0.0.19 to ^0.0.20
+- The following workspace dependencies were updated
+  - dependencies
+    - @mm-institutional/custody-keyring bumped from ^0.0.19 to ^0.0.20
 
 ### Dependencies
 
-* The following workspace dependencies were updated
-  * dependencies
-    * @mm-institutional/custody-keyring bumped from ^0.0.22 to ^0.0.24
-    * @mm-institutional/sdk bumped from ^0.1.15 to ^0.1.18
-    * @mm-institutional/types bumped from ^1.0.2 to ^1.0.3
+- The following workspace dependencies were updated
+  - dependencies
+    - @mm-institutional/custody-keyring bumped from ^0.0.22 to ^0.0.24
+    - @mm-institutional/sdk bumped from ^0.1.15 to ^0.1.18
+    - @mm-institutional/types bumped from ^1.0.2 to ^1.0.3
 
 ### Dependencies
 
-* The following workspace dependencies were updated
-  * dependencies
-    * @mm-institutional/custody-keyring bumped from ^0.0.24 to ^0.0.25
+- The following workspace dependencies were updated
+  - dependencies
+    - @mm-institutional/custody-keyring bumped from ^0.0.24 to ^0.0.25
 
 ### Dependencies
 
-* The following workspace dependencies were updated
-  * dependencies
-    * @mm-institutional/custody-keyring bumped from ^0.0.25 to ^0.0.26
+- The following workspace dependencies were updated
+  - dependencies
+    - @mm-institutional/custody-keyring bumped from ^0.0.25 to ^0.0.26
 
 ### Dependencies
 
-* The following workspace dependencies were updated
-  * dependencies
-    * @mm-institutional/custody-keyring bumped from ^0.0.26 to ^0.0.27
+- The following workspace dependencies were updated
+  - dependencies
+    - @mm-institutional/custody-keyring bumped from ^0.0.26 to ^0.0.27
 
 ### Dependencies
 
-* The following workspace dependencies were updated
-  * dependencies
-    * @mm-institutional/custody-keyring bumped from ^0.0.27 to ^1.0.0
+- The following workspace dependencies were updated
+  - dependencies
+    - @mm-institutional/custody-keyring bumped from ^0.0.27 to ^1.0.0
 
 ### Dependencies
 
-* The following workspace dependencies were updated
-  * dependencies
-    * @mm-institutional/custody-keyring bumped from ^1.0.0 to ^1.0.1
+- The following workspace dependencies were updated
+  - dependencies
+    - @mm-institutional/custody-keyring bumped from ^1.0.0 to ^1.0.1
 
 ### Dependencies
 
-* The following workspace dependencies were updated
-  * dependencies
-    * @mm-institutional/custody-keyring bumped from ^1.0.1 to ^1.0.2
+- The following workspace dependencies were updated
+  - dependencies
+    - @mm-institutional/custody-keyring bumped from ^1.0.1 to ^1.0.2
 
 ### Dependencies
 
-* The following workspace dependencies were updated
-  * dependencies
-    * @mm-institutional/custody-keyring bumped from ^1.0.2 to ^1.0.3
-    * @mm-institutional/sdk bumped from ^0.1.18 to ^0.1.19
+- The following workspace dependencies were updated
+  - dependencies
+    - @mm-institutional/custody-keyring bumped from ^1.0.2 to ^1.0.3
+    - @mm-institutional/sdk bumped from ^0.1.18 to ^0.1.19
 
 ### Dependencies
 
-* The following workspace dependencies were updated
-  * dependencies
-    * @mm-institutional/custody-keyring bumped from ^1.0.3 to ^1.0.4
-    * @mm-institutional/sdk bumped from ^0.1.19 to ^0.1.20
+- The following workspace dependencies were updated
+  - dependencies
+    - @mm-institutional/custody-keyring bumped from ^1.0.3 to ^1.0.4
+    - @mm-institutional/sdk bumped from ^0.1.19 to ^0.1.20
 
 ### Dependencies
 
-* The following workspace dependencies were updated
-  * dependencies
-    * @mm-institutional/custody-keyring bumped from ^1.0.4 to ^1.0.5
-    * @mm-institutional/sdk bumped from ^0.1.20 to ^0.1.21
+- The following workspace dependencies were updated
+  - dependencies
+    - @mm-institutional/custody-keyring bumped from ^1.0.4 to ^1.0.5
+    - @mm-institutional/sdk bumped from ^0.1.20 to ^0.1.21
 
 ### Dependencies
 
-* The following workspace dependencies were updated
-  * dependencies
-    * @mm-institutional/custody-keyring bumped from ^1.0.5 to ^1.0.6
-    * @mm-institutional/sdk bumped from ^0.1.21 to ^0.1.22
-    * @mm-institutional/types bumped from ^1.0.3 to ^1.0.4
+- The following workspace dependencies were updated
+  - dependencies
+    - @mm-institutional/custody-keyring bumped from ^1.0.5 to ^1.0.6
+    - @mm-institutional/sdk bumped from ^0.1.21 to ^0.1.22
+    - @mm-institutional/types bumped from ^1.0.3 to ^1.0.4
 
 ### Dependencies
 
-* The following workspace dependencies were updated
-  * dependencies
-    * @mm-institutional/custody-keyring bumped from ^1.0.6 to ^1.0.7
-    * @mm-institutional/sdk bumped from ^0.1.22 to ^0.1.23
+- The following workspace dependencies were updated
+  - dependencies
+    - @mm-institutional/custody-keyring bumped from ^1.0.6 to ^1.0.7
+    - @mm-institutional/sdk bumped from ^0.1.22 to ^0.1.23
 
 ### Dependencies
 
-* The following workspace dependencies were updated
-  * dependencies
-    * @mm-institutional/custody-keyring bumped from ^1.0.7 to ^1.0.8
-    * @mm-institutional/sdk bumped from ^0.1.23 to ^0.1.24
+- The following workspace dependencies were updated
+  - dependencies
+    - @mm-institutional/custody-keyring bumped from ^1.0.7 to ^1.0.8
+    - @mm-institutional/sdk bumped from ^0.1.23 to ^0.1.24
 
 ### Dependencies
 
-* The following workspace dependencies were updated
-  * dependencies
-    * @mm-institutional/custody-keyring bumped from ^1.0.8 to ^1.0.9
+- The following workspace dependencies were updated
+  - dependencies
+    - @mm-institutional/custody-keyring bumped from ^1.0.8 to ^1.0.9
 
 ### Dependencies
 
-* The following workspace dependencies were updated
-  * dependencies
-    * @mm-institutional/custody-keyring bumped from ^1.0.9 to ^1.0.10
+- The following workspace dependencies were updated
+  - dependencies
+    - @mm-institutional/custody-keyring bumped from ^1.0.9 to ^1.0.10
 
 ### Dependencies
 
-* The following workspace dependencies were updated
-  * dependencies
-    * @mm-institutional/custody-keyring bumped from ^1.0.10 to ^1.0.11
-    * @mm-institutional/sdk bumped from ^0.1.24 to ^0.1.25
+- The following workspace dependencies were updated
+  - dependencies
+    - @mm-institutional/custody-keyring bumped from ^1.0.10 to ^1.0.11
+    - @mm-institutional/sdk bumped from ^0.1.24 to ^0.1.25
 
 ### Dependencies
 
-* The following workspace dependencies were updated
-  * dependencies
-    * @mm-institutional/custody-keyring bumped from ^1.0.11 to ^1.0.12
+- The following workspace dependencies were updated
+  - dependencies
+    - @mm-institutional/custody-keyring bumped from ^1.0.11 to ^1.0.12
 
 ### Dependencies
 
-* The following workspace dependencies were updated
-  * dependencies
-    * @mm-institutional/custody-keyring bumped from ^1.1.0 to ^1.1.1
-    * @mm-institutional/sdk bumped from ^0.1.26 to ^0.1.27
+- The following workspace dependencies were updated
+  - dependencies
+    - @mm-institutional/custody-keyring bumped from ^1.1.0 to ^1.1.1
+    - @mm-institutional/sdk bumped from ^0.1.26 to ^0.1.27
 
 ### Dependencies
 
-* The following workspace dependencies were updated
-  * dependencies
-    * @mm-institutional/custody-keyring bumped from ^1.1.2 to ^2.0.0
+- The following workspace dependencies were updated
+  - dependencies
+    - @mm-institutional/custody-keyring bumped from ^1.1.2 to ^2.0.0
 
 ### Dependencies
 
-* The following workspace dependencies were updated
-  * dependencies
-    * @mm-institutional/custody-keyring bumped from ^2.0.0 to ^2.0.1
+- The following workspace dependencies were updated
+  - dependencies
+    - @mm-institutional/custody-keyring bumped from ^2.0.0 to ^2.0.1
 
 ## [0.2.0](https://github.com/consensys-vertical-apps/metamask-institutional/compare/websocket-client-v0.1.40...websocket-client-v0.2.0) (2024-04-17)
 
-
 ### Features
 
-* **websocketclient transasctionupdate:** initial handshake work ([#670](https://github.com/consensys-vertical-apps/metamask-institutional/issues/670)) ([5cd3bd6](https://github.com/consensys-vertical-apps/metamask-institutional/commit/5cd3bd60e9fd342b4b82c8bb589de8b4a0373c5a))
-
+- **websocketclient transasctionupdate:** initial handshake work ([#670](https://github.com/consensys-vertical-apps/metamask-institutional/issues/670)) ([5cd3bd6](https://github.com/consensys-vertical-apps/metamask-institutional/commit/5cd3bd60e9fd342b4b82c8bb589de8b4a0373c5a))
 
 ### Dependencies
 
-* The following workspace dependencies were updated
-  * dependencies
-    * @mm-institutional/custody-keyring bumped from ^1.0.12 to ^1.1.0
-    * @mm-institutional/sdk bumped from ^0.1.25 to ^0.1.26
-    * @mm-institutional/types bumped from ^1.0.4 to ^1.1.0
+- The following workspace dependencies were updated
+  - dependencies
+    - @mm-institutional/custody-keyring bumped from ^1.0.12 to ^1.1.0
+    - @mm-institutional/sdk bumped from ^0.1.25 to ^0.1.26
+    - @mm-institutional/types bumped from ^1.0.4 to ^1.1.0
 
 ## [0.1.23](https://github.com/consensys-vertical-apps/metamask-institutional/compare/websocket-client-v0.1.22...websocket-client-v0.1.23) (2023-05-17)
 
-
 ### Bug Fixes
 
-* **updates packages:** updates packages to the latest versions ([#278](https://github.com/consensys-vertical-apps/metamask-institutional/issues/278)) ([0dc78c5](https://github.com/consensys-vertical-apps/metamask-institutional/commit/0dc78c5321d8b686320a7d83bd45eae93fefb36a))
-
+- **updates packages:** updates packages to the latest versions ([#278](https://github.com/consensys-vertical-apps/metamask-institutional/issues/278)) ([0dc78c5](https://github.com/consensys-vertical-apps/metamask-institutional/commit/0dc78c5321d8b686320a7d83bd45eae93fefb36a))
 
 ### Dependencies
 
-* The following workspace dependencies were updated
-  * dependencies
-    * @mm-institutional/sdk bumped from ^0.1.16 to ^0.1.15
+- The following workspace dependencies were updated
+  - dependencies
+    - @mm-institutional/sdk bumped from ^0.1.16 to ^0.1.15
 
 ## [0.1.22](https://github.com/consensys-vertical-apps/metamask-institutional/compare/websocket-client-v0.1.21...websocket-client-v0.1.22) (2023-05-15)
 
-
 ### Bug Fixes
 
-* **npmignore:** clean up ([#271](https://github.com/consensys-vertical-apps/metamask-institutional/issues/271)) ([a4bbae1](https://github.com/consensys-vertical-apps/metamask-institutional/commit/a4bbae1887ef3cead82b58bd2ec14fbfcd40f662))
-
+- **npmignore:** clean up ([#271](https://github.com/consensys-vertical-apps/metamask-institutional/issues/271)) ([a4bbae1](https://github.com/consensys-vertical-apps/metamask-institutional/commit/a4bbae1887ef3cead82b58bd2ec14fbfcd40f662))
 
 ### Dependencies
 
-* The following workspace dependencies were updated
-  * dependencies
-    * @mm-institutional/custody-keyring bumped from ^0.0.20 to ^0.0.21
-    * @mm-institutional/sdk bumped from ^0.1.13 to ^0.1.14
+- The following workspace dependencies were updated
+  - dependencies
+    - @mm-institutional/custody-keyring bumped from ^0.0.20 to ^0.0.21
+    - @mm-institutional/sdk bumped from ^0.1.13 to ^0.1.14
 
 ## [0.1.19](https://github.com/consensys-vertical-apps/metamask-institutional/compare/websocket-client-v0.1.18...websocket-client-v0.1.19) (2023-03-28)
 
