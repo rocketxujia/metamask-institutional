@@ -1238,37 +1238,6 @@
   resolved "https://registry.yarnpkg.com/@metamask/safe-event-emitter/-/safe-event-emitter-2.0.0.tgz#af577b477c683fad17c619a78208cede06f9605c"
   integrity sha512-/kSXhY692qiV1MXu6EeOZvg5nECLclxNXcKCxJ3cXQgYuRymRHpdx/t7JXfsK+JLjwA1e1c1/SBrlQYpusC29Q==
 
-"@mm-institutional/custody-keyring@^2.0.1":
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/@mm-institutional/custody-keyring/-/custody-keyring-3.0.0.tgz#d8bd275c8b8cdebf8a633d1429e3be03c8cddb91"
-  integrity sha512-hB+k/TMK43qRTYCZ/rVc9abqdyogNZ2gPxI3OnDF1e7T/2HIbjQHJ52yLqGjBE3M2uacYGZWm250t2EpBwIacg==
-  dependencies:
-    "@ethereumjs/tx" "^4.1.1"
-    "@ethereumjs/util" "^8.0.5"
-    "@metamask/obs-store" "^8.0.0"
-    "@mm-institutional/configuration-client" "^3.0.0"
-    "@mm-institutional/sdk" "^0.2.0"
-    "@mm-institutional/types" "^1.2.0"
-    crypto "^1.0.1"
-    lodash.clonedeep "^4.5.0"
-
-"@mm-institutional/sdk@^0.1.27":
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/@mm-institutional/sdk/-/sdk-0.2.0.tgz#c0952f47fde5aeb231c7fd335696fdfba0f0d60f"
-  integrity sha512-MtXU4VCLGF/W2ggi+Hulln9vb3yC6tyZKQRkAriqV2oOcBOc4vyM9rMfa5E0IVUKrkDuWBRo+fk0AeWlDkkDjg==
-  dependencies:
-    "@mm-institutional/simplecache" "^1.2.0"
-    "@mm-institutional/types" "^1.2.0"
-    "@types/jsonwebtoken" "^9.0.1"
-    "@types/node" "^20.11.17"
-    bignumber.js "^9.1.1"
-    jsonwebtoken "^9.0.0"
-
-"@mm-institutional/simplecache@^1.2.0":
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/@mm-institutional/simplecache/-/simplecache-1.2.0.tgz#52f330eaa9ff90eabc567183a7878d79a658cd0e"
-  integrity sha512-NvBaCo+35XlzBT2YSuA5oTvczd73TmV8Ahiw+V2amabN7vOpQmZGOssr0Y8f4mkebfMJFxcTy/cqZ99IfCDugg==
-
 "@mm-institutional/transaction-update@^0.3.0":
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/@mm-institutional/transaction-update/-/transaction-update-0.3.0.tgz#174d9fb2df91d7bb690ac0acaa1195c176230ddf"
