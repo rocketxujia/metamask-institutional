@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.3](https://github.com/consensys-vertical-apps/metamask-institutional/compare/@mm-institutional/sdk@0.2.2...@mm-institutional/sdk@0.2.3) (2024-07-11)
+
+### Bug Fixes
+
+- **jsop-api-tx-res:** connect_request_id 命名 ([87df743](https://github.com/consensys-vertical-apps/metamask-institutional/commit/87df7438c4dc284c8cad10b80010b9fcd0d0f3ec))
+
 ## 0.2.2 (2024-07-11)
 
 ### Bug Fixes
