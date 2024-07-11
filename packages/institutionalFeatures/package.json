@@ -27,10 +27,10 @@
   "bugs": {
     "url": "https://github.com/consensys-vertical-apps/metamask-institutional/issues"
   },
-  "gitHead": "62ed7639b9145658a4fa1273e35e99d300acdc99",
+  "gitHead": "714f7de2b6fc67bb87b8e6f89b383631ffc75fb6",
   "dependencies": {
-    "@mm-institutional/custody-keyring": "^3.0.0",
-    "@metamask/obs-store": "^8.0.0"
+    "@metamask/obs-store": "^8.0.0",
+    "@mm-institutional/custody-keyring": "^3.0.0"
   },
   "devDependencies": {
     "jest-fetch-mock": "^3.0.3"

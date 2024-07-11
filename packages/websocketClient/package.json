@@ -27,7 +27,7 @@
   "bugs": {
     "url": "https://github.com/consensys-vertical-apps/metamask-institutional/issues"
   },
-  "gitHead": "",
+  "gitHead": "714f7de2b6fc67bb87b8e6f89b383631ffc75fb6",
   "dependencies": {
     "@mm-institutional/custody-keyring": "^2.0.1",
     "@mm-institutional/sdk": "^0.1.27",
