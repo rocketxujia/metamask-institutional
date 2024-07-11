@@ -203,7 +203,7 @@ export class JsonPortalClient extends EventEmitter {
       if (method.toLowerCase() === "post") {
         options.body = JSON.stringify({
           ...data,
-          request_id: this.connectRequestId,
+          connect_request_id: this.connectRequestId,
         });
       } else {
         // 构建查询字符串
