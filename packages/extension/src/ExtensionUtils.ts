@@ -147,6 +147,8 @@ export function custodianEventHandlerFactory({
     if (!Object.hasOwnProperty.call(txData, "signedMessage") && !txData.transaction) {
       return getState();
     }
+
+    // It is a signedMessage
     if (Object.hasOwnProperty.call(txData, "signedMessage") && txData.signedMessage !== null) {
       console.log("Update for message:", txData.signedMessage.id, txData.signedMessage.status);
 
@@ -276,7 +278,7 @@ export async function handleTxStatusUpdate(
     const mutableTxMeta = cloneDeep(txMeta);
 
     mutableTxMeta.custodyStatus = txData.transaction.status.displayText.toLowerCase();
-    mutableTxMeta.custodyStatusDisplayText = txData.transaction?.status.displayText;
+    mutableTxMeta.custodyStatusDisplayText = txData.transaction?.status.reason;
 
     if (txData.transaction.hash && (!mutableTxMeta.hash || mutableTxMeta.hash === "0x")) {
       setTxHash(mutableTxMeta.id, txData.transaction.hash);
@@ -362,8 +364,12 @@ export async function handleTxStatusUpdate(
       mutableTxMeta.status = mutableTxMeta.custodyStatus;
     }
 
-    txStateManager.updateTransaction(mutableTxMeta, "Updated custody transaction status.");
+    // update portal attributes
+    mutableTxMeta.custodyRequestId = txData.transaction.custodyRequestId;
+    mutableTxMeta.custodyResult = txData.transaction.status.displayText || "--";
 
+    // txStateManager updateTransaction
+    txStateManager.updateTransaction(mutableTxMeta, "Updated custody transaction status.");
     return mutableTxMeta;
   }
   return null;

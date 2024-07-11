@@ -1,5 +1,6 @@
 export interface JsonRpcGetTransactionByIdResponse {
   id: string;
+  request_id: string;
   tx_type: string;
   from_address: string;
   to_address: string;

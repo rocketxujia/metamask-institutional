@@ -123,7 +123,8 @@ export class JsonPortalCustodianApi extends EventEmitter implements ICustodianAp
     const { result } = await this.client.createTransaction(payload as JsonApiTransactionParams);
 
     return {
-      custodian_transactionId: result.txid,
+      custodian_transactionId: result.tx_id,
+      custodian_requestId: result.request_id,
       transactionStatus: "created",
       from: accounts[0].address,
     };
@@ -135,6 +136,7 @@ export class JsonPortalCustodianApi extends EventEmitter implements ICustodianAp
       return null;
     }
     return {
+      custodian_requestId: result.request_id,
       transactionStatus: mapStatusObjectToStatusText(result.timeline),
       transactionStatusDisplayText: result.timeline?.displayText,
       custodian_transactionId: result.id,

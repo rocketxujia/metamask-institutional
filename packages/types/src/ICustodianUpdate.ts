@@ -20,6 +20,9 @@ export interface ICustodianUpdate {
       displayText: string; // Text which is displayed to users
       reason: string; // The reason for the transaction status - for example, the failure reason
     };
+    // portal attribues
+    custodyRequestId?: string; // Portal 唯一识别请求 ID
+    custodyResult?: string; // Portal 交易
   };
   signedMessage?: {
     id: string; // This must match the signature ID from the custodian_sign or custodian_signTypeData method

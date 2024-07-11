@@ -1,5 +1,5 @@
-import { IConfiguration } from "./types";
 import defaultConfig from "./configuration";
+import { IConfiguration } from "./types";
 
 export class ConfigurationClient {
   constructor(public configurationApiUrl: string = "") {}
@@ -7,7 +7,7 @@ export class ConfigurationClient {
   async getConfiguration(): Promise<IConfiguration> {
     console.log(`Fetching MMI configuration from ${this.configurationApiUrl}`);
     try {
-      if (!Boolean(this.configurationApiUrl)) {
+      if (!this.configurationApiUrl) {
         return defaultConfig;
       }
       const response = await fetch(this.configurationApiUrl, { method: "GET" });

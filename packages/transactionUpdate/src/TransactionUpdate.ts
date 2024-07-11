@@ -323,6 +323,7 @@ export class TransactionUpdateController extends EventEmitter {
       updateEvent = {
         transaction: {
           id: watchedTransaction.custodianTransactionId,
+          custodyRequestId: result.custodian_requestId,
           hash: result.transactionHash,
           status: statusObject,
           from: result.from,

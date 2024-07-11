@@ -22,5 +22,6 @@ export const mockJsonRpcGetTransactionByIdResponse: JsonPortalResult<JsonRpcGetT
       displayText: "Mined",
       reason: null,
     },
+    request_id: "mock_request_id",
   },
 };

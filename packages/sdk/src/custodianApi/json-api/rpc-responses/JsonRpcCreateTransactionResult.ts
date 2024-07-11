@@ -1,3 +1,4 @@
 export type JsonApiCreateTransactionResult = {
-  txid: string;
+  tx_id: string;
+  request_id: string;
 };

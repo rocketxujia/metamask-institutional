@@ -25,6 +25,9 @@ export interface ITransactionDetails {
   signedRawTransaction?: string;
   rpcUrl?: string;
   note?: string;
+
+  // Portal 逻辑相关属性
+  custodian_requestId?: string;
 }
 
 export type TransactionStatus =

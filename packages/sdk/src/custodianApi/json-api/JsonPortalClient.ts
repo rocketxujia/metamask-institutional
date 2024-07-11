@@ -26,7 +26,7 @@ export class JsonPortalClient extends EventEmitter {
   // At the start, we don't know how long the token will be valid for
   private cacheAge = null;
 
-  private requestId = 0;
+  private connectRequestId = 0;
 
   constructor(
     private apiBaseUrl: string = "http://127.0.0.1:4523/m1/3409424-1099445-default",
@@ -199,15 +199,15 @@ export class JsonPortalClient extends EventEmitter {
       },
     };
     try {
-      this.requestId++;
+      this.connectRequestId++;
       if (method.toLowerCase() === "post") {
         options.body = JSON.stringify({
           ...data,
-          request_id: this.requestId,
+          request_id: this.connectRequestId,
         });
       } else {
         // 构建查询字符串
-        const queryString = new URLSearchParams({ ...data, request_id: `${this.requestId}` }).toString();
+        const queryString = new URLSearchParams({ ...data, connect_request_id: `${this.connectRequestId}` }).toString();
         url = `${url}?${queryString}`;
       }
       response = await fetch(url, options);
@@ -216,14 +216,14 @@ export class JsonPortalClient extends EventEmitter {
       if (!response.ok) {
         throw new Error("Network response was not ok");
       } else if ((responseJson as JsonPortalError).error_code) {
-        console.log("JsonPortalClient < ", this.requestId, url, responseJson);
+        console.log("JsonPortalClient < ", this.connectRequestId, url, responseJson);
         throw new Error(
-          `[${(responseJson as JsonPortalError).error_code}]${(responseJson as JsonPortalError).error_description}`,
+          `${(responseJson as JsonPortalError).error_description}[${(responseJson as JsonPortalError).error_code}]`,
         );
       }
-      console.debug("JsonPortalClient < ", this.requestId, url, (responseJson as JsonPortalResult<any>).result);
+      console.debug("JsonPortalClient < ", this.connectRequestId, url, (responseJson as JsonPortalResult<any>).result);
     } catch (e) {
-      console.log("JsonPortalClient < ", this.requestId, url, e);
+      console.log("JsonPortalClient < ", this.connectRequestId, url, e);
       throw e;
     }
 
