@@ -278,7 +278,7 @@ export async function handleTxStatusUpdate(
     const mutableTxMeta = cloneDeep(txMeta);
 
     mutableTxMeta.custodyStatus = txData.transaction.status.displayText.toLowerCase();
-    mutableTxMeta.custodyStatusDisplayText = txData.transaction?.status.reason;
+    mutableTxMeta.custodyStatusDisplayText = txData.transaction?.status.reason || "--";
 
     if (txData.transaction.hash && (!mutableTxMeta.hash || mutableTxMeta.hash === "0x")) {
       setTxHash(mutableTxMeta.id, txData.transaction.hash);
@@ -366,7 +366,7 @@ export async function handleTxStatusUpdate(
 
     // update portal attributes
     mutableTxMeta.custodyRequestId = txData.transaction.custodyRequestId;
-    mutableTxMeta.custodyResult = txData.transaction.status.displayText || "--";
+    mutableTxMeta.custodyStatusReason = txData.transaction.status.reason || "--";
 
     // txStateManager updateTransaction
     txStateManager.updateTransaction(mutableTxMeta, "Updated custody transaction status.");

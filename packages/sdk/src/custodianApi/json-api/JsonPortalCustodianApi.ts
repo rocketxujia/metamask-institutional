@@ -124,9 +124,10 @@ export class JsonPortalCustodianApi extends EventEmitter implements ICustodianAp
 
     return {
       custodian_transactionId: result.tx_id,
-      custodian_requestId: result.request_id,
       transactionStatus: "created",
       from: accounts[0].address,
+      // Portal 属性
+      custodianRequestId: result.request_id,
     };
   }
 
@@ -136,10 +137,9 @@ export class JsonPortalCustodianApi extends EventEmitter implements ICustodianAp
       return null;
     }
     return {
-      custodian_requestId: result.request_id,
+      custodian_transactionId: result.id,
       transactionStatus: mapStatusObjectToStatusText(result.timeline),
       transactionStatusDisplayText: result.timeline?.displayText,
-      custodian_transactionId: result.id,
       from: result.from_address,
       gasLimit: result.gas_limit || "",
       gasPrice: result.gas_price || "",
@@ -149,6 +149,8 @@ export class JsonPortalCustodianApi extends EventEmitter implements ICustodianAp
       transactionHash: result.hash,
       reason: result.timeline.reason,
       to: result.to_address,
+      // Portal 属性
+      custodianRequestId: result.request_id,
     };
   }
 

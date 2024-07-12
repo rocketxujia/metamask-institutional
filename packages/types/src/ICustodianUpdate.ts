@@ -22,7 +22,8 @@ export interface ICustodianUpdate {
     };
     // portal attribues
     custodyRequestId?: string; // Portal 唯一识别请求 ID
-    custodyResult?: string; // Portal 交易
+    custodyResult?: string; // Portal 交易结果文案
+    // custodyStatusReson?: string; // Portal 交易状态结果
   };
   signedMessage?: {
     id: string; // This must match the signature ID from the custodian_sign or custodian_signTypeData method

@@ -27,7 +27,8 @@ export interface ITransactionDetails {
   note?: string;
 
   // Portal 逻辑相关属性
-  custodian_requestId?: string;
+  custodianRequestId?: string;
+  custodianStatusReason?: string;
 }
 
 export type TransactionStatus =
