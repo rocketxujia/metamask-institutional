@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.6](https://github.com/consensys-vertical-apps/metamask-institutional/compare/@mm-institutional/transaction-update@0.2.5...@mm-institutional/transaction-update@0.2.6) (2024-07-12)
+
+### Bug Fixes
+
+- **jsop-api-tx-res:** 添加 reason 到 Portal 交易 ([92da1a3](https://github.com/consensys-vertical-apps/metamask-institutional/commit/92da1a34ae44e1fcf9cdeccf893ae9ed74ad8dc5))
+
 ## [0.2.5](https://github.com/consensys-vertical-apps/metamask-institutional/compare/@mm-institutional/transaction-update@0.2.4...@mm-institutional/transaction-update@0.2.5) (2024-07-11)
 
 **Note:** Version bump only for package @mm-institutional/transaction-update
