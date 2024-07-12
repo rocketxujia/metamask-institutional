@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.0](https://github.com/rocketxujia/metamask-institutional/compare/transaction-update-v0.2.3...transaction-update-v0.3.0) (2024-07-12)
+
+
+### Features
+
+* **namespace:** change namespace ([e8b5fac](https://github.com/rocketxujia/metamask-institutional/commit/e8b5fac50b8b59e69906fdf828185064b1b0e4e8))
+* **websocketclient transasctionupdate:** initial handshake work ([#670](https://github.com/rocketxujia/metamask-institutional/issues/670)) ([5cd3bd6](https://github.com/rocketxujia/metamask-institutional/commit/5cd3bd60e9fd342b4b82c8bb589de8b4a0373c5a))
+
+
+### Bug Fixes
+
+* **github:** npm publish 后自动更新后代码 githead ([6ac833e](https://github.com/rocketxujia/metamask-institutional/commit/6ac833e27b26b732322b5345cc8d8f79aa5abbb3))
+* **jsop-api-tx-res:** 添加 reason  到 Portal 交易 ([92da1a3](https://github.com/rocketxujia/metamask-institutional/commit/92da1a34ae44e1fcf9cdeccf893ae9ed74ad8dc5))
+* **jsop-api-tx-res:** 添加 request_id, result 到 Portal 交易 ([5ad09b3](https://github.com/rocketxujia/metamask-institutional/commit/5ad09b368cb91d3c425b9d5dc115db2839c5d2f4))
+* **npmignore:** clean up ([#271](https://github.com/rocketxujia/metamask-institutional/issues/271)) ([a4bbae1](https://github.com/rocketxujia/metamask-institutional/commit/a4bbae1887ef3cead82b58bd2ec14fbfcd40f662))
+* **package:** update modified modules version and yarn ([714f7de](https://github.com/rocketxujia/metamask-institutional/commit/714f7de2b6fc67bb87b8e6f89b383631ffc75fb6))
+* **transaction-update:** replace ethereumjs-util with @ethereumjs/util ([#720](https://github.com/rocketxujia/metamask-institutional/issues/720)) ([136bb72](https://github.com/rocketxujia/metamask-institutional/commit/136bb721cfb465baf3891deb38f7230d833fc2db))
+* **transactionupdate:** fix console log in transactionUpdate ([#146](https://github.com/rocketxujia/metamask-institutional/issues/146)) ([8b1c752](https://github.com/rocketxujia/metamask-institutional/commit/8b1c752639d4fc09a5874ede6388d0e2570a14b1))
+* **updates packages:** updates packages to the latest versions ([#278](https://github.com/rocketxujia/metamask-institutional/issues/278)) ([0dc78c5](https://github.com/rocketxujia/metamask-institutional/commit/0dc78c5321d8b686320a7d83bd45eae93fefb36a))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @mm-institutional/custody-keyring bumped from ^3.0.4 to ^3.0.0
+    * @mm-institutional/sdk bumped from ^0.2.4 to ^0.2.0
+    * @mm-institutional/types bumped from ^1.2.3 to ^1.2.0
+    * @mm-institutional/websocket-client bumped from ^0.2.6 to ^0.3.0
+
 ## [0.2.6](https://github.com/consensys-vertical-apps/metamask-institutional/compare/@mm-institutional/transaction-update@0.2.5...@mm-institutional/transaction-update@0.2.6) (2024-07-12)
 
 ### Bug Fixes

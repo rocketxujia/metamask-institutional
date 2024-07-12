@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.0](https://github.com/rocketxujia/metamask-institutional/compare/types-v1.1.0...types-v1.2.0) (2024-07-12)
+
+
+### Features
+
+* **namespace:** change namespace ([e8b5fac](https://github.com/rocketxujia/metamask-institutional/commit/e8b5fac50b8b59e69906fdf828185064b1b0e4e8))
+* **websocketclient transasctionupdate:** initial handshake work ([#670](https://github.com/rocketxujia/metamask-institutional/issues/670)) ([5cd3bd6](https://github.com/rocketxujia/metamask-institutional/commit/5cd3bd60e9fd342b4b82c8bb589de8b4a0373c5a))
+
+
+### Bug Fixes
+
+* **custodyid:** missing custodyId property in type ([#290](https://github.com/rocketxujia/metamask-institutional/issues/290)) ([5f3e8bc](https://github.com/rocketxujia/metamask-institutional/commit/5f3e8bc16c722a5d68f780cff67d366f675b9269))
+* **github:** npm publish 后自动更新后代码 githead ([6ac833e](https://github.com/rocketxujia/metamask-institutional/commit/6ac833e27b26b732322b5345cc8d8f79aa5abbb3))
+* **jsop-api-tx-res:** 添加 reason  到 Portal 交易 ([92da1a3](https://github.com/rocketxujia/metamask-institutional/commit/92da1a34ae44e1fcf9cdeccf893ae9ed74ad8dc5))
+* **jsop-api-tx-res:** 添加 request_id, result 到 Portal 交易 ([5ad09b3](https://github.com/rocketxujia/metamask-institutional/commit/5ad09b368cb91d3c425b9d5dc115db2839c5d2f4))
+* **npmignore:** clean up ([#271](https://github.com/rocketxujia/metamask-institutional/issues/271)) ([a4bbae1](https://github.com/rocketxujia/metamask-institutional/commit/a4bbae1887ef3cead82b58bd2ec14fbfcd40f662))
+* **onboardingurl:** adds the onboardingurl ([#533](https://github.com/rocketxujia/metamask-institutional/issues/533)) ([f3fa7fc](https://github.com/rocketxujia/metamask-institutional/commit/f3fa7fcccf112f23184b47989cdf0ea4058cbe98))
+* **package:** update modified modules version and yarn ([714f7de](https://github.com/rocketxujia/metamask-institutional/commit/714f7de2b6fc67bb87b8e6f89b383631ffc75fb6))
+* **simplecache:** fixing access publish && git push ([#37](https://github.com/rocketxujia/metamask-institutional/issues/37)) ([d668eae](https://github.com/rocketxujia/metamask-institutional/commit/d668eae8d3995241a4dbd873a0aea0172a19700a))
+
 ## [1.2.3](https://github.com/consensys-vertical-apps/metamask-institutional/compare/@mm-institutional/types@1.2.2...@mm-institutional/types@1.2.3) (2024-07-12)
 
 ### Bug Fixes
