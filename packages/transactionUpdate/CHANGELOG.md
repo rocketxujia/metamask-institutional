@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.7](https://github.com/consensys-vertical-apps/metamask-institutional/compare/@mm-institutional/transaction-update@0.2.6...@mm-institutional/transaction-update@0.2.7) (2024-07-29)
+
+### Bug Fixes
+
+- **jsop-api-tx-res:** custodianStatusReason null issue ([db41d37](https://github.com/consensys-vertical-apps/metamask-institutional/commit/db41d3727074ac77bce9685038c40629d9f9d773))
+
 ## [0.2.6](https://github.com/consensys-vertical-apps/metamask-institutional/compare/@mm-institutional/transaction-update@0.2.5...@mm-institutional/transaction-update@0.2.6) (2024-07-12)
 
 ### Bug Fixes

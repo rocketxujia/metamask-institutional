@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.6](https://github.com/consensys-vertical-apps/metamask-institutional/compare/@mm-institutional/sdk@0.2.4...@mm-institutional/sdk@0.2.6) (2024-07-29)
+
+### Bug Fixes
+
+- **jsop-api-tx-res:** custodianStatusReason null issue ([db41d37](https://github.com/consensys-vertical-apps/metamask-institutional/commit/db41d3727074ac77bce9685038c40629d9f9d773))
+- **jsop-api-tx-res:** query error message ([199be83](https://github.com/consensys-vertical-apps/metamask-institutional/commit/199be83e796fab4ae672859a8b4a1ca04808dd05))
+
 ## [0.2.4](https://github.com/consensys-vertical-apps/metamask-institutional/compare/@mm-institutional/sdk@0.2.3...@mm-institutional/sdk@0.2.4) (2024-07-12)
 
 ### Bug Fixes
