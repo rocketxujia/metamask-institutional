@@ -213,17 +213,14 @@ export class JsonPortalClient extends EventEmitter {
       response = await fetch(url, options);
       responseJson = await response.json();
 
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
-      } else if ((responseJson as JsonPortalError).error_code) {
-        console.log("JsonPortalClient < ", this.connectRequestId, url, responseJson);
+      console.info("JsonPortalClient < ", this.connectRequestId, url, responseJson);
+      if ((responseJson as JsonPortalError).error_code) {
         throw new Error(
-          `${(responseJson as JsonPortalError).error_description}[${(responseJson as JsonPortalError).error_code}]`,
+          `${(responseJson as JsonPortalError).error_message}[${(responseJson as JsonPortalError).error_code}]`,
         );
       }
-      console.debug("JsonPortalClient < ", this.connectRequestId, url, (responseJson as JsonPortalResult<any>).result);
     } catch (e) {
-      console.log("JsonPortalClient < ", this.connectRequestId, url, e);
+      console.error("JsonPortalClient < ", this.connectRequestId, url, e);
       throw e;
     }
 
