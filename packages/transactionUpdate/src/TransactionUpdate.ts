@@ -316,7 +316,7 @@ export class TransactionUpdateController extends EventEmitter {
     } else {
       result = await custodyKeyring.getTransaction(watchedTransaction.from, watchedTransaction.custodianTransactionId);
 
-      const statusObject = mapTransactionStatus(result.transactionStatus);
+      const statusObject = mapTransactionStatus(result.transactionStatus, result.custodianStatusReason);
 
       // At the moment this kind of duplicates logic from getCustodianTransactions()
 

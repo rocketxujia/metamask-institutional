@@ -151,6 +151,7 @@ export class JsonPortalCustodianApi extends EventEmitter implements ICustodianAp
       to: result.to_address,
       // Portal 属性
       custodianRequestId: result.request_id,
+      custodianStatusReason: result.timeline.reason,
     };
   }
 
