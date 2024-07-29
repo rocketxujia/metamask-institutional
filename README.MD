@@ -35,6 +35,15 @@ grep -rl '@mm-institutional' | xargs sed -i '' 's/@mm-institutional/@mm-institut
 find . -type f -maxdepth 1 -name "jsconfig.json" 
 ````
 
+## Local publish
+````
+git commit 
+npx lerna version patch
+yarn build
+npm login
+npx lerna publish from-package
+````
+
 
 ## Tests
 

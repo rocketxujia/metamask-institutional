@@ -354,7 +354,7 @@ export async function handleTxStatusUpdate(
         mutableTxMeta.status = mutableTxMeta.custodyStatus;
       }
     } else if (txData.transaction.status.finished && !txData.transaction.status.success) {
-      let message = `Transaction status from custodian: ${mutableTxMeta.custodyStatusDisplayText}`; // Clever English language hack IMO
+      let message = `${mutableTxMeta.custodyStatusDisplayText}`; // Clever English language hack IMO
 
       if (txData.transaction.status.reason) {
         message = txData.transaction.status.reason;
