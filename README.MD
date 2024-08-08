@@ -37,6 +37,7 @@ find . -type f -maxdepth 1 -name "jsconfig.json"
 
 ## Local publish
 ````
+yarn test:cov // npx jest  packages/institutionalFeatures
 git commit 
 npx lerna version patch
 yarn build
