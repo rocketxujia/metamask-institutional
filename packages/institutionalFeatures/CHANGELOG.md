@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.9](https://github.com/consensys-vertical-apps/metamask-institutional/compare/@mm-institutional/institutional-features@1.3.8...@mm-institutional/institutional-features@1.3.9) (2024-08-08)
+
+**Note:** Version bump only for package @mm-institutional/institutional-features
+
 ## [1.3.8](https://github.com/consensys-vertical-apps/metamask-institutional/compare/@mm-institutional/institutional-features@1.3.7...@mm-institutional/institutional-features@1.3.8) (2024-08-08)
 
 ### Features

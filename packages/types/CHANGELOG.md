@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.5](https://github.com/consensys-vertical-apps/metamask-institutional/compare/@mm-institutional/types@1.2.4...@mm-institutional/types@1.2.5) (2024-08-08)
+
+### Bug Fixes
+
+- [import-filter-wallet] fix ICustodianAccount.walletId optional define ([5e3a4aa](https://github.com/consensys-vertical-apps/metamask-institutional/commit/5e3a4aabf652f03ed8e41e91095479cb8f444841))
+
 ## [1.2.4](https://github.com/consensys-vertical-apps/metamask-institutional/compare/@mm-institutional/types@1.2.3...@mm-institutional/types@1.2.4) (2024-08-08)
 
 ### Features
