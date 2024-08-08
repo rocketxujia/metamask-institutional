@@ -114,7 +114,7 @@ export class ECA3Client extends EventEmitter {
       this.cache.setCache<string>("accessToken", responseJson.access_token);
 
       if (responseJson.refresh_token && responseJson.refresh_token !== this.refreshToken) {
-        console.log(
+        console.debug(
           "JsonRPCClient: Refresh token changed to " +
             responseJson.refresh_token.substring(0, 5) +
             "..." +

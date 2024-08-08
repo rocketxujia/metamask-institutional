@@ -1,17 +1,26 @@
 import { AuthDetails } from "./types/AuthDetails";
 
+// 钱包类型，规范值有：  "MPC", "SmartContract", "Custodial", "Exchange" 等
+enum PortalWalletType {
+  MPC = "MPC",
+  SmartContract = "SmartContract",
+  Custodial = "Custodial",
+  Exchange = "Exchange",
+}
+
 interface Label {
   key: string;
   value: string;
 }
 
 // This is a horrible mess
-
 interface ICustodianAccountProto {
   name?: string;
   address: string;
   custodianDetails: any;
   labels: Label[];
+  walletId: string;
+  walletType: PortalWalletType;
   /** @deprecated */
   apiUrl: string;
   chainId?: number;

@@ -31,11 +31,15 @@ describe("InstitutionalFeaturesController", function () {
       method: "custodian",
       params: {
         labels: [],
-        feature: "custodian",
+        feature: undefined,
         service: "JSONRPC",
         token: "token",
         environment: "test-environment",
         name: "cobo",
+        portalWalletInfo: {
+          type: "MPC",
+          id: "wallet_id",
+        },
       },
     };
     jest.spyOn(controller, "showConfirmRequest");
@@ -52,6 +56,10 @@ describe("InstitutionalFeaturesController", function () {
       chainId: undefined,
       environment: "test-environment",
       name: "cobo",
+      portalWalletInfo: {
+        type: "MPC",
+        id: "wallet_id",
+      },
     });
   });
 
@@ -62,12 +70,12 @@ describe("InstitutionalFeaturesController", function () {
       method: "custodian",
       params: {
         labels: [],
-        service: "custodian",
+        service: "JSONRPC",
         token: "token",
-        feature: undefined,
+        environment: undefined,
       },
     };
-    expect(() => controller.handleMmiAuthenticate(connectRequest)).toThrow("Missing parameter: feature");
+    expect(() => controller.handleMmiAuthenticate(connectRequest)).toThrow("Missing parameter: environment");
   });
 
   it("should throw Missing parameter: service", async function () {
@@ -77,9 +85,9 @@ describe("InstitutionalFeaturesController", function () {
       method: "custodian",
       params: {
         labels: [],
-        feature: "feature",
         token: "token",
         service: undefined,
+        environment: "test-environment",
       },
     };
     expect(() => controller.handleMmiAuthenticate(connectRequest)).toThrow("Missing parameter: service");
@@ -93,7 +101,8 @@ describe("InstitutionalFeaturesController", function () {
       params: {
         labels: [],
         feature: "feature",
-        service: "custodian",
+        service: "JSONRPC",
+        environment: "test-environment",
         token: undefined,
       },
     };

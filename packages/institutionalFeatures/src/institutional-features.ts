@@ -2,6 +2,11 @@ import { ObservableStore } from "@metamask/obs-store";
 import { CUSTODIAN_TYPES } from "@mm-institutional/custody-keyring";
 import { ConnectionRequest, ConnectRequest } from "@mm-institutional/types";
 
+interface PortalWalletInfo {
+  type: string;
+  id?: string;
+}
+
 /**
  * @typedef {Object} InstitutionalFeaturesOptions
  * @property {Object} initState The initial controller state
@@ -46,16 +51,23 @@ export class InstitutionalFeaturesController {
     method: string,
     token: string,
     labels: { key: string; value: any }[],
-    feature: string,
     service: string,
+    environment: string,
+    feature?: string,
     chainId?: string,
-    environment?: string,
     name?: string,
+    portalWalletInfo?: PortalWalletInfo,
   ): void {
+    console.log(
+      `CUSTODIAN_TYPES[service.toUpperCase()]: ${
+        CUSTODIAN_TYPES[service.toUpperCase()]
+      }, service.toUpperCase(): ${service.toUpperCase()}`,
+    );
     if (!CUSTODIAN_TYPES[service.toUpperCase()]) {
       throw new Error("No such custodian");
     }
     const state = this.store.getState();
+    portalWalletInfo = portalWalletInfo || { type: "MPC" };
     this.store.updateState({
       institutionalFeatures: {
         ...state.institutionalFeatures,
@@ -71,6 +83,7 @@ export class InstitutionalFeaturesController {
             chainId,
             environment,
             name,
+            portalWalletInfo,
           },
         ],
       },
@@ -84,15 +97,16 @@ export class InstitutionalFeaturesController {
     params: {
       token: string;
       labels: { key: string; value: any }[];
-      feature: string;
+      feature?: string;
       service: string;
       chainId?: string;
-      environment?: string;
+      environment: string;
       name?: string;
+      portalWalletInfo?: PortalWalletInfo;
     };
   }): boolean {
-    if (!req.params.feature) {
-      throw new Error("Missing parameter: feature");
+    if (!req.params.environment) {
+      throw new Error("Missing parameter: environment");
     }
     if (!req.params.service) {
       throw new Error("Missing parameter: service");
@@ -100,6 +114,7 @@ export class InstitutionalFeaturesController {
     if (!req.params.token) {
       throw new Error("Missing parameter: token");
     }
+    req.params.feature = req.params.feature || "custodian";
 
     // Ignore features for now
     switch (req.params.feature) {
@@ -109,11 +124,12 @@ export class InstitutionalFeaturesController {
           req.method,
           req.params.token,
           req.params.labels,
-          req.params.feature,
           req.params.service,
-          req.params.chainId,
           req.params.environment,
+          req.params.feature,
+          req.params.chainId,
           req.params.name,
+          req.params.portalWalletInfo,
         );
         break;
       default:
