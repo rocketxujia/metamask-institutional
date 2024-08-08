@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.7](https://github.com/consensys-vertical-apps/metamask-institutional/compare/@mm-institutional/sdk@0.2.6...@mm-institutional/sdk@0.2.7) (2024-08-08)
+
+### Features
+
+- [import-filter-wallet] import scw wallet by portal wallet id ([90e8bd8](https://github.com/consensys-vertical-apps/metamask-institutional/commit/90e8bd8c5c7449541ef463dccda6fa9032c95052))
+
 ## [0.2.6](https://github.com/consensys-vertical-apps/metamask-institutional/compare/@mm-institutional/sdk@0.2.4...@mm-institutional/sdk@0.2.6) (2024-07-29)
 
 ### Bug Fixes
