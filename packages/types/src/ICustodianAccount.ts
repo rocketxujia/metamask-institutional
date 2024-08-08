@@ -19,8 +19,8 @@ interface ICustodianAccountProto {
   address: string;
   custodianDetails: any;
   labels: Label[];
-  walletId: string;
-  walletType: PortalWalletType;
+  walletId?: string;
+  walletType?: PortalWalletType;
   /** @deprecated */
   apiUrl: string;
   chainId?: number;
