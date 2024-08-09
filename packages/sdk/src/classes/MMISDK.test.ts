@@ -1,15 +1,16 @@
 import { AuthTypes } from "@mm-institutional/types";
 import { mocked } from "ts-jest/utils";
 
+import { JsonPortalCustodianApi } from "../custodianApi/json-api/JsonPortalCustodianApi";
 import { JsonRpcCustodianApi } from "../custodianApi/json-rpc/JsonRpcCustodianApi";
 import { MessageTypes, TypedMessage } from "../interfaces/ITypedMessage";
 import { MMISDK } from "./MMISDK";
 
-jest.mock("../custodianApi/json-rpc/JsonRpcCustodianApi");
+jest.mock("../custodianApi/json-api/JsonPortalCustodianApi");
 
 describe("MMISDK", () => {
   let mmiSDK: MMISDK;
-  const mockedCustodianApi = mocked(JsonRpcCustodianApi, true);
+  const mockedCustodianApi = mocked(JsonPortalCustodianApi, true);
 
   let mockedCustodianApiInstance;
 
@@ -17,7 +18,7 @@ describe("MMISDK", () => {
     mmiSDK = new MMISDK(
       // @TODO check back later
       // @ts-ignore
-      JsonRpcCustodianApi,
+      JsonPortalCustodianApi,
       {
         jwt: "xyz",
       },
@@ -39,7 +40,13 @@ describe("MMISDK", () => {
     it("should call the custodian API", async () => {
       mockedCustodianApiInstance.getEthereumAccounts = jest.fn().mockResolvedValueOnce([]);
       await mmiSDK.getEthereumAccounts();
-      expect(mockedCustodianApiInstance.getEthereumAccounts).toHaveBeenCalledWith();
+      expect(mockedCustodianApiInstance.getEthereumAccounts).toHaveBeenCalledWith(null, {});
+    });
+
+    it("should call the custodian API width filter params", async () => {
+      mockedCustodianApiInstance.getEthereumAccounts = jest.fn().mockResolvedValueOnce([]);
+      await mmiSDK.getEthereumAccounts(null, { type: "mpc" });
+      expect(mockedCustodianApiInstance.getEthereumAccounts).toHaveBeenCalledWith(null, { type: "mpc" });
     });
   });
 
@@ -47,15 +54,30 @@ describe("MMISDK", () => {
     it("should call the custodian API", async () => {
       mockedCustodianApiInstance.getEthereumAccountsByLabelOrAddressName = jest.fn().mockResolvedValueOnce([]);
       await mmiSDK.getEthereumAccountsByLabelOrAddressName("test");
-      expect(mockedCustodianApiInstance.getEthereumAccountsByLabelOrAddressName).toHaveBeenCalledWith("test");
+      expect(mockedCustodianApiInstance.getEthereumAccountsByLabelOrAddressName).toHaveBeenCalledWith("test", null, {});
+    });
+    it("should call the custodian API width filter params", async () => {
+      mockedCustodianApiInstance.getEthereumAccountsByLabelOrAddressName = jest.fn().mockResolvedValueOnce([]);
+      await mmiSDK.getEthereumAccountsByLabelOrAddressName("test", null, { type: "mpc" });
+      expect(mockedCustodianApiInstance.getEthereumAccountsByLabelOrAddressName).toHaveBeenCalledWith("test", null, {
+        type: "mpc",
+      });
     });
   });
 
   describe("MMISDK#getEthereumAccountsByAddress", () => {
     it("should call the custodian API", async () => {
       mockedCustodianApiInstance.getEthereumAccountsByAddress = jest.fn().mockResolvedValueOnce([]);
-      await mmiSDK.getEthereumAccountsByAddress("0x1", 4);
-      expect(mockedCustodianApiInstance.getEthereumAccountsByAddress).toHaveBeenCalledWith("0x1");
+      await mmiSDK.getEthereumAccountsByAddress("0x1");
+      expect(mockedCustodianApiInstance.getEthereumAccountsByAddress).toHaveBeenCalledWith("0x1", null, {});
+    });
+
+    it("should call the custodian API idth filter params", async () => {
+      mockedCustodianApiInstance.getEthereumAccountsByAddress = jest.fn().mockResolvedValueOnce([]);
+      await mmiSDK.getEthereumAccountsByAddress("0x1", null, { type: "mpc" });
+      expect(mockedCustodianApiInstance.getEthereumAccountsByAddress).toHaveBeenCalledWith("0x1", null, {
+        type: "mpc",
+      });
     });
   });
 

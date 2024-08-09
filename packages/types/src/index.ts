@@ -13,7 +13,7 @@ export { ILegacyTXParams } from "./ITXParams";
 export { IEIP1559TxParams } from "./ITXParams";
 export { ITransactionStatus } from "./ITransactionStatus";
 export { ITransactionStatusMap } from "./ITransactionStatusMap";
-export { ICustodianAccount, IExtensionCustodianAccount } from "./ICustodianAccount";
+export { ICustodianAccount, IExtensionCustodianAccount, PortalWalletType } from "./ICustodianAccount";
 export { IRefreshTokenChangeEvent } from "./IRefreshTokenChangeEvent";
 export { IInteractiveRefreshTokenChangeEvent } from "./IInteractiveRefreshTokenChangeEvent";
 

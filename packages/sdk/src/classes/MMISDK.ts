@@ -67,16 +67,15 @@ export class MMISDK extends EventEmitter {
   // Get ethereum accounts optionally based on the ID of the parent object
   public async getEthereumAccounts(
     maxCacheAgeSeconds = this.defaultCacheAgeSeconds,
+    filterParams?: object,
   ): Promise<IEthereumAccount<IEthereumAccountCustodianDetails>[]> {
-    console.log("GetEthereumAccounts MMI SDK");
-
     const cacheKey = "getEthereumAccounts";
 
     return this.cache.tryCachingArray<IEthereumAccount<IEthereumAccountCustodianDetails>>(
       cacheKey,
       maxCacheAgeSeconds,
       async () => {
-        const accounts = await this.custodianApi.getEthereumAccounts();
+        const accounts = await this.custodianApi.getEthereumAccounts(null, filterParams || {});
         return accounts;
       },
     );
@@ -86,6 +85,7 @@ export class MMISDK extends EventEmitter {
   public async getEthereumAccountsByAddress(
     address: string,
     maxCacheAgeSeconds = this.defaultCacheAgeSeconds,
+    filterParams?: object,
   ): Promise<IEthereumAccount<IEthereumAccountCustodianDetails>[]> {
     const cacheKey = "getEthereumAccountsByAddress-" + address;
 
@@ -93,8 +93,7 @@ export class MMISDK extends EventEmitter {
       cacheKey,
       maxCacheAgeSeconds,
       async () => {
-        const accounts = await this.custodianApi.getEthereumAccountsByAddress(address);
-
+        const accounts = await this.custodianApi.getEthereumAccountsByAddress(address, null, filterParams || {});
         return accounts;
       },
     );
@@ -104,6 +103,7 @@ export class MMISDK extends EventEmitter {
   public async getEthereumAccountsByLabelOrAddressName(
     name: string,
     maxCacheAgeSeconds = this.defaultCacheAgeSeconds,
+    filterParams?: object,
   ): Promise<IEthereumAccount<IEthereumAccountCustodianDetails>[]> {
     const cacheKey = "getEthereumAccountsByLabelOrAddressName-" + name;
 
@@ -111,7 +111,11 @@ export class MMISDK extends EventEmitter {
       cacheKey,
       maxCacheAgeSeconds,
       async () => {
-        const accounts = await this.custodianApi.getEthereumAccountsByLabelOrAddressName(name);
+        const accounts = await this.custodianApi.getEthereumAccountsByLabelOrAddressName(
+          name,
+          null,
+          filterParams || {},
+        );
         return accounts;
       },
     );

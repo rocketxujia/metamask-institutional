@@ -1,4 +1,4 @@
-import { ConnectionRequest, ConnectRequest } from "@mm-institutional/types";
+import { ConnectionRequest, ConnectRequest, PortalWalletType } from "@mm-institutional/types";
 
 import { InstitutionalFeaturesController } from "./institutional-features";
 
@@ -37,7 +37,7 @@ describe("InstitutionalFeaturesController", function () {
         environment: "test-environment",
         name: "cobo",
         portalWalletInfo: {
-          type: "MPC",
+          type: PortalWalletType.MPC,
           id: "wallet_id",
         },
       },

@@ -34,16 +34,21 @@ export interface ICustodianApi extends EventEmitter {
 
   getListAccountsSigned?(): Promise<string>;
 
-  getEthereumAccounts(chainId?: number): Promise<IEthereumAccount<IEthereumAccountCustodianDetails>[]>;
+  getEthereumAccounts(
+    chainId?: number,
+    filterParams?: object,
+  ): Promise<IEthereumAccount<IEthereumAccountCustodianDetails>[]>;
 
   getEthereumAccountsByAddress(
     address: string,
     chainId?: number,
+    filterParams?: object,
   ): Promise<IEthereumAccount<IEthereumAccountCustodianDetails>[]>;
 
   getEthereumAccountsByLabelOrAddressName(
     name: string,
     chainId?: number,
+    filterParams?: object,
   ): Promise<IEthereumAccount<IEthereumAccountCustodianDetails>[]>;
 
   createTransaction(

@@ -1,3 +1,5 @@
+import { PortalWalletType } from "src/ICustodianAccount";
+
 export type ConnectRequest = {
   channelId: string;
   traceId: string;
@@ -5,4 +7,5 @@ export type ConnectRequest = {
   environment: string;
   feature: string;
   service: string;
+  portalWalletInfo?: PortalWalletType;
 };

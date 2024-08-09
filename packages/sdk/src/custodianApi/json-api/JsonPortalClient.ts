@@ -129,10 +129,10 @@ export class JsonPortalClient extends EventEmitter {
     }
   }
 
-  async listAccounts(): Promise<JsonPortalResult<JsonRpcListAccountsResponse>> {
+  async listAccounts(filterParams?: object): Promise<JsonPortalResult<JsonRpcListAccountsResponse>> {
     const accessToken = await this.getAccessToken();
 
-    return this._fetch("/connect/accounts", {}, accessToken, "Get");
+    return this._fetch("/connect/accounts", filterParams || {}, accessToken, "Get");
   }
 
   async getCustomerProof(): Promise<JsonPortalResult<JsonRpcGetCustomerProofResponse>> {

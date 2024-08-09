@@ -309,6 +309,7 @@ export abstract class CustodyKeyring extends EventEmitter {
     envName: string,
     searchText?: string,
     getNonImportedAccounts = true,
+    filterParams?: object,
   ): Promise<ICustodianAccount<AuthDetails>[]> {
     const authDetails = this.createAuthDetails(token);
     const sdk = this.getSDK(authDetails, envName);
@@ -316,12 +317,12 @@ export abstract class CustodyKeyring extends EventEmitter {
     let accounts;
     if (searchText) {
       if (searchText.startsWith("0x")) {
-        accounts = await sdk.getEthereumAccountsByAddress(searchText, DEFAULT_MAX_CACHE_AGE);
+        accounts = await sdk.getEthereumAccountsByAddress(searchText, DEFAULT_MAX_CACHE_AGE, filterParams);
       } else {
-        accounts = await sdk.getEthereumAccountsByLabelOrAddressName(searchText, DEFAULT_MAX_CACHE_AGE);
+        accounts = await sdk.getEthereumAccountsByLabelOrAddressName(searchText, DEFAULT_MAX_CACHE_AGE, filterParams);
       }
     } else {
-      accounts = await sdk.getEthereumAccounts(DEFAULT_MAX_CACHE_AGE);
+      accounts = await sdk.getEthereumAccounts(DEFAULT_MAX_CACHE_AGE, filterParams);
     }
 
     if (getNonImportedAccounts) {

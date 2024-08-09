@@ -55,8 +55,11 @@ export class JsonPortalCustodianApi extends EventEmitter implements ICustodianAp
     return null;
   }
 
-  async getEthereumAccounts(): Promise<IEthereumAccount<IEthereumAccountCustodianDetails>[]> {
-    const accounts = await this.client.listAccounts();
+  async getEthereumAccounts(
+    chainId?: number,
+    filterParams?: object,
+  ): Promise<IEthereumAccount<IEthereumAccountCustodianDetails>[]> {
+    const accounts = await this.client.listAccounts(filterParams);
 
     const mappedAccounts = accounts.result.map(account => ({
       name: account.name,
@@ -68,8 +71,12 @@ export class JsonPortalCustodianApi extends EventEmitter implements ICustodianAp
     return mappedAccounts;
   }
 
-  async getEthereumAccountsByAddress(address: string): Promise<IEthereumAccount<IEthereumAccountCustodianDetails>[]> {
-    const accounts = await this.getEthereumAccounts();
+  async getEthereumAccountsByAddress(
+    address: string,
+    chainId?: number,
+    filterParams?: object,
+  ): Promise<IEthereumAccount<IEthereumAccountCustodianDetails>[]> {
+    const accounts = await this.getEthereumAccounts(chainId, filterParams);
 
     // TODO: This is a bit inefficient, but eventually we may add optional filtering to the JSON-RPC API
 
@@ -78,8 +85,10 @@ export class JsonPortalCustodianApi extends EventEmitter implements ICustodianAp
 
   async getEthereumAccountsByLabelOrAddressName(
     name: string,
+    chainId?: number,
+    filterParams?: object,
   ): Promise<IEthereumAccount<IEthereumAccountCustodianDetails>[]> {
-    const accounts = await this.getEthereumAccounts();
+    const accounts = await this.getEthereumAccounts(chainId, filterParams);
     return accounts.filter(account => account.name.includes(name));
   }
 

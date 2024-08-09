@@ -1,7 +1,7 @@
 import { AuthDetails } from "./types/AuthDetails";
 
 // 钱包类型，规范值有：  "MPC", "SmartContract", "Custodial", "Exchange" 等
-enum PortalWalletType {
+export enum PortalWalletType {
   MPC = "MPC",
   SmartContract = "SmartContract",
   Custodial = "Custodial",

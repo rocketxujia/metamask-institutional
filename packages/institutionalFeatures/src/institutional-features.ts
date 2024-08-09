@@ -1,9 +1,9 @@
 import { ObservableStore } from "@metamask/obs-store";
 import { CUSTODIAN_TYPES } from "@mm-institutional/custody-keyring";
-import { ConnectionRequest, ConnectRequest } from "@mm-institutional/types";
+import { ConnectionRequest, ConnectRequest, PortalWalletType } from "@mm-institutional/types";
 
 interface PortalWalletInfo {
-  type: string;
+  type: PortalWalletType;
   id?: string;
 }
 
@@ -67,7 +67,7 @@ export class InstitutionalFeaturesController {
       throw new Error("No such custodian");
     }
     const state = this.store.getState();
-    portalWalletInfo = portalWalletInfo || { type: "MPC" };
+    portalWalletInfo = portalWalletInfo || { type: PortalWalletType.MPC };
     this.store.updateState({
       institutionalFeatures: {
         ...state.institutionalFeatures,
