@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.8](https://github.com/consensys-vertical-apps/metamask-institutional/compare/@mm-institutional/custody-keyring@3.0.7...@mm-institutional/custody-keyring@3.0.8) (2024-08-09)
+
+### Bug Fixes
+
+- [import-filter-wallet] add filterParams for custodyKeyring -> sdk -> api ([6aa287b](https://github.com/consensys-vertical-apps/metamask-institutional/commit/6aa287b7f2ae1ee53c3bb4aeaa11e38718edcdde))
+
 ## [3.0.7](https://github.com/consensys-vertical-apps/metamask-institutional/compare/@mm-institutional/custody-keyring@3.0.6...@mm-institutional/custody-keyring@3.0.7) (2024-08-08)
 
 **Note:** Version bump only for package @mm-institutional/custody-keyring

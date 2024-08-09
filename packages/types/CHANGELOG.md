@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.6](https://github.com/consensys-vertical-apps/metamask-institutional/compare/@mm-institutional/types@1.2.5...@mm-institutional/types@1.2.6) (2024-08-09)
+
+### Bug Fixes
+
+- [import-filter-wallet] add filterParams for custodyKeyring -> sdk -> api ([6aa287b](https://github.com/consensys-vertical-apps/metamask-institutional/commit/6aa287b7f2ae1ee53c3bb4aeaa11e38718edcdde))
+
 ## [1.2.5](https://github.com/consensys-vertical-apps/metamask-institutional/compare/@mm-institutional/types@1.2.4...@mm-institutional/types@1.2.5) (2024-08-08)
 
 ### Bug Fixes
