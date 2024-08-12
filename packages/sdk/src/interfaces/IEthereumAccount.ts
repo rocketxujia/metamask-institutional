@@ -9,4 +9,5 @@ export interface IEthereumAccount<T> {
   custodianDetails: T;
   labels?: Label[];
   balance?: string;
+  walletType?: string;
 }

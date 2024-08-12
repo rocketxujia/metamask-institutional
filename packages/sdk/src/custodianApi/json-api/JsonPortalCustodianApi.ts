@@ -66,6 +66,7 @@ export class JsonPortalCustodianApi extends EventEmitter implements ICustodianAp
       address: account.address,
       custodianDetails: null,
       labels: account.tags.map(tag => ({ key: tag.name, value: tag.value })),
+      walletType: account.walletType || "Unknown",
     }));
 
     return mappedAccounts;
