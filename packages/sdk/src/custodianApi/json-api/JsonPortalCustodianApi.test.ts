@@ -97,4 +97,10 @@ describe("JsonPortalCustodianApi", () => {
       );
     });
   });
+
+  describe("getScwDelegates", () => {
+    it("returns the SCW delegates", async () => {
+      // Add your implementation here
+    });
+  });
 });

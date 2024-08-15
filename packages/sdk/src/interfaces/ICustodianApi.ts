@@ -1,4 +1,4 @@
-import { ICustodianTransactionLink } from "@mm-institutional/types";
+import { ICustodianTransactionLink, IPortalScwBuildTransaction, IPortalScwDelegates } from "@mm-institutional/types";
 import {
   AuthDetails,
   AuthTypes,
@@ -12,6 +12,14 @@ import {
 import { EventEmitter } from "events";
 import { JsonRpcReplaceTransactionParams } from "src/custodianApi/eca3/rpc-payloads/JsonRpcReplaceTransactionPayload";
 import { JsonRpcListAccountsSignedResponse } from "src/custodianApi/eca3/rpc-responses/JsonRpcListAccountsSignedResponse";
+import {
+  JsonScwBuildTransactionPayload,
+  JsonScwDelegatesPayload,
+} from "src/custodianApi/json-api/rpc-payloads/JsonScwDelegatesPayload";
+import {
+  JsonScwBuildTransactionResponse,
+  JsonScwDelegatesResponse,
+} from "src/custodianApi/json-api/rpc-responses/JsonScwDelegatesResponse";
 import { SignedMessageMetadata } from "src/types/SignedMessageMetadata";
 import { SignedMessageParams } from "src/types/SignedMessageParams";
 import { SignedTypedMessageMetadata } from "src/types/SignedTypedMessageMetadata";
@@ -25,6 +33,17 @@ import { MessageTypes, TypedMessage } from "./ITypedMessage";
 
 export interface CustodianApiConstructor {
   new (authDetails: AuthDetails, authType: AuthTypes, apiUrl: string, cacheAge: number): ICustodianApi;
+}
+
+export interface IPortalCustodianApi extends ICustodianApi {
+  getScwDelegates(
+    txParams: ILegacyTXParams | IEIP1559TxParams,
+    txMeta: CreateTransactionMetadata,
+  ): Promise<IPortalScwDelegates>;
+  buildScwTransaction(
+    txParams: ILegacyTXParams | IEIP1559TxParams,
+    txMeta: CreateTransactionMetadata,
+  ): Promise<IPortalScwBuildTransaction>;
 }
 
 export interface ICustodianApi extends EventEmitter {

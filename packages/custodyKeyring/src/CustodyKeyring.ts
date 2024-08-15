@@ -13,6 +13,8 @@ import {
   IInteractiveRefreshTokenChangeEvent,
   ILegacyTXParams,
   IMetamaskContractMetadata,
+  IPortalScwBuildTransaction,
+  IPortalScwDelegates,
   IRefreshTokenAuthDetails,
   IRefreshTokenChangeEvent,
   ISignatureDetails,
@@ -348,6 +350,90 @@ export abstract class CustodyKeyring extends EventEmitter {
     const readableCategory = mapping[txMeta.type] || txMeta.type;
 
     return txMeta?.metadata?.note || `${readableCategory} - initiated on ${txMeta.origin}`;
+  }
+
+  async getScwDelegates(
+    fromAddress: string,
+    ethTx: FeeMarketEIP1559Transaction | Transaction,
+    txMeta: MetamaskTransaction,
+  ): Promise<IPortalScwDelegates> {
+    let data: any;
+    if (typeof ethTx.data === "string") {
+      data = ethTx.data;
+    } else if (ethTx.data instanceof Uint8Array) {
+      data = ethTx.data.toString("hex");
+    }
+    if (!data?.length) {
+      data = undefined;
+    } else if (!data?.startsWith("0x")) {
+      data = "0x" + data;
+    }
+
+    const { authDetails, envName } = this.getAccountDetails(fromAddress);
+    const sdk = this.getSDK(authDetails, envName);
+
+    const noGasPayload: any = {
+      from: toChecksumAddress(fromAddress),
+      value: BigInt(txMeta.txParams.value).toString(),
+      gasLimit: BigInt(txMeta.txParams.gas).toString(),
+      data: data,
+    };
+
+    // Contract deployments have no to address
+    if (txMeta.txParams.to) {
+      noGasPayload.to = toChecksumAddress(txMeta.txParams.to);
+    }
+
+    const payload: IEIP1559TxParams | ILegacyTXParams = noGasPayload;
+    const chainId = Number(txMeta.chainId).toString(10); // Convert to string to avoid weirdness with BigInt
+
+    const result = await sdk.getScwDelegates(payload, {
+      chainId,
+    });
+    return result;
+  }
+
+  async buildTransaction(
+    fromAddress: string,
+    delegateAddress: string,
+    ethTx: FeeMarketEIP1559Transaction | Transaction,
+    txMeta: MetamaskTransaction,
+  ): Promise<IPortalScwBuildTransaction> {
+    let data: any;
+    if (typeof ethTx.data === "string") {
+      data = ethTx.data;
+    } else if (ethTx.data instanceof Uint8Array) {
+      data = ethTx.data.toString("hex");
+    }
+    if (!data?.length) {
+      data = undefined;
+    } else if (!data?.startsWith("0x")) {
+      data = "0x" + data;
+    }
+
+    const { authDetails, envName } = this.getAccountDetails(fromAddress);
+    const sdk = this.getSDK(authDetails, envName);
+
+    const noGasPayload: any = {
+      from: toChecksumAddress(fromAddress),
+      value: BigInt(txMeta.txParams.value).toString(),
+      data: data,
+      gasLimit: BigInt(txMeta.txParams.gas).toString(),
+      delegateAddress: toChecksumAddress(delegateAddress),
+    };
+
+    // Contract deployments have no to address
+    if (txMeta.txParams.to) {
+      noGasPayload.to = toChecksumAddress(txMeta.txParams.to);
+    }
+
+    const payload: IEIP1559TxParams | ILegacyTXParams = noGasPayload;
+    const chainId = Number(txMeta.chainId).toString(10); // Convert to string to avoid weirdness with BigInt
+
+    const result = await sdk.buildScwTransaction(payload, {
+      chainId,
+    });
+    return result;
   }
 
   // tx is an instance of the ethereumjs-transaction class.

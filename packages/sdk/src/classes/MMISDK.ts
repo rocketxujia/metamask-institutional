@@ -6,13 +6,19 @@ import {
   IEIP1559TxParams,
   ILegacyTXParams,
   IMetamaskContractMetadata,
+  IPortalScwBuildTransaction,
+  IPortalScwDelegates,
   IRefreshTokenAuthDetails,
   ISignatureDetails,
   ITransactionDetails,
 } from "@mm-institutional/types";
 import { EventEmitter } from "events";
 import { JsonRpcReplaceTransactionParams } from "src/custodianApi/eca3/rpc-payloads/JsonRpcReplaceTransactionPayload";
-import { CustodianApiConstructor, ICustodianApi } from "src/interfaces/ICustodianApi";
+import {
+  JsonScwBuildTransactionPayload,
+  JsonScwDelegatesPayload,
+} from "src/custodianApi/json-api/rpc-payloads/JsonScwDelegatesPayload";
+import { CustodianApiConstructor, ICustodianApi, IPortalCustodianApi } from "src/interfaces/ICustodianApi";
 import { SignedMessageMetadata } from "src/types/SignedMessageMetadata";
 import { SignedTypedMessageMetadata } from "src/types/SignedTypedMessageMetadata";
 
@@ -24,7 +30,7 @@ import { CreateTransactionMetadata } from "../types/CreateTransactionMetadata";
 import { AccountHierarchyNode } from "./AccountHierarchyNode";
 
 export class MMISDK extends EventEmitter {
-  custodianApi: ICustodianApi;
+  custodianApi: IPortalCustodianApi | ICustodianApi;
 
   private cache = new SimpleCache();
 
@@ -119,6 +125,20 @@ export class MMISDK extends EventEmitter {
         return accounts;
       },
     );
+  }
+
+  public async getScwDelegates(
+    txParams: IEIP1559TxParams | ILegacyTXParams,
+    txMeta?: CreateTransactionMetadata,
+  ): Promise<IPortalScwDelegates> {
+    return (this.custodianApi as IPortalCustodianApi).getScwDelegates(txParams, txMeta);
+  }
+
+  public async buildScwTransaction(
+    txParams: IEIP1559TxParams | ILegacyTXParams,
+    txMeta?: CreateTransactionMetadata,
+  ): Promise<IPortalScwBuildTransaction> {
+    return (this.custodianApi as IPortalCustodianApi).buildScwTransaction(txParams, txMeta);
   }
 
   public async createTransaction(

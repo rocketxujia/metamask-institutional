@@ -6,6 +6,7 @@ interface ITXParams {
   gasLimit: string;
   gas?: string; // what gas limit is called in metamask
   nonce?: number | string;
+  delegateAddress?: string;
 }
 
 export interface ILegacyTXParams extends ITXParams {

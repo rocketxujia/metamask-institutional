@@ -5,6 +5,8 @@ import {
   IEIP1559TxParams,
   ILegacyTXParams,
   IMetamaskContractMetadata,
+  IPortalScwBuildTransaction,
+  IPortalScwDelegates,
   IRefreshTokenAuthDetails,
   ISignatureDetails,
   ITransactionDetails,
@@ -13,7 +15,7 @@ import { EventEmitter } from "events";
 
 import { AccountHierarchyNode } from "../../classes/AccountHierarchyNode";
 import { INTERACTIVE_REPLACEMENT_TOKEN_CHANGE_EVENT, REFRESH_TOKEN_CHANGE_EVENT } from "../../constants/constants";
-import { ICustodianApi } from "../../interfaces/ICustodianApi";
+import { IPortalCustodianApi } from "../../interfaces/ICustodianApi";
 import { IEthereumAccount } from "../../interfaces/IEthereumAccount";
 import { IEthereumAccountCustodianDetails } from "../../interfaces/IEthereumAccountCustodianDetails";
 import { MessageTypes, TypedMessage } from "../../interfaces/ITypedMessage";
@@ -22,8 +24,10 @@ import { hexlify } from "../json-rpc/util/hexlify";
 import { JsonApiTransactionParams } from ".//rpc-payloads/JsonRpcCreateTransactionPayload";
 import { mapStatusObjectToStatusText } from ".//util/mapStatusObjectToStatusText";
 import { JsonPortalClient } from "./JsonPortalClient";
+import { JsonScwBuildTransactionPayload, JsonScwDelegatesPayload } from "./rpc-payloads/JsonScwDelegatesPayload";
+import { JsonScwBuildTransactionResponse, JsonScwDelegatesResponse } from "./rpc-responses/JsonScwDelegatesResponse";
 
-export class JsonPortalCustodianApi extends EventEmitter implements ICustodianApi {
+export class JsonPortalCustodianApi extends EventEmitter implements IPortalCustodianApi {
   private client: JsonPortalClient;
   private cache = new SimpleCache();
 
@@ -91,6 +95,74 @@ export class JsonPortalCustodianApi extends EventEmitter implements ICustodianAp
   ): Promise<IEthereumAccount<IEthereumAccountCustodianDetails>[]> {
     const accounts = await this.getEthereumAccounts(chainId, filterParams);
     return accounts.filter(account => account.name.includes(name));
+  }
+
+  // call getScwDelegates
+  async getScwDelegates(
+    txParams: IEIP1559TxParams | ILegacyTXParams,
+    txMeta: CreateTransactionMetadata,
+  ): Promise<IPortalScwDelegates> {
+    const fromAddress = txParams.from;
+
+    const accounts = await this.getEthereumAccountsByAddress(fromAddress);
+
+    if (!accounts.length) {
+      throw new Error("No such ethereum account!");
+    }
+
+    const payload: JsonScwDelegatesPayload = {
+      wallet_address: accounts[0].address, // already hexlified
+      to_address: txParams.to, // already hexlified
+      data: txParams.data, // already hexlified
+      value: hexlify(txParams.value),
+      chain_id: hexlify(txMeta.chainId),
+    };
+
+    const { result } = await this.client.getScwDelegates(payload);
+    return result.map(delegate => {
+      return {
+        name: delegate.name,
+        address: delegate.address,
+        Labels: (delegate.tags || []).map(t => {
+          return {
+            key: t.name as string,
+            value: t.value as string,
+          };
+        }),
+        gasBalance: delegate.gas_balance,
+      };
+    });
+  }
+
+  // buildTransaction
+  async buildScwTransaction(
+    txParams: IEIP1559TxParams | ILegacyTXParams,
+    txMeta: CreateTransactionMetadata,
+  ): Promise<IPortalScwBuildTransaction> {
+    const fromAddress = txParams.from;
+
+    const accounts = await this.getEthereumAccountsByAddress(fromAddress);
+
+    if (!accounts.length) {
+      throw new Error("No such ethereum account!");
+    }
+
+    const payload: JsonScwBuildTransactionPayload = {
+      wallet_address: accounts[0].address, // already hexlified
+      to_address: txParams.to, // already hexlified
+      data: txParams.data, // already hexlified
+      value: hexlify(txParams.value),
+      chain_id: hexlify(txMeta.chainId),
+      delegate_address: txParams.delegateAddress,
+    };
+
+    const { result } = await this.client.buildScwTransaction(payload);
+    return {
+      data: result.data,
+      fromAddress: result.from_address,
+      toAddress: result.to_address,
+      value: result.value,
+    };
   }
 
   async createTransaction(

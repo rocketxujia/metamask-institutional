@@ -9,6 +9,7 @@ import { mockJsonRpcGetSignedMessageByIdPayload } from "./mocks/mockJsonRpcGetSi
 import { mockJsonRpcGetTransactionByIdPayload } from "./mocks/mockJsonRpcGetTransactionByIdPayload";
 import { mockJsonRpcSignPayload } from "./mocks/mockJsonRpcSignPayload";
 import { mockJsonRpcSignTypedDataPayload } from "./mocks/mockJsonRpcSignTypedDataPayload";
+import { JsonScwBuildTransactionPayload } from "./rpc-payloads/JsonScwDelegatesPayload";
 
 jest.mock("@mm-institutional/simplecache");
 fetchMock.enableMocks();
@@ -225,6 +226,51 @@ describe("JsonPortalClient", () => {
       expect(client._fetch).toHaveBeenCalledWith(
         `/connect/transactions/${mockJsonRpcGetTransactionByIdPayload}`,
         {},
+        "accesstoken",
+        "Get",
+      );
+    });
+  });
+
+  describe("getScwDelegates", () => {
+    beforeEach(() => {
+      client._fetch = jest.fn();
+    });
+    it("should call the getScwDelegates method on the json rpc caller", async () => {
+      const delegatesPayload = {
+        wallet_address: "0xtest",
+        to_address: "0xtest",
+        value: "0x123",
+        data: "0xtest",
+        chain_id: "0x123",
+      };
+      await client.getScwDelegates(delegatesPayload);
+      expect(client._fetch).toHaveBeenCalledWith(
+        "/connect/smart_contract/delegates",
+        delegatesPayload,
+        "accesstoken",
+        "Get",
+      );
+    });
+  });
+
+  describe("buildScwTransaction", () => {
+    beforeEach(() => {
+      client._fetch = jest.fn();
+    });
+    it("should call the buildScwTransaction method on the json rpc caller", async () => {
+      const buildScwTransactionPayload: JsonScwBuildTransactionPayload = {
+        delegate_address: "0xtest",
+        wallet_address: "0xtest",
+        to_address: "0xtest",
+        value: "0x123",
+        data: "0xtest",
+        chain_id: "0x123",
+      };
+      await client.buildScwTransaction(buildScwTransactionPayload);
+      expect(client._fetch).toHaveBeenCalledWith(
+        "/connect/smart_contract/build_transaction",
+        buildScwTransactionPayload,
         "accesstoken",
         "Get",
       );

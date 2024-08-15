@@ -12,6 +12,7 @@ import { JsonRpcGetTransactionByIdPayload } from "./rpc-payloads/JsonRpcGetTrans
 import { JsonRpcListAccountChainIdsPayload } from "./rpc-payloads/JsonRpcListAccountChainIdsPayload";
 import { JsonRpcSignPayload } from "./rpc-payloads/JsonRpcSignPayload";
 import { JsonRpcSignTypedDataPayload } from "./rpc-payloads/JsonRpcSignTypedDataPayload";
+import { JsonScwBuildTransactionPayload, JsonScwDelegatesPayload } from "./rpc-payloads/JsonScwDelegatesPayload";
 import { JsonApiCreateTransactionResult } from "./rpc-responses/JsonRpcCreateTransactionResult";
 import { JsonRpcGetCustomerProofResponse } from "./rpc-responses/JsonRpcGetCustomerProofResponse";
 import { JsonRpcGetSignedMessageByIdResponse } from "./rpc-responses/JsonRpcGetSignedMessageByIdResponse";
@@ -19,6 +20,7 @@ import { JsonRpcGetTransactionByIdResponse } from "./rpc-responses/JsonRpcGetTra
 import { JsonRpcListAccountsResponse } from "./rpc-responses/JsonRpcListAccountsResponse";
 import { JsonApiSignResponse } from "./rpc-responses/JsonRpcSignResponse";
 import { JsonApiSignTypedDataResponse } from "./rpc-responses/JsonRpcSignTypedDataResponse";
+import { JsonScwBuildTransactionResponse, JsonScwDelegatesResponse } from "./rpc-responses/JsonScwDelegatesResponse";
 
 export class JsonPortalClient extends EventEmitter {
   private cache: SimpleCache;
@@ -147,6 +149,23 @@ export class JsonPortalClient extends EventEmitter {
     const accessToken = await this.getAccessToken();
 
     return this._fetch("/connect/accounts/chains", listAccountChainIdPayload, accessToken, "Get");
+  }
+
+  // get cobo connect smart contract wallet delegates
+  async getScwDelegates(
+    delegatesPayload: JsonScwDelegatesPayload,
+  ): Promise<JsonPortalResult<JsonScwDelegatesResponse>> {
+    const accessToken = await this.getAccessToken();
+
+    return this._fetch("/connect/smart_contract/delegates", delegatesPayload, accessToken, "Get");
+  }
+
+  // build cobo connect smart contract transaction
+  async buildScwTransaction(
+    buildScwTransactionPayload: JsonScwBuildTransactionPayload,
+  ): Promise<JsonPortalResult<JsonScwBuildTransactionResponse>> {
+    const accessToken = await this.getAccessToken();
+    return this._fetch("/connect/smart_contract/build_transaction", buildScwTransactionPayload, accessToken, "Get");
   }
 
   async createTransaction(
