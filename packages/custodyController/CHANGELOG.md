@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.10](https://github.com/consensys-vertical-apps/metamask-institutional/compare/@mm-institutional/custody-controller@0.3.9...@mm-institutional/custody-controller@0.3.10) (2024-08-15)
+
+**Note:** Version bump only for package @mm-institutional/custody-controller
+
 ## [0.3.9](https://github.com/consensys-vertical-apps/metamask-institutional/compare/@mm-institutional/custody-controller@0.3.8...@mm-institutional/custody-controller@0.3.9) (2024-08-12)
 
 **Note:** Version bump only for package @mm-institutional/custody-controller
