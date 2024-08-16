@@ -13,7 +13,7 @@ export const mockJsonRpcListAccountResponse: JsonPortalResult<JsonRpcListAccount
           value: "Daily Temporary Widow Spider",
         },
       ],
-      walletType: "MPC",
+      wallet_type: "MPC",
     },
     {
       name: "Elegantly Jittery Viper Fish",
@@ -24,7 +24,7 @@ export const mockJsonRpcListAccountResponse: JsonPortalResult<JsonRpcListAccount
           value: "Elegantly Jittery Viper Fish",
         },
       ],
-      walletType: "SmartContract",
+      wallet_type: "SmartContract",
     },
     {
       name: "Accidentally Wasteful Narwhal",
@@ -35,7 +35,7 @@ export const mockJsonRpcListAccountResponse: JsonPortalResult<JsonRpcListAccount
           value: "Accidentally Wasteful Narwhal",
         },
       ],
-      walletType: "SmartContract",
+      wallet_type: "SmartContract",
     },
     {
       name: "Inwardly Frail Caribou",
@@ -46,7 +46,7 @@ export const mockJsonRpcListAccountResponse: JsonPortalResult<JsonRpcListAccount
           value: "Inwardly Frail Caribou",
         },
       ],
-      walletType: "SmartContract",
+      wallet_type: "SmartContract",
     },
     {
       name: "Kiddingly Icy Monkey",
@@ -57,7 +57,7 @@ export const mockJsonRpcListAccountResponse: JsonPortalResult<JsonRpcListAccount
           value: "Kiddingly Icy Monkey",
         },
       ],
-      walletType: "SmartContract",
+      wallet_type: "SmartContract",
     },
   ],
 };
