@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.12](https://github.com/consensys-vertical-apps/metamask-institutional/compare/@mm-institutional/extension@0.4.11...@mm-institutional/extension@0.4.12) (2024-08-16)
+
+**Note:** Version bump only for package @mm-institutional/extension
+
 ## [0.4.11](https://github.com/consensys-vertical-apps/metamask-institutional/compare/@mm-institutional/extension@0.4.10...@mm-institutional/extension@0.4.11) (2024-08-15)
 
 **Note:** Version bump only for package @mm-institutional/extension

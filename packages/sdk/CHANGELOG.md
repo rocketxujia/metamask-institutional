@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.12](https://github.com/consensys-vertical-apps/metamask-institutional/compare/@mm-institutional/sdk@0.2.11...@mm-institutional/sdk@0.2.12) (2024-08-16)
+
+### Bug Fixes
+
+- [scw-hide_send-wallet_type] 保存 wallet type 字段 ([9939426](https://github.com/consensys-vertical-apps/metamask-institutional/commit/993942685c1e663b1189c6d6bc791fab9793ed4c))
+
 ## [0.2.11](https://github.com/consensys-vertical-apps/metamask-institutional/compare/@mm-institutional/sdk@0.2.10...@mm-institutional/sdk@0.2.11) (2024-08-15)
 
 ### Features
