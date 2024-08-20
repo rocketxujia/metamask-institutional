@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.15](https://github.com/consensys-vertical-apps/metamask-institutional/compare/@mm-institutional/websocket-client@0.2.14...@mm-institutional/websocket-client@0.2.15) (2024-08-20)
+
+**Note:** Version bump only for package @mm-institutional/websocket-client
+
 ## [0.2.14](https://github.com/consensys-vertical-apps/metamask-institutional/compare/@mm-institutional/websocket-client@0.2.13...@mm-institutional/websocket-client@0.2.14) (2024-08-20)
 
 **Note:** Version bump only for package @mm-institutional/websocket-client
