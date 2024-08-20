@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.13](https://github.com/consensys-vertical-apps/metamask-institutional/compare/@mm-institutional/sdk@0.2.12...@mm-institutional/sdk@0.2.13) (2024-08-20)
+
+### Bug Fixes
+
+- [scw-new-api-add] 优化 Scw 钱包地址的 Api 接口逻辑 ([1a28590](https://github.com/consensys-vertical-apps/metamask-institutional/commit/1a28590e64ca3c40b463fadd31a8940f6b3b7da7))
+
 ## [0.2.12](https://github.com/consensys-vertical-apps/metamask-institutional/compare/@mm-institutional/sdk@0.2.11...@mm-institutional/sdk@0.2.12) (2024-08-16)
 
 ### Bug Fixes
