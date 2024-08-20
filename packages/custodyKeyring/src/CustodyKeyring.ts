@@ -388,7 +388,7 @@ export abstract class CustodyKeyring extends EventEmitter {
     return result;
   }
 
-  async buildTransaction(
+  async buildScwTransaction(
     txParams: { delegateAddress: string; from: string; to: string; value: string; data: string },
     txMeta: { chainId: string },
   ): Promise<IPortalScwBuildTransaction> {
