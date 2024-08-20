@@ -6,7 +6,7 @@ interface Delegate {
   name: string;
   address: string;
   Labels: Label[];
-  gasBalance: number;
+  gasBalance: string;
 }
 
 export type IPortalScwDelegates = Delegate[];

@@ -353,37 +353,32 @@ export abstract class CustodyKeyring extends EventEmitter {
   }
 
   async getScwDelegates(
-    fromAddress: string,
-    ethTx: FeeMarketEIP1559Transaction | Transaction,
-    txMeta: MetamaskTransaction,
+    txParams: { from: string; to: string; value: string; data: string },
+    txMeta: { chainId: string },
   ): Promise<IPortalScwDelegates> {
     let data: any;
-    if (typeof ethTx.data === "string") {
-      data = ethTx.data;
-    } else if (ethTx.data instanceof Uint8Array) {
-      data = ethTx.data.toString("hex");
+    if (typeof txParams.data === "string") {
+      data = txParams.data;
     }
     if (!data?.length) {
       data = undefined;
     } else if (!data?.startsWith("0x")) {
       data = "0x" + data;
     }
-
+    const fromAddress = txParams.from;
     const { authDetails, envName } = this.getAccountDetails(fromAddress);
     const sdk = this.getSDK(authDetails, envName);
 
     const noGasPayload: any = {
       from: toChecksumAddress(fromAddress),
-      value: BigInt(txMeta.txParams.value).toString(),
-      gasLimit: BigInt(txMeta.txParams.gas).toString(),
+      value: BigInt(txParams.value).toString(),
       data: data,
     };
 
     // Contract deployments have no to address
-    if (txMeta.txParams.to) {
-      noGasPayload.to = toChecksumAddress(txMeta.txParams.to);
+    if (txParams.to) {
+      noGasPayload.to = toChecksumAddress(txParams.to);
     }
-
     const payload: IEIP1559TxParams | ILegacyTXParams = noGasPayload;
     const chainId = Number(txMeta.chainId).toString(10); // Convert to string to avoid weirdness with BigInt
 
@@ -394,16 +389,12 @@ export abstract class CustodyKeyring extends EventEmitter {
   }
 
   async buildTransaction(
-    fromAddress: string,
-    delegateAddress: string,
-    ethTx: FeeMarketEIP1559Transaction | Transaction,
-    txMeta: MetamaskTransaction,
+    txParams: { delegateAddress: string; from: string; to: string; value: string; data: string },
+    txMeta: { chainId: string },
   ): Promise<IPortalScwBuildTransaction> {
     let data: any;
-    if (typeof ethTx.data === "string") {
-      data = ethTx.data;
-    } else if (ethTx.data instanceof Uint8Array) {
-      data = ethTx.data.toString("hex");
+    if (typeof txParams.data === "string") {
+      data = txParams.data;
     }
     if (!data?.length) {
       data = undefined;
@@ -411,22 +402,21 @@ export abstract class CustodyKeyring extends EventEmitter {
       data = "0x" + data;
     }
 
+    const fromAddress = txParams.from;
     const { authDetails, envName } = this.getAccountDetails(fromAddress);
     const sdk = this.getSDK(authDetails, envName);
 
     const noGasPayload: any = {
+      delegateAddress: toChecksumAddress(txParams.delegateAddress),
       from: toChecksumAddress(fromAddress),
-      value: BigInt(txMeta.txParams.value).toString(),
+      value: BigInt(txParams.value).toString(),
       data: data,
-      gasLimit: BigInt(txMeta.txParams.gas).toString(),
-      delegateAddress: toChecksumAddress(delegateAddress),
     };
 
     // Contract deployments have no to address
-    if (txMeta.txParams.to) {
-      noGasPayload.to = toChecksumAddress(txMeta.txParams.to);
+    if (txParams.to) {
+      noGasPayload.to = toChecksumAddress(txParams.to);
     }
-
     const payload: IEIP1559TxParams | ILegacyTXParams = noGasPayload;
     const chainId = Number(txMeta.chainId).toString(10); // Convert to string to avoid weirdness with BigInt
 

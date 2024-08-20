@@ -6,10 +6,14 @@ export interface JsonScwDelegate {
   name: string;
   address: string;
   tags: Tag[];
-  gas_balance: number;
+  gas_balance: string;
 }
 
-export type JsonScwDelegatesResponse = JsonScwDelegate[];
+interface JsonScwDelegates {
+  delegates: JsonScwDelegate[];
+}
+
+export type JsonScwDelegatesResponse = JsonScwDelegates;
 
 export interface JsonScwBuildTransactionResponse {
   /**

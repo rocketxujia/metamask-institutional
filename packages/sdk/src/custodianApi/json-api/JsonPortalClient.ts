@@ -156,7 +156,7 @@ export class JsonPortalClient extends EventEmitter {
     delegatesPayload: JsonScwDelegatesPayload,
   ): Promise<JsonPortalResult<JsonScwDelegatesResponse>> {
     const accessToken = await this.getAccessToken();
-
+    delegatesPayload.from_address = delegatesPayload.wallet_address;
     return this._fetch("/connect/smart_contract/delegates", delegatesPayload, accessToken, "Get");
   }
 
@@ -165,6 +165,7 @@ export class JsonPortalClient extends EventEmitter {
     buildScwTransactionPayload: JsonScwBuildTransactionPayload,
   ): Promise<JsonPortalResult<JsonScwBuildTransactionResponse>> {
     const accessToken = await this.getAccessToken();
+    buildScwTransactionPayload.from_address = buildScwTransactionPayload.wallet_address;
     return this._fetch("/connect/smart_contract/build_transaction", buildScwTransactionPayload, accessToken, "Get");
   }
 

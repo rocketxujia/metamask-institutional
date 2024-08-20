@@ -119,7 +119,7 @@ export class JsonPortalCustodianApi extends EventEmitter implements IPortalCusto
     };
 
     const { result } = await this.client.getScwDelegates(payload);
-    return result.map(delegate => {
+    return result.delegates.map(delegate => {
       return {
         name: delegate.name,
         address: delegate.address,

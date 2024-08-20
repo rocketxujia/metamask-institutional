@@ -16,6 +16,7 @@ export interface JsonScwDelegatesPayload {
    * The wallet address
    */
   wallet_address: string;
+  from_address?: string;
 
   chain_id: string;
 }
