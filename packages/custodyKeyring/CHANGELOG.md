@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.14](https://github.com/consensys-vertical-apps/metamask-institutional/compare/@mm-institutional/custody-keyring@3.0.13...@mm-institutional/custody-keyring@3.0.14) (2024-08-21)
+
+### Bug Fixes
+
+- [scw-new-api-add] 优化 Scw 钱包地址的 Api 接口逻辑 ([2bd4e43](https://github.com/consensys-vertical-apps/metamask-institutional/commit/2bd4e43b9ba665548cf0593f7252731310e197fa))
+
 ## [3.0.13](https://github.com/consensys-vertical-apps/metamask-institutional/compare/@mm-institutional/custody-keyring@3.0.12...@mm-institutional/custody-keyring@3.0.13) (2024-08-20)
 
 ### Bug Fixes
