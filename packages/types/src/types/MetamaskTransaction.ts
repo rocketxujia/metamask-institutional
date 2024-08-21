@@ -30,4 +30,5 @@ export type MetamaskTransaction = {
     custodianPublishesTransaction?: boolean;
     rpcUrl?: string;
   };
+  delegateAddress?: string;
 };

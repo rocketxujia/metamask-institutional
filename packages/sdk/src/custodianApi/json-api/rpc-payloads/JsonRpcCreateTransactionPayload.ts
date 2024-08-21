@@ -11,6 +11,7 @@ export interface JsonApiTransactionParams {
   category?: string;
   origin_url?: string;
   note?: string;
+  delegate_address?: string;
 }
 
 export interface Fee {

@@ -104,7 +104,7 @@ export class JsonPortalCustodianApi extends EventEmitter implements IPortalCusto
   ): Promise<IPortalScwDelegates> {
     const fromAddress = txParams.from;
 
-    const accounts = await this.getEthereumAccountsByAddress(fromAddress);
+    const accounts = await this.getEthereumAccountsByAddress(fromAddress, null, { address: [fromAddress] });
 
     if (!accounts.length) {
       throw new Error("No such ethereum account!");
@@ -141,7 +141,7 @@ export class JsonPortalCustodianApi extends EventEmitter implements IPortalCusto
   ): Promise<IPortalScwBuildTransaction> {
     const fromAddress = txParams.from;
 
-    const accounts = await this.getEthereumAccountsByAddress(fromAddress);
+    const accounts = await this.getEthereumAccountsByAddress(fromAddress, null, { address: [fromAddress] });
 
     if (!accounts.length) {
       throw new Error("No such ethereum account!");
@@ -188,6 +188,10 @@ export class JsonPortalCustodianApi extends EventEmitter implements IPortalCusto
       origin_url: txMeta.origin,
       category: txMeta.transactionCategory,
     };
+
+    if (txParams.delegateAddress) {
+      payload.delegate_address = txParams.delegateAddress;
+    }
 
     if (Number(txParams.type) === 2) {
       payload.fee = {

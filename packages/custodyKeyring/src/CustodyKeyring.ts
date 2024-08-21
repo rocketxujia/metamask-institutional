@@ -502,6 +502,11 @@ export abstract class CustodyKeyring extends EventEmitter {
       } as ILegacyTXParams;
     }
 
+    // portal scw need to add delegate address
+    if (txMeta.delegateAddress) {
+      payload.delegateAddress = txMeta.delegateAddress;
+    }
+
     const result = await sdk.createTransaction(payload, {
       chainId,
       note,
