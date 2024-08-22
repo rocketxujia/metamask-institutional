@@ -1,4 +1,4 @@
-interface Tag {
+export interface Tag {
   name: string;
   value: string;
 }
@@ -6,7 +6,7 @@ export interface JsonScwDelegate {
   name: string;
   address: string;
   tags: Tag[];
-  gas_balance: string;
+  gas_balance?: string;
 }
 
 interface JsonScwDelegates {

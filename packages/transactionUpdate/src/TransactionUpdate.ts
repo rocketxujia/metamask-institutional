@@ -335,6 +335,7 @@ export class TransactionUpdateController extends EventEmitter {
           type: null, // FIXME : cannot be obtained from getTransaction
           // Portal 信息
           custodyRequestId: result.custodianRequestId,
+          delegateAccount: result.delegateAccount,
         },
       };
     }

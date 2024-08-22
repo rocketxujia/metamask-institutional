@@ -1,3 +1,5 @@
+import type { JsonScwDelegate } from "./JsonScwDelegatesResponse";
+
 export interface JsonRpcGetTransactionByIdResponse {
   id: string;
   request_id: string;
@@ -12,6 +14,7 @@ export interface JsonRpcGetTransactionByIdResponse {
   max_priority_fee?: string;
   nonce: string;
   hash: string;
+  delegate_address?: JsonScwDelegate;
   timeline: {
     finished: boolean;
     submitted: boolean;

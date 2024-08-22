@@ -102,16 +102,8 @@ export class JsonPortalCustodianApi extends EventEmitter implements IPortalCusto
     txParams: IEIP1559TxParams | ILegacyTXParams,
     txMeta: CreateTransactionMetadata,
   ): Promise<IPortalScwDelegates> {
-    const fromAddress = txParams.from;
-
-    const accounts = await this.getEthereumAccountsByAddress(fromAddress, null, { address: [fromAddress] });
-
-    if (!accounts.length) {
-      throw new Error("No such ethereum account!");
-    }
-
     const payload: JsonScwDelegatesPayload = {
-      wallet_address: accounts[0].address, // already hexlified
+      wallet_address: txParams.from, // already hexlified
       to_address: txParams.to, // already hexlified
       data: txParams.data, // already hexlified
       value: hexlify(txParams.value),
@@ -139,16 +131,8 @@ export class JsonPortalCustodianApi extends EventEmitter implements IPortalCusto
     txParams: IEIP1559TxParams | ILegacyTXParams,
     txMeta: CreateTransactionMetadata,
   ): Promise<IPortalScwBuildTransaction> {
-    const fromAddress = txParams.from;
-
-    const accounts = await this.getEthereumAccountsByAddress(fromAddress, null, { address: [fromAddress] });
-
-    if (!accounts.length) {
-      throw new Error("No such ethereum account!");
-    }
-
     const payload: JsonScwBuildTransactionPayload = {
-      wallet_address: accounts[0].address, // already hexlified
+      wallet_address: txParams.from, // already hexlified
       to_address: txParams.to, // already hexlified
       data: txParams.data, // already hexlified
       value: hexlify(txParams.value),
@@ -169,16 +153,14 @@ export class JsonPortalCustodianApi extends EventEmitter implements IPortalCusto
     txParams: IEIP1559TxParams | ILegacyTXParams,
     txMeta: CreateTransactionMetadata,
   ): Promise<ITransactionDetails> {
-    const fromAddress = txParams.from;
-
-    const accounts = await this.getEthereumAccountsByAddress(fromAddress);
-
-    if (!accounts.length) {
-      throw new Error("No such ethereum account!");
-    }
+    // const fromAddress = txParams.from;
+    // const accounts = await this.getEthereumAccountsByAddress(fromAddress);
+    // if (!accounts.length) {
+    //   throw new Error("No such ethereum account!");
+    // }
 
     const payload: Partial<JsonApiTransactionParams> = {
-      from_address: accounts[0].address, // already hexlified
+      from_address: txParams.from, // already hexlified
       to_address: txParams.to, // already hexlified
       data: txParams.data, // already hexlified
       value: hexlify(txParams.value),
@@ -211,7 +193,7 @@ export class JsonPortalCustodianApi extends EventEmitter implements IPortalCusto
     return {
       custodian_transactionId: result.tx_id,
       transactionStatus: "created",
-      from: accounts[0].address,
+      from: txParams.from,
       // Portal 属性
       custodianRequestId: result.request_id,
     };
@@ -222,6 +204,19 @@ export class JsonPortalCustodianApi extends EventEmitter implements IPortalCusto
     if (!result) {
       return null;
     }
+    // delegateAccount 转换命名
+    const delegate_address = result.delegate_address;
+    const delegateAccount = {
+      name: delegate_address.name,
+      address: delegate_address.address,
+      Labels: (delegate_address.tags || []).map(t => {
+        return {
+          key: t.name as string,
+          value: t.value as string,
+        };
+      }),
+      gasBalance: delegate_address.gas_balance,
+    };
     return {
       custodian_transactionId: result.id,
       transactionStatus: mapStatusObjectToStatusText(result.timeline),
@@ -238,6 +233,7 @@ export class JsonPortalCustodianApi extends EventEmitter implements IPortalCusto
       // Portal 属性
       custodianRequestId: result.request_id,
       custodianStatusReason: result.timeline.reason,
+      delegateAccount,
     };
   }
 

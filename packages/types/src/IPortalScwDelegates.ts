@@ -2,7 +2,7 @@ interface Label {
   key: string;
   value: string;
 }
-interface Delegate {
+export interface Delegate {
   name: string;
   address: string;
   Labels: Label[];

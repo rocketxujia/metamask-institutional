@@ -1,3 +1,5 @@
+import type { Delegate } from "./IPortalScwDelegates";
+
 export interface ITransactionDetails {
   transactionStatus: TransactionStatus;
   transactionHash?: string; // Optional because signatures have no hash and not all transactions are submitted yet
@@ -29,6 +31,7 @@ export interface ITransactionDetails {
   // Portal 逻辑相关属性
   custodianRequestId?: string;
   custodianStatusReason?: string;
+  delegateAccount?: Delegate;
 }
 
 export type TransactionStatus =
