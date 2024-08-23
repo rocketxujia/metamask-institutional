@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.11](https://github.com/consensys-vertical-apps/metamask-institutional/compare/@mm-institutional/types@1.2.10...@mm-institutional/types@1.2.11) (2024-08-23)
+
+### Bug Fixes
+
+- [scw-new-api-add] Scw 的 Api 接口 getTransaction 返回 delegaete 信息 ([4042a8f](https://github.com/consensys-vertical-apps/metamask-institutional/commit/4042a8f5fd854b1181895bef8e72ef50c2e3d586))
+
 ## [1.2.10](https://github.com/consensys-vertical-apps/metamask-institutional/compare/@mm-institutional/types@1.2.9...@mm-institutional/types@1.2.10) (2024-08-22)
 
 ### Bug Fixes
