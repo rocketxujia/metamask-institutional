@@ -14,7 +14,7 @@ export interface JsonRpcGetTransactionByIdResponse {
   max_priority_fee?: string;
   nonce: string;
   hash: string;
-  delegate_address?: JsonScwDelegate;
+  delegate?: JsonScwDelegate;
   timeline: {
     finished: boolean;
     submitted: boolean;

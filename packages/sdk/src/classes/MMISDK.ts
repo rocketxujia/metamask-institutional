@@ -75,7 +75,11 @@ export class MMISDK extends EventEmitter {
     maxCacheAgeSeconds = this.defaultCacheAgeSeconds,
     filterParams?: object,
   ): Promise<IEthereumAccount<IEthereumAccountCustodianDetails>[]> {
-    const cacheKey = "getEthereumAccounts";
+    // 获取 filterParams 对象的所有键
+    const filterKeys = Object.keys(filterParams || {});
+    // 获取所有键对应的值，并组成一个字符串
+    const filterValuesString = filterKeys.map(key => filterParams[key]).join(",");
+    const cacheKey = "getEthereumAccounts-" + filterValuesString;
 
     return this.cache.tryCachingArray<IEthereumAccount<IEthereumAccountCustodianDetails>>(
       cacheKey,
@@ -93,7 +97,11 @@ export class MMISDK extends EventEmitter {
     maxCacheAgeSeconds = this.defaultCacheAgeSeconds,
     filterParams?: object,
   ): Promise<IEthereumAccount<IEthereumAccountCustodianDetails>[]> {
-    const cacheKey = "getEthereumAccountsByAddress-" + address;
+    // 获取 filterParams 对象的所有键
+    const filterKeys = Object.keys(filterParams || {});
+    // 获取所有键对应的值，并组成一个字符串
+    const filterValuesString = filterKeys.map(key => filterParams[key]).join(",");
+    const cacheKey = "getEthereumAccountsByAddress-" + address + "-" + filterValuesString;
 
     return this.cache.tryCachingArray<IEthereumAccount<IEthereumAccountCustodianDetails>>(
       cacheKey,
@@ -111,7 +119,11 @@ export class MMISDK extends EventEmitter {
     maxCacheAgeSeconds = this.defaultCacheAgeSeconds,
     filterParams?: object,
   ): Promise<IEthereumAccount<IEthereumAccountCustodianDetails>[]> {
-    const cacheKey = "getEthereumAccountsByLabelOrAddressName-" + name;
+    // 获取 filterParams 对象的所有键
+    const filterKeys = Object.keys(filterParams || {});
+    // 获取所有键对应的值，并组成一个字符串
+    const filterValuesString = filterKeys.map(key => filterParams[key]).join(",");
+    const cacheKey = "getEthereumAccountsByLabelOrAddressName-" + name + "-" + filterValuesString;
 
     return this.cache.tryCachingArray<IEthereumAccount<IEthereumAccountCustodianDetails>>(
       cacheKey,

@@ -5,7 +5,7 @@ interface Label {
 export interface Delegate {
   name: string;
   address: string;
-  Labels: Label[];
+  labels: Label[];
   gasBalance: string;
 }
 

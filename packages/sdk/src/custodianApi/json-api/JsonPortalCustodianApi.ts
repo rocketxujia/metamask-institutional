@@ -115,7 +115,7 @@ export class JsonPortalCustodianApi extends EventEmitter implements IPortalCusto
       return {
         name: delegate.name,
         address: delegate.address,
-        Labels: (delegate.tags || []).map(t => {
+        labels: (delegate.tags || []).map(t => {
           return {
             key: t.name as string,
             value: t.value as string,
@@ -205,18 +205,21 @@ export class JsonPortalCustodianApi extends EventEmitter implements IPortalCusto
       return null;
     }
     // delegateAccount 转换命名
-    const delegate_address = result.delegate_address;
-    const delegateAccount = {
-      name: delegate_address.name,
-      address: delegate_address.address,
-      Labels: (delegate_address.tags || []).map(t => {
-        return {
-          key: t.name as string,
-          value: t.value as string,
-        };
-      }),
-      gasBalance: delegate_address.gas_balance,
-    };
+    const delegate = result.delegate;
+    let delegateAccount = undefined;
+    if (delegate.address) {
+      delegateAccount = {
+        name: delegate.name,
+        address: delegate.address,
+        labels: (delegate.tags || []).map(t => {
+          return {
+            key: t.name as string,
+            value: t.value as string,
+          };
+        }),
+        gasBalance: delegate.gas_balance,
+      };
+    }
     return {
       custodian_transactionId: result.id,
       transactionStatus: mapStatusObjectToStatusText(result.timeline),

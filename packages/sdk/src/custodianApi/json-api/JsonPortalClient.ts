@@ -157,7 +157,7 @@ export class JsonPortalClient extends EventEmitter {
   ): Promise<JsonPortalResult<JsonScwDelegatesResponse>> {
     const accessToken = await this.getAccessToken();
     delegatesPayload.from_address = delegatesPayload.wallet_address;
-    return this._fetch("/connect/smart_contract/delegates", delegatesPayload, accessToken, "Get");
+    return this._fetch("/connect/smart_contract/delegates", delegatesPayload, accessToken);
   }
 
   // build cobo connect smart contract transaction
@@ -166,7 +166,7 @@ export class JsonPortalClient extends EventEmitter {
   ): Promise<JsonPortalResult<JsonScwBuildTransactionResponse>> {
     const accessToken = await this.getAccessToken();
     buildScwTransactionPayload.from_address = buildScwTransactionPayload.wallet_address;
-    return this._fetch("/connect/smart_contract/build_transaction", buildScwTransactionPayload, accessToken, "Get");
+    return this._fetch("/connect/smart_contract/build_transaction", buildScwTransactionPayload, accessToken);
   }
 
   async createTransaction(
@@ -227,7 +227,12 @@ export class JsonPortalClient extends EventEmitter {
         });
       } else {
         // 构建查询字符串
-        const queryString = new URLSearchParams({ ...data, connect_request_id: `${this.connectRequestId}` }).toString();
+        const filteredParams = Object.fromEntries(
+          Object.entries({ ...data, connect_request_id: `${this.connectRequestId}` }).filter(
+            ([key, value]) => value !== undefined,
+          ),
+        );
+        const queryString = new URLSearchParams(filteredParams).toString();
         url = `${url}?${queryString}`;
       }
       response = await fetch(url, options);

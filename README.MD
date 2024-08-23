@@ -39,7 +39,7 @@ find . -type f -maxdepth 1 -name "jsconfig.json"
 ````
 yarn lint:fix
 yarn test:cov // npx jest  packages/institutionalFeatures
-yarn build // test build 是否成功
+yarn build // 测试 build 是否成功
 git commit 
 npx lerna version patch
 yarn build

@@ -245,12 +245,7 @@ describe("JsonPortalClient", () => {
         chain_id: "0x123",
       };
       await client.getScwDelegates(delegatesPayload);
-      expect(client._fetch).toHaveBeenCalledWith(
-        "/connect/smart_contract/delegates",
-        delegatesPayload,
-        "accesstoken",
-        "Get",
-      );
+      expect(client._fetch).toHaveBeenCalledWith("/connect/smart_contract/delegates", delegatesPayload, "accesstoken");
     });
   });
 
@@ -272,7 +267,6 @@ describe("JsonPortalClient", () => {
         "/connect/smart_contract/build_transaction",
         buildScwTransactionPayload,
         "accesstoken",
-        "Get",
       );
     });
   });
