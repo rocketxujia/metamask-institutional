@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.17](https://github.com/consensys-vertical-apps/metamask-institutional/compare/@mm-institutional/sdk@0.2.16...@mm-institutional/sdk@0.2.17) (2024-08-26)
+
+### Bug Fixes
+
+- [scw-list-accounts-add-wallet-id] 保存 wallet id 字段 ([5fa00b7](https://github.com/consensys-vertical-apps/metamask-institutional/commit/5fa00b7040f7f6f8e707d190b377d22711655b9b))
+
 ## [0.2.16](https://github.com/consensys-vertical-apps/metamask-institutional/compare/@mm-institutional/sdk@0.2.15...@mm-institutional/sdk@0.2.16) (2024-08-23)
 
 ### Bug Fixes
