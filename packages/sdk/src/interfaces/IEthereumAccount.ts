@@ -10,4 +10,5 @@ export interface IEthereumAccount<T> {
   labels?: Label[];
   balance?: string;
   walletType?: string;
+  walletId?: string;
 }

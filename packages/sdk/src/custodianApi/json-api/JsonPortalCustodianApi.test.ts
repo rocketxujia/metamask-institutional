@@ -93,6 +93,7 @@ describe("JsonPortalCustodianApi", () => {
             value: tag.value,
           })),
           walletType: account.wallet_type || "Unknown",
+          walletId: account.wallet_id,
         })),
       );
     });

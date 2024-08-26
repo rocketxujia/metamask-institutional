@@ -14,6 +14,7 @@ export const mockJsonRpcListAccountResponse: JsonPortalResult<JsonRpcListAccount
         },
       ],
       wallet_type: "MPC",
+      wallet_id: "af8aedd9-f51d-4237-9665-3c41a9d1b499",
     },
     {
       name: "Elegantly Jittery Viper Fish",
@@ -25,6 +26,7 @@ export const mockJsonRpcListAccountResponse: JsonPortalResult<JsonRpcListAccount
         },
       ],
       wallet_type: "SmartContract",
+      wallet_id: "af8aedd9-f51d-4237-9665-3c41a9d1b498",
     },
     {
       name: "Accidentally Wasteful Narwhal",
@@ -36,6 +38,7 @@ export const mockJsonRpcListAccountResponse: JsonPortalResult<JsonRpcListAccount
         },
       ],
       wallet_type: "SmartContract",
+      wallet_id: "af8aedd9-f51d-4237-9665-3c41a9d1b497",
     },
     {
       name: "Inwardly Frail Caribou",
@@ -47,6 +50,7 @@ export const mockJsonRpcListAccountResponse: JsonPortalResult<JsonRpcListAccount
         },
       ],
       wallet_type: "SmartContract",
+      wallet_id: "af8aedd9-f51d-4237-9665-3c41a9d1b496",
     },
     {
       name: "Kiddingly Icy Monkey",
@@ -58,6 +62,7 @@ export const mockJsonRpcListAccountResponse: JsonPortalResult<JsonRpcListAccount
         },
       ],
       wallet_type: "SmartContract",
+      wallet_id: "af8aedd9-f51d-4237-9665-3c41a9d1b495",
     },
   ],
 };
