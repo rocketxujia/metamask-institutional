@@ -238,7 +238,6 @@ export class JsonPortalClient extends EventEmitter {
       response = await fetch(url, options);
       responseJson = await response.json();
 
-      console.info("JsonPortalClient < ", this.connectRequestId, url, responseJson);
       if ((responseJson as JsonPortalError).error_code) {
         throw new Error(
           `${(responseJson as JsonPortalError).error_message}[${(responseJson as JsonPortalError).error_code}]`,

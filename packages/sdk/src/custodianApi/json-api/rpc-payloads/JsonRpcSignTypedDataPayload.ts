@@ -3,4 +3,5 @@ export type JsonRpcSignTypedDataPayload = {
   payload: string;
   message_type: "EIP712";
   encoding_version: "v3";
+  original_url?: string;
 };

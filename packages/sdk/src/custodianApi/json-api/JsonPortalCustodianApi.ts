@@ -208,7 +208,7 @@ export class JsonPortalCustodianApi extends EventEmitter implements IPortalCusto
     // delegateAccount 转换命名
     const delegate = result.delegate;
     let delegateAccount = undefined;
-    if (delegate.address) {
+    if (delegate && delegate.address) {
       delegateAccount = {
         name: delegate.name,
         address: delegate.address,
