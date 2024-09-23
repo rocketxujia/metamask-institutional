@@ -1,6 +1,6 @@
 {
   "name": "@mm-institutional/extension",
-  "version": "0.4.18",
+  "version": "0.4.19",
   "description": "This package will export extension blocks used across the old @codefi/mmi-sdk library",
   "author": "Antonio Regadas <apregadas@gmail.com>",
   "homepage": "https://github.com/consensys-vertical-apps/metamask-institutional#readme",
@@ -30,10 +30,10 @@
   "gitHead": "714f7de2b6fc67bb87b8e6f89b383631ffc75fb6",
   "dependencies": {
     "@ethereumjs/util": "^8.0.5",
-    "@mm-institutional/custody-controller": "^0.3.17",
-    "@mm-institutional/custody-keyring": "^3.0.17",
+    "@mm-institutional/custody-controller": "^0.3.18",
+    "@mm-institutional/custody-keyring": "^3.0.18",
     "@mm-institutional/portfolio-dashboard": "^1.4.2",
-    "@mm-institutional/sdk": "^0.2.17",
+    "@mm-institutional/sdk": "^0.2.18",
     "@mm-institutional/transaction-update": "^0.3.0",
     "@mm-institutional/types": "^1.2.11",
     "jest-create-mock-instance": "^2.0.0",
