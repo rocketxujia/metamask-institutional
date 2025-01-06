@@ -1376,19 +1376,19 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@mm-institutional/custody-controller@^0.3.18, @mm-institutional/custody-controller@workspace:packages/custodyController":
+"@mm-institutional/custody-controller@^0.3.19, @mm-institutional/custody-controller@workspace:packages/custodyController":
   version: 0.0.0-use.local
   resolution: "@mm-institutional/custody-controller@workspace:packages/custodyController"
   dependencies:
     "@ethereumjs/util": ^8.0.5
     "@metamask/obs-store": ^8.0.0
-    "@mm-institutional/custody-keyring": ^3.0.18
+    "@mm-institutional/custody-keyring": ^3.0.19
     "@mm-institutional/sdk": ^0.2.18
     "@mm-institutional/types": ^1.2.11
   languageName: unknown
   linkType: soft
 
-"@mm-institutional/custody-keyring@^3.0.0, @mm-institutional/custody-keyring@^3.0.18, @mm-institutional/custody-keyring@workspace:packages/custodyKeyring":
+"@mm-institutional/custody-keyring@^3.0.0, @mm-institutional/custody-keyring@^3.0.19, @mm-institutional/custody-keyring@workspace:packages/custodyKeyring":
   version: 0.0.0-use.local
   resolution: "@mm-institutional/custody-keyring@workspace:packages/custodyKeyring"
   dependencies:
@@ -1409,8 +1409,8 @@ __metadata:
   resolution: "@mm-institutional/extension@workspace:packages/extension"
   dependencies:
     "@ethereumjs/util": ^8.0.5
-    "@mm-institutional/custody-controller": ^0.3.18
-    "@mm-institutional/custody-keyring": ^3.0.18
+    "@mm-institutional/custody-controller": ^0.3.19
+    "@mm-institutional/custody-keyring": ^3.0.19
     "@mm-institutional/portfolio-dashboard": ^1.4.2
     "@mm-institutional/sdk": ^0.2.18
     "@mm-institutional/transaction-update": ^0.3.0
@@ -1426,7 +1426,7 @@ __metadata:
   resolution: "@mm-institutional/institutional-features@workspace:packages/institutionalFeatures"
   dependencies:
     "@metamask/obs-store": ^8.0.0
-    "@mm-institutional/custody-keyring": ^3.0.18
+    "@mm-institutional/custody-keyring": ^3.0.19
     jest-fetch-mock: ^3.0.3
   languageName: unknown
   linkType: soft
@@ -1487,10 +1487,10 @@ __metadata:
   dependencies:
     "@ethereumjs/util": ^8.0.5
     "@metamask/obs-store": ^8.0.0
-    "@mm-institutional/custody-keyring": ^3.0.18
+    "@mm-institutional/custody-keyring": ^3.0.19
     "@mm-institutional/sdk": ^0.2.18
     "@mm-institutional/types": ^1.2.11
-    "@mm-institutional/websocket-client": ^0.2.20
+    "@mm-institutional/websocket-client": ^0.2.21
     ts-jest: 26.4.4
   languageName: unknown
   linkType: soft
@@ -1501,11 +1501,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@mm-institutional/websocket-client@^0.2.20, @mm-institutional/websocket-client@workspace:packages/websocketClient":
+"@mm-institutional/websocket-client@^0.2.21, @mm-institutional/websocket-client@workspace:packages/websocketClient":
   version: 0.0.0-use.local
   resolution: "@mm-institutional/websocket-client@workspace:packages/websocketClient"
   dependencies:
-    "@mm-institutional/custody-keyring": ^3.0.18
+    "@mm-institutional/custody-keyring": ^3.0.19
     "@mm-institutional/sdk": ^0.2.18
     "@mm-institutional/types": ^1.2.11
     mock-socket: ^9.2.1

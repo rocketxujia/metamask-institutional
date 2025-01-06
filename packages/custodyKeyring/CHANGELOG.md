@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.19](https://github.com/consensys-vertical-apps/metamask-institutional/compare/@mm-institutional/custody-keyring@3.0.18...@mm-institutional/custody-keyring@3.0.19) (2025-01-06)
+
+### Bug Fixes
+
+- hashAuthDetails undefined error ([50bfe32](https://github.com/consensys-vertical-apps/metamask-institutional/commit/50bfe32c464ca475f862d20109fb71c58990ce40))
+
 ## [3.0.18](https://github.com/consensys-vertical-apps/metamask-institutional/compare/@mm-institutional/custody-keyring@3.0.17...@mm-institutional/custody-keyring@3.0.18) (2024-09-23)
 
 **Note:** Version bump only for package @mm-institutional/custody-keyring
