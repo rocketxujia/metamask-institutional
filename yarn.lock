@@ -1388,7 +1388,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@mm-institutional/custody-keyring@^3.0.0, @mm-institutional/custody-keyring@^3.0.19, @mm-institutional/custody-keyring@workspace:packages/custodyKeyring":
+"@mm-institutional/custody-keyring@^3.0.19, @mm-institutional/custody-keyring@workspace:packages/custodyKeyring":
   version: 0.0.0-use.local
   resolution: "@mm-institutional/custody-keyring@workspace:packages/custodyKeyring"
   dependencies:
@@ -1413,7 +1413,7 @@ __metadata:
     "@mm-institutional/custody-keyring": ^3.0.19
     "@mm-institutional/portfolio-dashboard": ^1.4.2
     "@mm-institutional/sdk": ^0.2.18
-    "@mm-institutional/transaction-update": ^0.3.0
+    "@mm-institutional/transaction-update": ^0.2.21
     "@mm-institutional/types": ^1.2.11
     jest-create-mock-instance: ^2.0.0
     jest-fetch-mock: 3.0.3
@@ -1445,7 +1445,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@mm-institutional/sdk@^0.2.0, @mm-institutional/sdk@^0.2.18, @mm-institutional/sdk@workspace:packages/sdk":
+"@mm-institutional/sdk@^0.2.18, @mm-institutional/sdk@workspace:packages/sdk":
   version: 0.0.0-use.local
   resolution: "@mm-institutional/sdk@workspace:packages/sdk"
   dependencies:
@@ -1467,21 +1467,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@mm-institutional/transaction-update@npm:^0.3.0":
-  version: 0.3.0
-  resolution: "@mm-institutional/transaction-update@npm:0.3.0"
-  dependencies:
-    "@ethereumjs/util": ^8.0.5
-    "@metamask/obs-store": ^8.0.0
-    "@mm-institutional/custody-keyring": ^3.0.0
-    "@mm-institutional/sdk": ^0.2.0
-    "@mm-institutional/types": ^1.2.0
-    "@mm-institutional/websocket-client": ^0.3.0
-  checksum: 955333334d382ebd21eac6d289bc743046865c8a333de1088d39f2163147839bec539589334b5c08c9887cdf2dfdf3a785b707b700e190d78296343710f39b61
-  languageName: node
-  linkType: hard
-
-"@mm-institutional/transaction-update@workspace:packages/transactionUpdate":
+"@mm-institutional/transaction-update@^0.2.21, @mm-institutional/transaction-update@workspace:packages/transactionUpdate":
   version: 0.0.0-use.local
   resolution: "@mm-institutional/transaction-update@workspace:packages/transactionUpdate"
   dependencies:
@@ -1495,7 +1481,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@mm-institutional/types@^1.2.0, @mm-institutional/types@^1.2.11, @mm-institutional/types@workspace:packages/types":
+"@mm-institutional/types@^1.2.11, @mm-institutional/types@workspace:packages/types":
   version: 0.0.0-use.local
   resolution: "@mm-institutional/types@workspace:packages/types"
   languageName: unknown
@@ -1511,18 +1497,6 @@ __metadata:
     mock-socket: ^9.2.1
   languageName: unknown
   linkType: soft
-
-"@mm-institutional/websocket-client@npm:^0.3.0":
-  version: 0.3.0
-  resolution: "@mm-institutional/websocket-client@npm:0.3.0"
-  dependencies:
-    "@mm-institutional/custody-keyring": ^3.0.0
-    "@mm-institutional/sdk": ^0.2.0
-    "@mm-institutional/types": ^1.2.0
-    mock-socket: ^9.2.1
-  checksum: 9747b8071792d5ee92a70125d755087e438f53528d2d368c940727da9cffefa400332c2e1b2bcc8107473d3ad53e543bbceb95186db405d506a3d0bb3aaf22a6
-  languageName: node
-  linkType: hard
 
 "@noble/curves@npm:1.4.2, @noble/curves@npm:~1.4.0":
   version: 1.4.2
