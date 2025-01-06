@@ -205,7 +205,7 @@ export abstract class CustodyKeyring extends EventEmitter {
 
   hashAuthDetails(authDetails: AuthDetails, envName: string): string {
     const { apiUrl } = this.getCustodianFromEnvName(envName);
-    let identifier: string;
+    let identifier = "";
 
     if ((authDetails as ITokenAuthDetails).jwt) {
       identifier = (authDetails as ITokenAuthDetails).jwt + apiUrl;
