@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.19](https://github.com/consensys-vertical-apps/metamask-institutional/compare/@mm-institutional/sdk@0.2.18...@mm-institutional/sdk@0.2.19) (2025-01-07)
+
+### Bug Fixes
+
+- 删除地址列表接口缓存 ([c6bc584](https://github.com/consensys-vertical-apps/metamask-institutional/commit/c6bc584e9a45dc217d0a5a53e235827791e67cb3))
+
 ## [0.2.18](https://github.com/consensys-vertical-apps/metamask-institutional/compare/@mm-institutional/sdk@0.2.17...@mm-institutional/sdk@0.2.18) (2024-09-23)
 
 ### Bug Fixes
