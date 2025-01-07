@@ -75,20 +75,8 @@ export class MMISDK extends EventEmitter {
     maxCacheAgeSeconds = this.defaultCacheAgeSeconds,
     filterParams?: object,
   ): Promise<IEthereumAccount<IEthereumAccountCustodianDetails>[]> {
-    // 获取 filterParams 对象的所有键
-    const filterKeys = Object.keys(filterParams || {});
-    // 获取所有键对应的值，并组成一个字符串
-    const filterValuesString = filterKeys.map(key => filterParams[key]).join(",");
-    const cacheKey = "getEthereumAccounts-" + filterValuesString;
-
-    return this.cache.tryCachingArray<IEthereumAccount<IEthereumAccountCustodianDetails>>(
-      cacheKey,
-      maxCacheAgeSeconds,
-      async () => {
-        const accounts = await this.custodianApi.getEthereumAccounts(null, filterParams || {});
-        return accounts;
-      },
-    );
+    const accounts = await this.custodianApi.getEthereumAccounts(null, filterParams || {});
+    return accounts;
   }
 
   // Gets ethereum accounts based only on their address prefix
@@ -97,20 +85,8 @@ export class MMISDK extends EventEmitter {
     maxCacheAgeSeconds = this.defaultCacheAgeSeconds,
     filterParams?: object,
   ): Promise<IEthereumAccount<IEthereumAccountCustodianDetails>[]> {
-    // 获取 filterParams 对象的所有键
-    const filterKeys = Object.keys(filterParams || {});
-    // 获取所有键对应的值，并组成一个字符串
-    const filterValuesString = filterKeys.map(key => filterParams[key]).join(",");
-    const cacheKey = "getEthereumAccountsByAddress-" + address + "-" + filterValuesString;
-
-    return this.cache.tryCachingArray<IEthereumAccount<IEthereumAccountCustodianDetails>>(
-      cacheKey,
-      maxCacheAgeSeconds,
-      async () => {
-        const accounts = await this.custodianApi.getEthereumAccountsByAddress(address, null, filterParams || {});
-        return accounts;
-      },
-    );
+    const accounts = await this.custodianApi.getEthereumAccountsByAddress(address, null, filterParams || {});
+    return accounts;
   }
 
   // Gets ethereum accounts based only on their labels prefix
@@ -119,24 +95,8 @@ export class MMISDK extends EventEmitter {
     maxCacheAgeSeconds = this.defaultCacheAgeSeconds,
     filterParams?: object,
   ): Promise<IEthereumAccount<IEthereumAccountCustodianDetails>[]> {
-    // 获取 filterParams 对象的所有键
-    const filterKeys = Object.keys(filterParams || {});
-    // 获取所有键对应的值，并组成一个字符串
-    const filterValuesString = filterKeys.map(key => filterParams[key]).join(",");
-    const cacheKey = "getEthereumAccountsByLabelOrAddressName-" + name + "-" + filterValuesString;
-
-    return this.cache.tryCachingArray<IEthereumAccount<IEthereumAccountCustodianDetails>>(
-      cacheKey,
-      maxCacheAgeSeconds,
-      async () => {
-        const accounts = await this.custodianApi.getEthereumAccountsByLabelOrAddressName(
-          name,
-          null,
-          filterParams || {},
-        );
-        return accounts;
-      },
-    );
+    const accounts = await this.custodianApi.getEthereumAccountsByLabelOrAddressName(name, null, filterParams || {});
+    return accounts;
   }
 
   public async getScwDelegates(
