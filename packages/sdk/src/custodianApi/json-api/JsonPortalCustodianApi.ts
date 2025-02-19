@@ -180,7 +180,7 @@ export class JsonPortalCustodianApi extends EventEmitter implements IPortalCusto
       payload.fee = {
         gas_limit: hexlify(txParams.gasLimit),
         max_fee: hexlify((txParams as IEIP1559TxParams).maxFeePerGas),
-        max_priority_fee: hexlify((txParams as IEIP1559TxParams).maxFeePerGas),
+        max_priority_fee: hexlify((txParams as IEIP1559TxParams).maxPriorityFeePerGas),
       };
     } else {
       payload.fee = {
