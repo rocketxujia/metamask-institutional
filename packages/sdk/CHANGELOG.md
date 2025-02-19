@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.20](https://github.com/consensys-vertical-apps/metamask-institutional/compare/@mm-institutional/sdk@0.2.19...@mm-institutional/sdk@0.2.20) (2025-02-19)
+
+### Bug Fixes
+
+- max_priority_fee 设置问题 ([9d95072](https://github.com/consensys-vertical-apps/metamask-institutional/commit/9d95072340b233003b7457968c7559b7afaeeb28))
+
 ## [0.2.19](https://github.com/consensys-vertical-apps/metamask-institutional/compare/@mm-institutional/sdk@0.2.18...@mm-institutional/sdk@0.2.19) (2025-01-07)
 
 ### Bug Fixes
