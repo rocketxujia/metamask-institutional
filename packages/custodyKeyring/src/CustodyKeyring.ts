@@ -42,6 +42,7 @@ export type UniqueAccountDetails = {
   hash: string;
   authDetails: AuthDetails;
   envName: string;
+  address: string;
 };
 
 export abstract class CustodyKeyring extends EventEmitter {
@@ -61,6 +62,7 @@ export abstract class CustodyKeyring extends EventEmitter {
 
   public mmiConfigurationController: MmiConfigurationController;
   public captureException: (error: Error) => void;
+  public currentAddress: string;
 
   // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   abstract txDeepLink(custodianDetails: any, txId: string): Promise<Partial<ICustodianTransactionLink> | null>;
@@ -78,10 +80,11 @@ export abstract class CustodyKeyring extends EventEmitter {
     this.meta = {};
     this.mmiConfigurationController = opts.mmiConfigurationController;
     this.captureException = opts.captureException;
+    this.currentAddress = "";
   }
 
   getUniqueAccountDetails(account: ICustodianAccount<AuthDetails>): string {
-    return this.hashAuthDetails(account.authDetails, account.envName);
+    return this.hashAuthDetails(account.authDetails, account.envName, account.address);
   }
 
   serialize(): Promise<ISerializedKeyring> {
@@ -139,13 +142,14 @@ export abstract class CustodyKeyring extends EventEmitter {
                 hash,
                 authDetails: details.authDetails,
                 envName: details.envName,
+                address: details.address,
               });
             }
             return result;
           },
           [],
         );
-        uniqueAuthDetails.forEach(item => this.getSDK(item.authDetails, item.envName));
+        uniqueAuthDetails.forEach(item => this.getSDK(item.authDetails, item.envName, item.address));
 
         resolve();
       } catch (error) {
@@ -187,7 +191,7 @@ export abstract class CustodyKeyring extends EventEmitter {
           this.accounts.push(address);
 
           // Ensure the SDK is available as soon as the account is added
-          this.getSDK(selectedAccountDetails.authDetails, selectedAccountDetails.envName);
+          this.getSDK(selectedAccountDetails.authDetails, selectedAccountDetails.envName, address);
         }
       }
       resolve(this.accounts);
@@ -203,43 +207,43 @@ export abstract class CustodyKeyring extends EventEmitter {
     this.accountsDetails = this.accountsDetails.filter(a => a.address.toLowerCase() !== address.toLowerCase());
   }
 
-  hashAuthDetails(authDetails: AuthDetails, envName: string): string {
-    const { apiUrl } = this.getCustodianFromEnvName(envName);
-    let identifier = "";
-
-    if ((authDetails as ITokenAuthDetails).jwt) {
-      identifier = (authDetails as ITokenAuthDetails).jwt + apiUrl;
-    } else if ((authDetails as IRefreshTokenAuthDetails).refreshToken) {
-      identifier = (authDetails as IRefreshTokenAuthDetails).refreshToken + apiUrl;
-    }
-
-    return crypto.createHash("sha256").update(identifier).digest("hex");
+  hashAuthDetails(authDetails: AuthDetails, envName: string, address: string): string {
+    const identifier = `${envName}_${address}`;
+    const hash = crypto.createHash("sha256").update(identifier).digest("hex");
+    console.log(
+      "[CustodyKeyring.hashAuthDetails] generating auth details hash. identifier",
+      identifier,
+      ", hash:",
+      hash,
+    );
+    return hash;
   }
 
   // This is for "top-down" token refreshes (from the extension)
   // This allows the API URL to be changed
   replaceRefreshTokenAuthDetails(address: string, refreshToken: string): void {
     const { authDetails, envName } = this.getAccountDetails(address);
-    const sdk = this.getSDK(authDetails, envName);
-
+    const sdk = this.getSDK(authDetails, envName, address);
+    this.currentAddress = address;
     sdk.changeRefreshTokenAuthDetails({
       refreshToken,
     });
   }
 
   updateAccountsDetailsWithNewRefreshToken(oldRefreshToken: string, newRefreshToken: string, envName: string) {
+    const currentAddress = this.currentAddress;
     for (const account of this.accountsDetails) {
       const authDetails = account.authDetails as IRefreshTokenAuthDetails;
       if ((authDetails as IRefreshTokenAuthDetails).refreshToken === oldRefreshToken && account.envName === envName) {
-        const oldHash = this.hashAuthDetails(authDetails, envName);
-        const found = this.sdkList.find(item => item.hash === oldHash);
         authDetails.refreshToken = newRefreshToken;
-        if (found) {
-          const newHash = this.hashAuthDetails(authDetails, envName);
-          this.sdkList.push({
-            sdk: found.sdk,
-            hash: newHash,
-          });
+        console.log("[CustodyKeyring] Update Custody Keyring accounts details with new refresh token");
+        if (account.address !== currentAddress) {
+          const oldHash = this.hashAuthDetails(authDetails, envName, account.address);
+          this.sdkList = this.sdkList.filter(item => item.hash !== oldHash);
+          console.log(
+            "[CustodyKeyring] Delete SDK with the same old refreshToken from other Address. ",
+            account.address,
+          );
         }
       }
     }
@@ -253,7 +257,7 @@ export abstract class CustodyKeyring extends EventEmitter {
       newRefreshToken: event.newRefreshToken,
     };
 
-    this.emit(REFRESH_TOKEN_CHANGE_EVENT, payload); // Propagate the event to the extension where it calls for the keyrings to be persisted
+    this.emit(REFRESH_TOKEN_CHANGE_EVENT, payload); // 发送到 mmi-controller 暂存 payload
   }
 
   handleInteractiveRefreshTokenChangeEvent(event: IInteractiveRefreshTokenChangeEvent): void {
@@ -276,33 +280,33 @@ export abstract class CustodyKeyring extends EventEmitter {
     return authDetails;
   }
 
-  getSDK(authDetails: AuthDetails, envName: string): MMISDK {
-    const hash = this.hashAuthDetails(authDetails, envName);
-
-    // Interesting thing - this will create a new SDK if the auth details are changed
-    // What are the possible effects of this?
-
+  getSDK(authDetails: AuthDetails, envName: string, address: string): MMISDK {
+    const hash = this.hashAuthDetails(authDetails, envName, address);
     const found = this.sdkList.find(item => item.hash === hash);
-
     if (found) {
+      console.log("[CustodyKeyring.getSDK] Found existing SDK. hash:", hash);
       return found.sdk;
     }
-
+    console.log(
+      "[CustodyKeyring.getSDK] Create new SDK with auth details hash. envName:",
+      envName,
+      ", address:",
+      address,
+    );
     const sdk = this.sdkFactory(authDetails, envName);
-
     sdk.on(REFRESH_TOKEN_CHANGE_EVENT, (event: IRefreshTokenChangeEvent) =>
       this.handleRefreshTokenChangeEvent(event, envName),
     );
-
     sdk.on(INTERACTIVE_REPLACEMENT_TOKEN_CHANGE_EVENT, (event: IInteractiveRefreshTokenChangeEvent) =>
       this.handleInteractiveRefreshTokenChangeEvent(event),
     );
-
-    this.sdkList.push({
-      sdk,
-      hash,
-    });
-
+    // 没地址代表导入阶段，无需保存；
+    if (address) {
+      this.sdkList.push({
+        sdk,
+        hash,
+      });
+    }
     return sdk;
   }
 
@@ -314,17 +318,21 @@ export abstract class CustodyKeyring extends EventEmitter {
     filterParams?: object,
   ): Promise<ICustodianAccount<AuthDetails>[]> {
     const authDetails = this.createAuthDetails(token);
-    const sdk = this.getSDK(authDetails, envName);
+    const sdkForImport = this.getSDK(authDetails, envName, "");
 
     let accounts;
     if (searchText) {
       if (searchText.startsWith("0x")) {
-        accounts = await sdk.getEthereumAccountsByAddress(searchText, DEFAULT_MAX_CACHE_AGE, filterParams);
+        accounts = await sdkForImport.getEthereumAccountsByAddress(searchText, DEFAULT_MAX_CACHE_AGE, filterParams);
       } else {
-        accounts = await sdk.getEthereumAccountsByLabelOrAddressName(searchText, DEFAULT_MAX_CACHE_AGE, filterParams);
+        accounts = await sdkForImport.getEthereumAccountsByLabelOrAddressName(
+          searchText,
+          DEFAULT_MAX_CACHE_AGE,
+          filterParams,
+        );
       }
     } else {
-      accounts = await sdk.getEthereumAccounts(DEFAULT_MAX_CACHE_AGE, filterParams);
+      accounts = await sdkForImport.getEthereumAccounts(DEFAULT_MAX_CACHE_AGE, filterParams);
     }
 
     if (getNonImportedAccounts) {
@@ -367,7 +375,8 @@ export abstract class CustodyKeyring extends EventEmitter {
     }
     const fromAddress = txParams.from;
     const { authDetails, envName } = this.getAccountDetails(fromAddress);
-    const sdk = this.getSDK(authDetails, envName);
+    const sdk = this.getSDK(authDetails, envName, fromAddress);
+    this.currentAddress = fromAddress;
 
     const noGasPayload: any = {
       from: toChecksumAddress(fromAddress),
@@ -404,7 +413,8 @@ export abstract class CustodyKeyring extends EventEmitter {
 
     const fromAddress = txParams.from;
     const { authDetails, envName } = this.getAccountDetails(fromAddress);
-    const sdk = this.getSDK(authDetails, envName);
+    const sdk = this.getSDK(authDetails, envName, fromAddress);
+    this.currentAddress = fromAddress;
 
     const noGasPayload: any = {
       delegateAddress: toChecksumAddress(txParams.delegateAddress),
@@ -448,7 +458,8 @@ export abstract class CustodyKeyring extends EventEmitter {
     }
 
     const { authDetails, envName } = this.getAccountDetails(fromAddress);
-    const sdk = this.getSDK(authDetails, envName);
+    const sdk = this.getSDK(authDetails, envName, fromAddress);
+    this.currentAddress = fromAddress;
 
     const noGasPayload: any = {
       from: toChecksumAddress(fromAddress),
@@ -468,6 +479,7 @@ export abstract class CustodyKeyring extends EventEmitter {
 
     try {
       const supportedChainIds = await sdk.getSupportedChains(fromAddress);
+      this.currentAddress = fromAddress;
 
       // Check for both undefined and empty array scenarios.
       if (!supportedChainIds || supportedChainIds.length === 0) {
@@ -533,7 +545,8 @@ export abstract class CustodyKeyring extends EventEmitter {
     }
 
     const { authDetails, envName } = this.getAccountDetails(from);
-    const sdk = this.getSDK(authDetails, envName);
+    const sdk = this.getSDK(authDetails, envName, from);
+    this.currentAddress = from;
     const tx = await sdk.getTransaction(toChecksumAddress(from), txCustodyId);
     return tx;
   }
@@ -554,7 +567,8 @@ export abstract class CustodyKeyring extends EventEmitter {
     }
 
     const { authDetails, envName } = this.getAccountDetails(address);
-    const sdk = this.getSDK(authDetails, envName);
+    const sdk = this.getSDK(authDetails, envName, address);
+    this.currentAddress = address;
 
     const signature = await sdk.getSignature(toChecksumAddress(address), signatureId);
 
@@ -563,7 +577,8 @@ export abstract class CustodyKeyring extends EventEmitter {
 
   async signPersonalMessage(address: string, message: string, opts: any): Promise<ITransactionDetails> {
     const { authDetails, envName } = this.getAccountDetails(address);
-    const sdk = this.getSDK(authDetails, envName);
+    const sdk = this.getSDK(authDetails, envName, address);
+    this.currentAddress = address;
 
     const signedMessageMetadata = {
       chainId: null,
@@ -597,7 +612,8 @@ export abstract class CustodyKeyring extends EventEmitter {
 
   async getCustomerProof(address: string): Promise<string> {
     const { authDetails, envName } = this.getAccountDetails(address);
-    const sdk = this.getSDK(authDetails, envName);
+    const sdk = this.getSDK(authDetails, envName, address);
+    this.currentAddress = address;
 
     return sdk.getCustomerProof();
   }
@@ -610,7 +626,8 @@ export abstract class CustodyKeyring extends EventEmitter {
     }
 
     const { authDetails, envName } = this.getAccountDetails(address);
-    const sdk = this.getSDK(authDetails, envName);
+    const sdk = this.getSDK(authDetails, envName, address);
+    this.currentAddress = address;
 
     const signedTypedMessageMetadata = {
       chainId: null,
@@ -623,7 +640,8 @@ export abstract class CustodyKeyring extends EventEmitter {
 
   getSupportedChains(address: string): Promise<string[]> {
     const { authDetails, envName } = this.getAccountDetails(address);
-    const sdk = this.getSDK(authDetails, envName);
+    const sdk = this.getSDK(authDetails, envName, address);
+    this.currentAddress = address;
     return sdk.getSupportedChains(address);
   }
 

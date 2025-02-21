@@ -43,12 +43,12 @@ export class JsonPortalClient extends EventEmitter {
   // which doesn't emit an event
 
   setRefreshToken(refreshToken: string) {
+    this.refreshToken = refreshToken;
     const payload: IRefreshTokenChangeEvent = {
       oldRefreshToken: this.refreshToken,
       newRefreshToken: refreshToken,
     };
     this.emit(REFRESH_TOKEN_CHANGE_EVENT, payload);
-    this.refreshToken = refreshToken;
   }
 
   async getAccessToken(): Promise<string> {
@@ -119,8 +119,6 @@ export class JsonPortalClient extends EventEmitter {
             "..." +
             resultJson.refresh_token.substring(resultJson.refresh_token.length - 5),
         );
-
-        const oldRefreshToken = this.refreshToken;
         // Set and emit REFRESH_TOKEN_CHANGE_EVENT event
         this.setRefreshToken(resultJson.refresh_token);
       }

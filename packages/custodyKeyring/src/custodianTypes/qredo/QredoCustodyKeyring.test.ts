@@ -112,6 +112,7 @@ describe("QredoCustodyKeyring", () => {
 
       const url = "https://qredo-api.com";
       const envName = "qredo";
+      const address = "0x123456";
 
       const hashMock = {
         update: jest.fn().mockReturnThis(),
@@ -121,10 +122,10 @@ describe("QredoCustodyKeyring", () => {
       // Mocking the crypto module
       const createHashMock = jest.spyOn(crypto, "createHash").mockImplementationOnce(() => hashMock);
 
-      const result = custodyKeyring.hashAuthDetails(authDetails, envName);
+      const result = custodyKeyring.hashAuthDetails(authDetails, envName, address);
 
       expect(createHashMock).toBeCalledWith("sha256");
-      expect(hashMock.update).toBeCalledWith(authDetails.refreshToken + url);
+      expect(hashMock.update).toBeCalledWith(`${envName}_${address}`);
       expect(hashMock.digest).toBeCalledWith("hex");
 
       expect(result).toEqual("fake hash");

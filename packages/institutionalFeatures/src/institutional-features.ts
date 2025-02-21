@@ -58,11 +58,6 @@ export class InstitutionalFeaturesController {
     name?: string,
     portalWalletInfo?: PortalWalletInfo,
   ): void {
-    console.log(
-      `CUSTODIAN_TYPES[service.toUpperCase()]: ${
-        CUSTODIAN_TYPES[service.toUpperCase()]
-      }, service.toUpperCase(): ${service.toUpperCase()}`,
-    );
     if (!CUSTODIAN_TYPES[service.toUpperCase()]) {
       throw new Error("No such custodian");
     }
@@ -72,7 +67,6 @@ export class InstitutionalFeaturesController {
       institutionalFeatures: {
         ...state.institutionalFeatures,
         connectRequests: [
-          // ...state.institutionalFeatures.connectRequests,
           {
             origin,
             method,

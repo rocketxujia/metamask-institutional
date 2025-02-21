@@ -115,6 +115,7 @@ describe("CactusCustodyKeyring", () => {
 
       const url = "https://api";
       const envName = "cactus";
+      const address = "0x123";
 
       const hashMock = {
         update: jest.fn().mockReturnThis(),
@@ -124,10 +125,10 @@ describe("CactusCustodyKeyring", () => {
       // Mocking the crypto module
       const createHashMock = jest.spyOn(crypto, "createHash").mockImplementationOnce(() => hashMock);
 
-      const result = custodyKeyring.hashAuthDetails(authDetails, envName);
+      const result = custodyKeyring.hashAuthDetails(authDetails, envName, address);
 
       expect(createHashMock).toBeCalledWith("sha256");
-      expect(hashMock.update).toBeCalledWith(authDetails.refreshToken + url);
+      expect(hashMock.update).toBeCalledWith(`${envName}_${address}`);
       expect(hashMock.digest).toBeCalledWith("hex");
 
       expect(result).toEqual("fake hash");

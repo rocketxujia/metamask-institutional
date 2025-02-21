@@ -46,7 +46,7 @@ export class ECA3CustodyKeyring extends CustodyKeyring {
   txDeepLink = async (address: string, txId: string): Promise<Partial<ICustodianTransactionLink>> => {
     const { authDetails, envName } = this.getAccountDetails(address);
 
-    const sdk = this.getSDK(authDetails, envName);
+    const sdk = this.getSDK(authDetails, envName, address);
 
     try {
       const transactionLink = await sdk.getTransactionLink(txId);

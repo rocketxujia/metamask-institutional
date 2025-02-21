@@ -330,10 +330,8 @@ export class JsonPortalCustodianApi extends EventEmitter implements IPortalCusto
   }
 
   async getSupportedChains(address: string): Promise<string[]> {
-    return this.cache.tryCachingArray<string>("getSupportedChains-" + address, this.cacheAge, async () => {
-      const { result } = await this.client.getAccountChainIds({ address });
-      return result;
-    });
+    const { result } = await this.client.getAccountChainIds({ address });
+    return result;
   }
 
   changeRefreshTokenAuthDetails(authDetails: IRefreshTokenAuthDetails): void {
