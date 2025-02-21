@@ -43,9 +43,10 @@ export class JsonPortalClient extends EventEmitter {
   // which doesn't emit an event
 
   setRefreshToken(refreshToken: string) {
+    const oldRefreshToken = this.refreshToken;
     this.refreshToken = refreshToken;
     const payload: IRefreshTokenChangeEvent = {
-      oldRefreshToken: this.refreshToken,
+      oldRefreshToken: oldRefreshToken,
       newRefreshToken: refreshToken,
     };
     this.emit(REFRESH_TOKEN_CHANGE_EVENT, payload);
