@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.22](https://github.com/consensys-vertical-apps/metamask-institutional/compare/@mm-institutional/custody-keyring@3.0.21...@mm-institutional/custody-keyring@3.0.22) (2025-02-21)
+
+### Bug Fixes
+
+- portal token refresh bug ([688da58](https://github.com/consensys-vertical-apps/metamask-institutional/commit/688da5834382a59a653623726bb71b129bc30f58))
+
 ## [3.0.21](https://github.com/consensys-vertical-apps/metamask-institutional/compare/@mm-institutional/custody-keyring@3.0.20...@mm-institutional/custody-keyring@3.0.21) (2025-02-19)
 
 **Note:** Version bump only for package @mm-institutional/custody-keyring

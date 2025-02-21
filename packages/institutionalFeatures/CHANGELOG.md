@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.24](https://github.com/consensys-vertical-apps/metamask-institutional/compare/@mm-institutional/institutional-features@1.3.23...@mm-institutional/institutional-features@1.3.24) (2025-02-21)
+
+### Bug Fixes
+
+- portal token refresh bug ([688da58](https://github.com/consensys-vertical-apps/metamask-institutional/commit/688da5834382a59a653623726bb71b129bc30f58))
+
 ## [1.3.23](https://github.com/consensys-vertical-apps/metamask-institutional/compare/@mm-institutional/institutional-features@1.3.22...@mm-institutional/institutional-features@1.3.23) (2025-02-19)
 
 **Note:** Version bump only for package @mm-institutional/institutional-features
