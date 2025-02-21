@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.25](https://github.com/consensys-vertical-apps/metamask-institutional/compare/@mm-institutional/transaction-update@0.2.24...@mm-institutional/transaction-update@0.2.25) (2025-02-21)
+
+**Note:** Version bump only for package @mm-institutional/transaction-update
+
 ## [0.2.24](https://github.com/consensys-vertical-apps/metamask-institutional/compare/@mm-institutional/transaction-update@0.2.23...@mm-institutional/transaction-update@0.2.24) (2025-02-21)
 
 **Note:** Version bump only for package @mm-institutional/transaction-update
