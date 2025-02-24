@@ -232,18 +232,23 @@ export abstract class CustodyKeyring extends EventEmitter {
 
   updateAccountsDetailsWithNewRefreshToken(oldRefreshToken: string, newRefreshToken: string, envName: string) {
     const currentAddress = this.currentAddress;
+    // 更新已绑定账户列表内地址对应保存的 refreshToken
     for (const account of this.accountsDetails) {
       const authDetails = account.authDetails as IRefreshTokenAuthDetails;
       if ((authDetails as IRefreshTokenAuthDetails).refreshToken === oldRefreshToken && account.envName === envName) {
         authDetails.refreshToken = newRefreshToken;
         console.log("[CustodyKeyring] Update Custody Keyring accounts details with new refresh token");
+        // 删除已绑定账户的 SDK 对象，因为内部保存着过期的 refreshToken。 除非是当前地址。
         if (account.address !== currentAddress) {
           const oldHash = this.hashAuthDetails(authDetails, envName, account.address);
-          this.sdkList = this.sdkList.filter(item => item.hash !== oldHash);
-          console.log(
-            "[CustodyKeyring] Delete SDK with the same old refreshToken from other Address. ",
-            account.address,
-          );
+          const found = this.sdkList.find(item => item.hash === oldHash);
+          if (found) {
+            this.sdkList = this.sdkList.filter(item => item.hash !== oldHash);
+            console.log(
+              "[CustodyKeyring] Delete SDK with the same old refreshToken from other Address. ",
+              account.address,
+            );
+          }
         }
       }
     }
@@ -287,12 +292,6 @@ export abstract class CustodyKeyring extends EventEmitter {
       console.log("[CustodyKeyring.getSDK] Found existing SDK. hash:", hash);
       return found.sdk;
     }
-    console.log(
-      "[CustodyKeyring.getSDK] Create new SDK with auth details hash. envName:",
-      envName,
-      ", address:",
-      address,
-    );
     const sdk = this.sdkFactory(authDetails, envName);
     sdk.on(REFRESH_TOKEN_CHANGE_EVENT, (event: IRefreshTokenChangeEvent) =>
       this.handleRefreshTokenChangeEvent(event, envName),
@@ -307,6 +306,14 @@ export abstract class CustodyKeyring extends EventEmitter {
         hash,
       });
     }
+    console.log(
+      "[CustodyKeyring.getSDK] Create new SDK with auth details hash. envName:",
+      envName,
+      ", address:",
+      address,
+      ", this.sdkList: ",
+      this.sdkList.map(item => item.hash),
+    );
     return sdk;
   }
 
@@ -490,7 +497,7 @@ export abstract class CustodyKeyring extends EventEmitter {
       const normalisedSupportedChainIds = supportedChainIds.map(chainId => Number(chainId).toString());
 
       if (!normalisedSupportedChainIds.includes(chainId)) {
-        throw new Error(`This network ${chainId} is not configured or supported with your custody provider.`);
+        throw new Error(`This network ${chainId} is not configured or supported with Cobo Portal.`);
       }
     } catch (error) {
       console.error("Error processing chain IDs:", error);
