@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.23](https://github.com/consensys-vertical-apps/metamask-institutional/compare/@mm-institutional/sdk@0.2.22...@mm-institutional/sdk@0.2.23) (2025-02-25)
+
+### Features
+
+- add gas fee field ([9ed1337](https://github.com/consensys-vertical-apps/metamask-institutional/commit/9ed1337945eb9fbbc1f517c237db338fee29c7f6))
+
 ## [0.2.22](https://github.com/consensys-vertical-apps/metamask-institutional/compare/@mm-institutional/sdk@0.2.21...@mm-institutional/sdk@0.2.22) (2025-02-21)
 
 ### Bug Fixes
