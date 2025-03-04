@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.24](https://github.com/consensys-vertical-apps/metamask-institutional/compare/@mm-institutional/sdk@0.2.23...@mm-institutional/sdk@0.2.24) (2025-03-04)
+
+### Bug Fixes
+
+- 回滚代码，不添加 lagecy fee 字段 ([6fe9323](https://github.com/consensys-vertical-apps/metamask-institutional/commit/6fe9323c0bd5f37afedae015e6517a93242e3aa4))
+
 ## [0.2.23](https://github.com/consensys-vertical-apps/metamask-institutional/compare/@mm-institutional/sdk@0.2.22...@mm-institutional/sdk@0.2.23) (2025-02-25)
 
 ### Features
