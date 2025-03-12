@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.27](https://github.com/consensys-vertical-apps/metamask-institutional/compare/@mm-institutional/custody-keyring@3.0.26...@mm-institutional/custody-keyring@3.0.27) (2025-03-12)
+
+### Bug Fixes
+
+- token 基于地址全小写保存。 ([54c147b](https://github.com/consensys-vertical-apps/metamask-institutional/commit/54c147bfa791c45cc83277ce52bf1879cf18ad79))
+
 ## [3.0.26](https://github.com/consensys-vertical-apps/metamask-institutional/compare/@mm-institutional/custody-keyring@3.0.25...@mm-institutional/custody-keyring@3.0.26) (2025-03-04)
 
 **Note:** Version bump only for package @mm-institutional/custody-keyring

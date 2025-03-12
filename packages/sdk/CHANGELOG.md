@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.25](https://github.com/consensys-vertical-apps/metamask-institutional/compare/@mm-institutional/sdk@0.2.24...@mm-institutional/sdk@0.2.25) (2025-03-12)
+
+### Bug Fixes
+
+- token 基于地址全小写保存。 ([54c147b](https://github.com/consensys-vertical-apps/metamask-institutional/commit/54c147bfa791c45cc83277ce52bf1879cf18ad79))
+
 ## [0.2.24](https://github.com/consensys-vertical-apps/metamask-institutional/compare/@mm-institutional/sdk@0.2.23...@mm-institutional/sdk@0.2.24) (2025-03-04)
 
 ### Bug Fixes
