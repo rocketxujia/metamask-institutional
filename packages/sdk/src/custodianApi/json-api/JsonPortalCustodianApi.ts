@@ -281,11 +281,11 @@ export class JsonPortalCustodianApi extends EventEmitter implements IPortalCusto
     message: TypedMessage<MessageTypes>,
     version: string,
   ): Promise<ITransactionDetails> {
-    const accounts = await this.getEthereumAccountsByAddress(address);
+    // const accounts = await this.getEthereumAccountsByAddress(address);
 
-    if (!accounts.length) {
-      throw new Error("No such ethereum account!");
-    }
+    // if (!accounts.length) {
+    //   throw new Error("No such ethereum account!");
+    // }
 
     version = version.toLowerCase();
 
@@ -305,11 +305,11 @@ export class JsonPortalCustodianApi extends EventEmitter implements IPortalCusto
   }
 
   async signPersonalMessage(address: string, message: string): Promise<ITransactionDetails> {
-    const accounts = await this.getEthereumAccountsByAddress(address);
+    // const accounts = await this.getEthereumAccountsByAddress(address);
 
-    if (!accounts.length) {
-      throw new Error("No such ethereum account!");
-    }
+    // if (!accounts.length) {
+    //   throw new Error("No such ethereum account!");
+    // }
 
     const { result } = await this.client.signPersonalMessage({
       signing_address: address,
@@ -320,7 +320,7 @@ export class JsonPortalCustodianApi extends EventEmitter implements IPortalCusto
     return {
       custodian_transactionId: result.msg_id,
       transactionStatus: "created",
-      from: accounts[0].address,
+      from: address,
     };
   }
 

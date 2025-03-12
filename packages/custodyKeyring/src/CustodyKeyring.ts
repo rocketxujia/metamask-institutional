@@ -208,6 +208,7 @@ export abstract class CustodyKeyring extends EventEmitter {
   }
 
   hashAuthDetails(authDetails: AuthDetails, envName: string, address: string): string {
+    address = (address || "").toLowerCase();
     const identifier = `${envName}_${address}`;
     const hash = crypto.createHash("sha256").update(identifier).digest("hex");
     console.log(
